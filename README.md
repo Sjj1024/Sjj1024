@@ -12,9 +12,7 @@ fast find me，快速找到回家的路，持续更新中......
 地址4：https://cl.323n.ga/
 
 ## 开发了一个带界面的EXE程序，打开程序就会自动获取三个免翻地址，欢迎使用:
-EXE程序介绍：https://1024shen.com/archives/533
-
-下载链接：https://1024shen.com/archives/533
+下载链接：https://lanzous.com/i97m45c
 ![](https://s2.ax1x.com/2020/02/10/15AKc8.png)
 
 ## 之所以能持续更新 ##
