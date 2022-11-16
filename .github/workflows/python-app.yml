@@ -5,7 +5,7 @@ name: Python SignIn
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/10 * * * *'
   push:
       branches: [ "master" ]
   pull_request:
@@ -29,4 +29,4 @@ jobs:
     - name: SSR CheckOut
       run: |
         # stop the build if there are Python syntax errors or undefined names
-        python checkFlow.py
+        python main.py

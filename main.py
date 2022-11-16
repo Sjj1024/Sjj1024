@@ -9,13 +9,13 @@ def print_current():
 
 
 def load_model(file, init_params=None):
-    # Ignore anything that isn't a .py file
     module_name = ''
     if len(file) > 3 and (file[-3:] == '.py' or file[-4:] == '.pyc'):
         if file[-3:] == '.py':
             module_name = file[:-3]
         if file[-4:] == '.pyc':
             module_name = file[:-4]
+    print(f"开始执行任务:{module_name}")
     __import__(module_name)
 
 
@@ -41,7 +41,7 @@ def recursive_dir(path, f, file_list):
 def sing_in():
     app_files = []
     recursive_dir(os.getcwd(), "tasks", app_files)
-    print(app_files)
+    print(f"注入的任务列表是:{app_files}")
     for app in app_files:
         if app.endswith(".py"):
             load_model(app)
