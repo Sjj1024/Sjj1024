@@ -5,7 +5,7 @@ name: Python SignIn
 
 on:
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: '0 */12 * * *'
   push:
       branches: [ "master" ]
   pull_request:
