@@ -1,7 +1,5 @@
 import datetime
 import os
-import requests
-import json
 
 
 def print_current():
