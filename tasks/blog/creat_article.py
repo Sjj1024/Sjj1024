@@ -102,13 +102,17 @@ def get_example():
     content = response.content.decode()
     title_list = re.findall(r'class="blog-text">(.+?)</span', content)
     print(f"获取到的文章标题是:{title_list}")
-    return title_list[0]
+    if title_list:
+        return title_list[0]
+    else:
+        return ""
 
 
 def run():
     print("总调度")
     title = get_example()
-    make_one(title)
+    if title:
+        make_one(title)
 
 
 if __name__ == '__main__':
