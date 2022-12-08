@@ -13,6 +13,7 @@ def load_model(file, init_params=None):
             module_name = file[:-3]
         if file[-4:] == '.pyc':
             module_name = file[:-4]
+    module_name = "tasks." + module_name
     print(f"开始执行任务:{module_name}")
     __import__(module_name)
 
@@ -32,7 +33,7 @@ def recursive_dir(path, f, file_list):
             if "pycache" not in f and "pycache" not in file:
                 file_list.append(f"{f}.{file}")
         else:
-            if "__pycache__" not in file:
+            if file not in ["__pycache__", "blog"]:
                 recursive_dir("/".join(newDir.split("/")[0:-1]), newDir.split("/")[-1], file_list)  # 如果不是文件，递归这个文件夹的路径
 
 
