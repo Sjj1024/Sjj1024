@@ -13,7 +13,6 @@ def load_model(file, init_params=None):
             module_name = file[:-3]
         if file[-4:] == '.pyc':
             module_name = file[:-4]
-    module_name = "tasks." + module_name
     print(f"开始执行任务:{module_name}")
     __import__(module_name)
 
@@ -31,13 +30,15 @@ def recursive_dir(path, f, file_list):
         newDir = path + '/' + f + '/' + file  # 将文件命加入到当前文件路径后面
         if os.path.isfile(newDir):  # 如果是文件
             if "pycache" not in f and "pycache" not in file:
-                file_list.append(f"{f}.{file}")
+                module_file = "tasks" + newDir.split("tasks")[1].replace("/", ".")
+                file_list.append(module_file)
         else:
             if file not in ["__pycache__", "blog"]:
                 recursive_dir("/".join(newDir.split("/")[0:-1]), newDir.split("/")[-1], file_list)  # 如果不是文件，递归这个文件夹的路径
 
 
 def sing_in():
+    print_current()
     app_files = []
     recursive_dir(os.getcwd(), "tasks", app_files)
     print(f"注入的任务列表是:{app_files}")
@@ -47,5 +48,4 @@ def sing_in():
 
 
 if __name__ == '__main__':
-    print_current()
     sing_in()
