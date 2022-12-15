@@ -31,6 +31,7 @@ def sign(cookie):
 
 
 def main():
+    print("开始执行52破解签到------------------------")
     cookie = os.environ['POJIE_TOKEN']
     sign_msg = sign(cookie=cookie)
     print(f"52破解签到:{sign_msg}")

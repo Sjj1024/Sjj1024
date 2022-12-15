@@ -26,6 +26,7 @@ def get_ssr(key, cookie):
 
 
 def main():
+    print("开始执行V2Free签到------------------------")
     some_one = {
         "akui": '_ga=GA1.1.1297017311.1668585169; uid=86785; email=zhaoakun%40qq.com; key=6adb0f8be42cac2cbe71a5c6536c94667413bbec0fd80; ip=2b5a6657c79039bf4edff64ab8964a31; expire_in=1671177401; _gcl_au=1.1.81869821.1668585404; _ga_NC10VPE6SR=GS1.1.1668650754.3.1.1668651294.0.0.0; crisp-client%2Fsession%2Fa47ae3dd-53d8-4b15-afae-fb4577f7bcd0=session_36437667-79c6-4f5a-bb2c-18af83c92846; crisp-client%2Fsocket%2Fa47ae3dd-53d8-4b15-afae-fb4577f7bcd0=0',
         "song": '_ga=GA1.1.1292341500.1665285856; _gcl_au=1.1.375450545.1665285875; uid=70939; email=15670339118%40163.com; key=cb1d245a9b7a543b5211e8d4c75f54de25ab03a068b81; ip=bcc2edbac933ad4453dc67d20c8bbab9; expire_in=1696821904; crisp-client%2Fsession%2Fa47ae3dd-53d8-4b15-afae-fb4577f7bcd0=session_827e75a5-0b22-4df2-a1e4-4787b3660c37; _ga_NC10VPE6SR=GS1.1.1668649347.16.1.1668649352.0.0.0',

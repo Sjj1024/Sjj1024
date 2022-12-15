@@ -4,7 +4,7 @@ from src.utils.sendMsg.sendWx import send_weixin, send_email
 
 
 def main():
-    print(f"开始执行哔哩哔哩签到...")
+    print(f"开始执行哔哩哔哩签到------------------------------")
     together = config.get("together")
     account = config.get("account")
     msg_list = []
