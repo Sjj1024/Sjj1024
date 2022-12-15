@@ -30,7 +30,7 @@ def recursive_dir(path, f, file_list):
         newDir = path + '/' + f + '/' + file  # 将文件命加入到当前文件路径后面
         if os.path.isfile(newDir):  # 如果是文件
             if "pycache" not in f and "pycache" not in file:
-                module_file = "tasks" + newDir.split("tasks")[1].replace("/", ".")
+                module_file = "src" + newDir.split("src")[1].replace("/", ".")
                 file_list.append(module_file)
         else:
             if file not in ["__pycache__", "blog"]:
@@ -40,7 +40,7 @@ def recursive_dir(path, f, file_list):
 def sing_in():
     print_current()
     app_files = []
-    recursive_dir(os.getcwd(), "tasks", app_files)
+    recursive_dir(os.getcwd(), "src", app_files)
     print(f"注入的任务列表是:{app_files}")
     for app in app_files:
         if app.endswith(".py"):
