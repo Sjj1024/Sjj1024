@@ -35,5 +35,4 @@ def main():
     print(sign_msg)
 
 
-if __name__ == "__main__":
-    main()
+main()
