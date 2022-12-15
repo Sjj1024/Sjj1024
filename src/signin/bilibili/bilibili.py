@@ -1,3 +1,4 @@
+import datetime
 import time
 from src.signin.bilibili.apis import BiliBiliAPI
 import requests
@@ -386,7 +387,7 @@ class BiliBili:
             toCoin = options.get("toCoin", False)
             videos = self.video_suggest()  # 获取热门视频
             if watch:  # 如果需要观看视频
-                print("开始观看视频...")
+                print("开始观看视频...", datetime.datetime.now())
                 if len(videos) == 0:
                     watch_res = self.watch("BV1LS4y1C7Pa")  # 如果获取热门视频失败, 就看这个默认的视频
                 else:
@@ -396,19 +397,19 @@ class BiliBili:
             # 当用户的硬币大于阈值时才进行投币
             if coins and (self.coin - coins > threshold):
                 # 获取投币成功的视频标题列表
-                print("开始投币...")
+                print("开始投币...", datetime.datetime.now())
                 coin_list = self.give_coin(videos, coins)
             else:
                 coin_list = None
             if share:
                 # 视频分享, 如果获取热门视频失败, 则分享不了
-                print("开始视频分享...")
+                print("开始视频分享...", datetime.datetime.now())
                 share_video = self.share_video(videos)
             else:
                 share_video = None
             if comics:
                 # 漫画签到
-                print("开始漫画签到...")
+                print("开始漫画签到...", datetime.datetime.now())
                 comics_res = self.comics_checkin()
             else:
                 comics_res = None
