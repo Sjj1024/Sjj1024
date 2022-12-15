@@ -2,11 +2,7 @@ import datetime
 import os
 
 
-def print_current():
-    print("当前时间是", datetime.datetime.now())
-
-
-def load_model(file, init_params=None):
+def load_model(file):
     module_name = ''
     if len(file) > 3 and (file[-3:] == '.py' or file[-4:] == '.pyc'):
         if file[-3:] == '.py':
@@ -14,7 +10,10 @@ def load_model(file, init_params=None):
         if file[-4:] == '.pyc':
             module_name = file[:-4]
     print(f"开始执行任务:{module_name}")
-    __import__(module_name)
+    try:
+        __import__(module_name)
+    except Exception as e:
+        print(f"加载模块{module_name}失败: {e}")
 
 
 def recursive_dir(path, f, file_list):
@@ -33,12 +32,12 @@ def recursive_dir(path, f, file_list):
                 module_file = "src" + newDir.split("src")[1].replace("/", ".")
                 file_list.append(module_file)
         else:
-            if file not in ["__pycache__", "blog"]:
+            if file not in ["__pycache__", "blog", "utils"]:
                 recursive_dir("/".join(newDir.split("/")[0:-1]), newDir.split("/")[-1], file_list)  # 如果不是文件，递归这个文件夹的路径
 
 
 def sing_in():
-    print_current()
+    print("当前时间是", datetime.datetime.now())
     app_files = []
     recursive_dir(os.getcwd(), "src", app_files)
     print(f"注入的任务列表是:{app_files}")

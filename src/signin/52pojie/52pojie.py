@@ -1,6 +1,7 @@
 import os
 import requests
 from bs4 import BeautifulSoup
+from src.utils.sendMsg.sendWx import send_email
 
 
 def sign(cookie):
@@ -32,7 +33,8 @@ def sign(cookie):
 def main():
     cookie = os.environ['POJIE_TOKEN']
     sign_msg = sign(cookie=cookie)
-    print(sign_msg)
+    print(f"52破解签到:{sign_msg}")
+    send_email("648133599@qq.com", "52破解签到", sign_msg)
 
 
 main()
