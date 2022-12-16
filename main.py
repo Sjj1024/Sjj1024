@@ -9,7 +9,7 @@ def load_conf():
     conf = os.environ.get("CONFIGER")
     conf_obj = json.loads(conf)
     common.common_conf = conf_obj
-    print(f"common.common_conf---{common.common_conf}")
+    print(f"加载配置：{common.common_conf}")
 
 
 def load_model(file):
@@ -57,7 +57,7 @@ def sing_in():
             load_model(app)
     print(f"定时签到结果：{common.common_msg}")
     email = common.common_conf.get("github").get("email")
-    send_email(email, "定时签到", common.common_msg)
+    send_email(email, f"定时签到{datetime.datetime.now()}", common.common_msg)
 
 
 if __name__ == '__main__':
