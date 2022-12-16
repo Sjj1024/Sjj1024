@@ -1,5 +1,15 @@
 import datetime
 import os
+import json
+import src.common.index as common
+from src.utils.sendMsg.sendWx import send_email
+
+
+def load_conf():
+    conf = os.environ.get("CONFIGER")
+    conf_obj = json.loads(conf)
+    common.common_conf = conf_obj
+    print(f"common.common_conf---{common.common_conf}")
 
 
 def load_model(file):
@@ -32,18 +42,22 @@ def recursive_dir(path, f, file_list):
                 module_file = "src" + newDir.split("src")[1].replace("/", ".")
                 file_list.append(module_file)
         else:
-            if file not in ["__pycache__", "blog", "utils"]:
+            if file not in ["__pycache__", "blog", "utils", "common"]:
                 recursive_dir("/".join(newDir.split("/")[0:-1]), newDir.split("/")[-1], file_list)  # 如果不是文件，递归这个文件夹的路径
 
 
 def sing_in():
     print("当前时间是", datetime.datetime.now())
+    load_conf()
     app_files = []
     recursive_dir(os.getcwd(), "src", app_files)
     print(f"注入的任务列表是:{app_files}")
     for app in app_files:
         if app.endswith(".py"):
             load_model(app)
+    print(f"定时签到结果：{common.common_msg}")
+    email = common.common_conf.get("github").get("email")
+    send_email(email, "定时签到", common.common_msg)
 
 
 if __name__ == '__main__':

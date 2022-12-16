@@ -1,4 +1,5 @@
 config = {
+    "together": True,  # 是否合并发送结果, 不写或 True 时合并发送
     "account": [
         {
             "push": "email",  # together 为 True 时失效, 不写不推送
@@ -25,6 +26,5 @@ config = {
         #     },
         #     "push": "pushplus",
         # },
-    ],
-    "together": True,  # 是否合并发送结果, 不写或 True 时合并发送
+    ]
 }

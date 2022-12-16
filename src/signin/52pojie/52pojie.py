@@ -1,7 +1,6 @@
-import os
 import requests
 from bs4 import BeautifulSoup
-from src.utils.sendMsg.sendWx import send_email
+import src.common.index as common
 
 
 def sign(cookie):
@@ -27,15 +26,19 @@ def sign(cookie):
         result += "今日已签到"
     else:
         result += "签到失败"
+    print(result)
     return result
 
 
 def main():
     print("开始执行52破解签到------------------------")
-    cookie = os.environ['POJIE_TOKEN']
-    sign_msg = sign(cookie=cookie)
-    print(f"52破解签到:{sign_msg}")
-    send_email("648133599@qq.com", "52破解签到", sign_msg)
+    some_one = common.common_conf.get("52pojie").get("account")
+    msg_list = []
+    for (key, val) in some_one.items():
+        sign_msg = sign(cookie=val)
+        print(f"52破解签到:{sign_msg}")
+        msg_list.append(sign_msg)
+    common.common_msg["52破解"] = f"签到:{msg_list}"
 
 
 main()

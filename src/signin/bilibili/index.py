@@ -1,6 +1,7 @@
 from src.signin.bilibili.bilibili import BiliBili
 from src.signin.bilibili.config import config
 from src.utils.sendMsg.sendWx import send_weixin, send_email
+import src.common.index as common
 
 
 def main():
@@ -8,7 +9,6 @@ def main():
     together = config.get("together")
     account = config.get("account")
     msg_list = []
-    email = ""
     for one in account:
         options = one.get("options")
         push = one.get("push")
@@ -20,7 +20,7 @@ def main():
         elif push and push == "email":
             send_email(email, "哔哩哔哩签到", res)
     if together:
-        send_email(email, "哔哩哔哩签到", msg_list)
+        common.common_msg["bilibili"] = msg_list
 
 
 main()
