@@ -41,7 +41,7 @@ def send_qq(title, msg):
         print(f"推送错误；{res}")
 
 
-def send_email(email, title, msg):
+def send_email(title, msg, email=""):
     content = str(msg)
     # 163邮箱服务器地址
     email_conf = common.common_conf.get("message").get("email")
@@ -53,7 +53,7 @@ def send_email(email, title, msg):
     # 邮件发送方邮箱地址
     sender = email_conf.get("sender")
     # 邮件接受方邮箱地址，注意需要[]包裹，这意味着你可以写多个邮件地址群发
-    receivers = [email]
+    receivers = [common.common_conf.get("github").get("email")] if email == "" else [email]
     # 设置email信息
     # 邮件内容设置
     message = MIMEText(content, 'plain', 'utf-8')
@@ -81,4 +81,4 @@ def send_email(email, title, msg):
 if __name__ == '__main__':
     # send_weixin("我的宝啊", "我想你!!!!!!!!!!!!!!")
     # send_qq("我的宝啊", "我想你!!!!!!!!!!!!!!")
-    send_email("648133599@qq.com", "我的宝啊", {"a": 1})
+    send_email("我的宝啊", {"a": 1})

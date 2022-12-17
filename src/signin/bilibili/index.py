@@ -18,7 +18,7 @@ def main():
         if push and together and push == "email":
             msg_list.append(res)
         elif push and push == "email":
-            send_email(email, "哔哩哔哩签到", res)
+            send_email("哔哩哔哩签到", res, email)
     if together:
         common.common_msg["bilibili"] = msg_list
 

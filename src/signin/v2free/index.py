@@ -23,8 +23,12 @@ def get_ssr(key, cookie):
         'sec-ch-ua-platform': '"Windows"'
     }
     response = requests.request("POST", url, headers=headers, data=payload)
-    print(f"{key}: {response.json()}")
-    return f"{key}: {response.json()}"
+    try:
+        print(f"{key}: {response.json()}")
+        return f"{key}: {response.json()}"
+    except Exception as e:
+        print(f"{key}: {response.content}: {e}")
+        return f"{key}: {response.content}: {e}"
 
 
 def main():

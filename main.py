@@ -6,10 +6,13 @@ from src.utils.sendMsg.sendWx import send_email
 
 
 def load_conf():
-    conf = os.environ.get("CONFIGER")
-    conf_obj = json.loads(conf)
-    common.common_conf = conf_obj
-    print(f"加载配置：{common.common_conf}")
+    try:
+        conf = os.environ.get("CONFIGER")
+        conf_obj = json.loads(conf)
+        common.common_conf = conf_obj
+        print(f"加载配置：{common.common_conf}")
+    except Exception as e:
+        send_email(f"加载配置异常", f"加载配置失败: {e}")
 
 
 def load_model(file):
@@ -24,6 +27,7 @@ def load_model(file):
         __import__(module_name)
     except Exception as e:
         print(f"加载模块{module_name}失败: {e}")
+        send_email(f"加载模块{module_name}异常", f"加载模块{module_name}失败: {e}")
 
 
 def recursive_dir(path, f, file_list):
@@ -40,13 +44,14 @@ def recursive_dir(path, f, file_list):
         if os.path.isfile(newDir):  # 如果是文件
             if "pycache" not in f and "pycache" not in file:
                 module_file = "src" + newDir.split("src")[1].replace("/", ".")
-                file_list.append(module_file)
+                if module_file.find("index") != -1:
+                    file_list.append(module_file)
         else:
             if file not in ["__pycache__", "blog", "utils", "common"]:
                 recursive_dir("/".join(newDir.split("/")[0:-1]), newDir.split("/")[-1], file_list)  # 如果不是文件，递归这个文件夹的路径
 
 
-def sing_in():
+def run():
     print("当前时间是", datetime.datetime.now())
     load_conf()
     app_files = []
@@ -56,9 +61,8 @@ def sing_in():
         if app.endswith(".py"):
             load_model(app)
     print(f"定时签到结果：{common.common_msg}")
-    email = common.common_conf.get("github").get("email")
-    send_email(email, f"定时签到{datetime.datetime.now()}", common.common_msg)
+    send_email(f"定时签到{datetime.datetime.now()}", common.common_msg)
 
 
 if __name__ == '__main__':
-    sing_in()
+    run()
