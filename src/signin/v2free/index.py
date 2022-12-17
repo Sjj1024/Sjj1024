@@ -27,8 +27,8 @@ def get_ssr(key, cookie):
         print(f"{key}: {response.json()}")
         return f"{key}: {response.json()}"
     except Exception as e:
-        print(f"{key}: {response.content}: {e}")
-        return f"{key}: {response.content}: {e}"
+        print(f"{key}: {e}")
+        return f"{key}: {e}"
 
 
 def main():

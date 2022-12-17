@@ -10,7 +10,7 @@ def load_conf():
         conf = os.environ.get("CONFIGER")
         conf_obj = json.loads(conf)
         common.common_conf = conf_obj
-        print(f"加载配置：{common.common_conf}")
+        print(f"加载配置成功！")
     except Exception as e:
         send_email(f"加载配置异常", f"加载配置失败: {e}")
 
