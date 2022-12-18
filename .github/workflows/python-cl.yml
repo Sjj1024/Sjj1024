@@ -5,7 +5,7 @@ name: CommitCl
 
 on:
   schedule:
-      - cron: '*/37 * * * *'
+      - cron: '0 */2 * * *'
   # 手动触发一个工作流
   workflow_dispatch:
     inputs:

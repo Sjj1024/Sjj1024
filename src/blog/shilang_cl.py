@@ -219,7 +219,8 @@ class AutoCommit:
         res_html = response.content.decode()
         success = "發貼完畢點擊進入主題列表"
         guashui = "灌水預防機制已經打開，在1024秒內不能發貼"
-        if success in res_html or guashui in res_html:
+        every_10 = "用戶組權限：你所屬的用戶組每日最多能發 10 篇帖子"
+        if success in res_html or guashui in res_html or every_10 in res_html:
             print(f"回复帖子{tid}:{title}成功------------->")
             self.posted_article.update({tid: title})
             return True
