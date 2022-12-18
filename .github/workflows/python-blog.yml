@@ -5,12 +5,7 @@ name: CreatArticle
 
 on:
   schedule:
-#    - cron: '*/20 * * * *'
       - cron: '0 */12 * * *'
-  push:
-      branches: [ "master" ]
-  pull_request:
-      branches: [ "master" ]
   workflow_dispatch:
     inputs:
       tags:
