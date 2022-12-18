@@ -220,23 +220,17 @@ class AutoCommit:
         success = "發貼完畢點擊進入主題列表"
         guashui = "灌水預防機制已經打開，在1024秒內不能發貼"
         if success in res_html or guashui in res_html:
-            print(f"回复帖子{tid}成功------------->")
+            print(f"回复帖子{tid}:{title}成功------------->")
             self.posted_article.update({tid: title})
             return True
         else:
-            print(f"回复帖子{tid}失败------------->")
+            print(f"回复帖子{tid}:{title}失败------------->{res_html}")
             return False
 
     # 执行主程序
     def run(self):
         print("评论程序开始运行")
         self.source_url = self.get_source_url()
-        self.posted_article = None
-        self.grader = self.get_grade()
-        if self.grader == "新手上路":
-            self.commit_dist_num = 8
-        else:
-            self.commit_dist_num = 50
         self.posted_article = self.get_commiteds()
         self.posted_article.update(self.get_posted_tids())
         jishu_article = self.get_titles()

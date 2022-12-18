@@ -6,10 +6,6 @@ name: CommitCl
 on:
   schedule:
       - cron: '*/37 * * * *'
-  push:
-      branches: [ "master" ]
-  pull_request:
-      branches: [ "master" ]
 
 jobs:
   build:
@@ -24,7 +20,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: BlogMake
+    - name: StartCommit
       run: |
         # stop the build if there are Python syntax errors or undefined names
         python src/blog/shilang_cl.py
