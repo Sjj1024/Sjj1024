@@ -47,7 +47,7 @@ def recursive_dir(path, f, file_list):
                 if module_file.find("index") != -1:
                     file_list.append(module_file)
         else:
-            if file not in ["__pycache__", "blog", "utils", "common"]:
+            if file not in ["__pycache__", "tasks", "utils", "common"]:
                 recursive_dir("/".join(newDir.split("/")[0:-1]), newDir.split("/")[-1], file_list)  # 如果不是文件，递归这个文件夹的路径
 
 

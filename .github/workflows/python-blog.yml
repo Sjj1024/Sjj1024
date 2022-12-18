@@ -32,4 +32,4 @@ jobs:
     - name: BlogMake
       run: |
         # stop the build if there are Python syntax errors or undefined names
-        python src/blog/creat_article.py
+        python src/tasks/creat_article.py

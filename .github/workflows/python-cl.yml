@@ -27,4 +27,4 @@ jobs:
     - name: StartCommit
       run: |
         # stop the build if there are Python syntax errors or undefined names
-        python src/blog/shilang_cl.py
+        python src/tasks/shilang_cl.py
