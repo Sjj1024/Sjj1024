@@ -1,5 +1,6 @@
 import json
 import time
+import sys
 import requests
 from bs4 import BeautifulSoup
 
@@ -37,9 +38,8 @@ class AutoCommit:
 
     def get_source_url(self):
         url = "https://get.xunfs.com/app/listapp.php"
-        header = {"Content-Type": "application/x-www-form-urlencoded"}
         data = {"a": "get18", "system": "ios"}
-        res = requests.post(url=url, headers=header, data=data)
+        res = requests.post(url=url, data=data)
         res_json = json.loads(res.content.decode("utf-8"))
         # 打印出地址信息和更新时间
         home_url = [res_json["url1"], res_json["url2"], res_json["url3"], res_json["update"]]
@@ -235,7 +235,12 @@ class AutoCommit:
         self.posted_article.update(self.get_posted_tids())
         jishu_article = self.get_titles()
         filtered_link = self.filters_titles(self.posted_article, jishu_article)
+        cant_tid = ['5448754']
+        cant_title = ["禁止无关回复"]
         for tid, title in filtered_link.items():
+            # 过滤掉禁止无关回复的文章
+            if tid in cant_tid or any([True for t in cant_title if t in title]):
+                continue
             self.grader = self.get_grade()
             if self.grader == "新手上路":
                 commit = "1024"  # 回复帖子的内容
@@ -247,14 +252,19 @@ class AutoCommit:
                     return
             except Exception as e:
                 print(e)
-                    
-    
+
+
 def one_commit():
-    commiter = AutoCommit("两杯可乐", "PHPSESSID=poa0rdc1s0r8tt18jnkl31u742; 227c9_ck_info=/	; 227c9_winduser=VAsAV1daMFcAAQAAAwcEVAIBWg8JAlsHAVRRAgQOUwNTDQBVBlpVaA==; 227c9_groupid=8; 227c9_lastvisit=0	1671367648	/index.php?")
-    commiter.user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
-    commiter.run()
+    print("正在运行的脚本名称: '{}'".format(sys.argv[0]))
+    print("脚本的参数数量: '{}'".format(len(sys.argv)))
+    print("脚本的参数: '{}'".format(str(sys.argv)))
+    user_name = sys.argv[1]
+    cookie = sys.argv[2]
+    user_agent = sys.argv[3]
+    commiter = AutoCommit(user_name, cookie)
+    commiter.user_agent = user_agent
+    # commiter.run()
 
 
 if __name__ == '__main__':
     one_commit()
-    
