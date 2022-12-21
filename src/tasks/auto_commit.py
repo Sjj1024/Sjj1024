@@ -7,6 +7,8 @@ from bs4 import BeautifulSoup
 
 class AutoCommit:
     def __init__(self, name, cookie):
+        self.cant_title = []
+        self.cant_tid = []
         self.posted_article = None
         self.source_url = self.get_source_url()
         self.name = name
@@ -231,16 +233,13 @@ class AutoCommit:
     # 执行主程序
     def run(self):
         print("评论程序开始运行")
-        self.source_url = self.get_source_url()
         self.posted_article = self.get_commiteds()
         self.posted_article.update(self.get_posted_tids())
         jishu_article = self.get_titles()
         filtered_link = self.filters_titles(self.posted_article, jishu_article)
-        cant_tid = ['5448754']
-        cant_title = ["禁止无关回复"]
         for tid, title in filtered_link.items():
             # 过滤掉禁止无关回复的文章
-            if tid in cant_tid or any([True for t in cant_title if t in title]):
+            if tid in self.cant_tid or any([True for t in self.cant_title if t in title]):
                 print(f"遇到了不可以回复的文章{title} : {tid}")
                 continue
             self.grader = self.get_grade()
@@ -264,6 +263,9 @@ def one_commit():
     cookie = sys.argv[2]
     user_agent = sys.argv[3]
     commiter = AutoCommit(user_name, cookie)
+    # 配置不可以回复的文章
+    commiter.cant_tid = ['5448754']
+    commiter.cant_title = ["禁止无关回复"]
     commiter.user_agent = user_agent
     commiter.run()
 
