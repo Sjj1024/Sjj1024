@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup
 
 class AutoCommit:
     def __init__(self, name, cookie):
+        self.posted_article = None
         self.source_url = self.get_source_url()
         self.name = name
         self.post_url = self.source_url + "/post.php?"
@@ -240,6 +241,7 @@ class AutoCommit:
         for tid, title in filtered_link.items():
             # 过滤掉禁止无关回复的文章
             if tid in cant_tid or any([True for t in cant_title if t in title]):
+                print(f"遇到了不可以回复的文章{title} : {tid}")
                 continue
             self.grader = self.get_grade()
             if self.grader == "新手上路":
@@ -263,7 +265,7 @@ def one_commit():
     user_agent = sys.argv[3]
     commiter = AutoCommit(user_name, cookie)
     commiter.user_agent = user_agent
-    # commiter.run()
+    commiter.run()
 
 
 if __name__ == '__main__':
