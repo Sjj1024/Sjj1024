@@ -264,7 +264,7 @@ def one_commit():
     user_agent = sys.argv[3]
     commiter = AutoCommit(user_name, cookie)
     # 配置不可以回复的文章
-    commiter.cant_tid = ['5448754', "5448978"]
+    commiter.cant_tid = ['5448754', "5448978", "5424564"]
     commiter.cant_title = ["禁止无关回复", "乱入直接禁言"]
     commiter.user_agent = user_agent
     commiter.run()
