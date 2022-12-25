@@ -329,7 +329,7 @@ def one_commit():
     commiter.cant_tid = ['5448754', "5448978", "5424564"]
     commiter.cant_title = ["禁止无关回复", "乱入直接禁言"]
     commiter.user_agent = user_agent
-    commiter.get_grade()
+    commiter.run()
 
 
 if __name__ == '__main__':
