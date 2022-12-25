@@ -1,4 +1,5 @@
 import json
+import re
 import time
 import sys
 import requests
@@ -10,13 +11,14 @@ class AutoCommit:
         self.cant_title = []
         self.cant_tid = []
         self.posted_article = None
-        self.source_url = self.get_source_url()
+        self.source_url = ""
         self.name = name
         self.post_url = self.source_url + "/post.php?"
+        self.get_source_url()
         self.grader = ""
         self.commit_dist_num = 9
         self.cl_cookie = cookie
-        self.user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36"
+        self.user_agent = ""
 
     def get_soup(self, page_url):
         # 获取单张我的评论页面中的所有评论过的文章id和标题
@@ -40,6 +42,8 @@ class AutoCommit:
         return soup
 
     def get_source_url(self):
+        if self.source_url:
+            return self.source_url
         url = "https://get.xunfs.com/app/listapp.php"
         data = {"a": "get18", "system": "ios"}
         res = requests.post(url=url, data=data)
@@ -48,14 +52,61 @@ class AutoCommit:
         home_url = [res_json["url1"], res_json["url2"], res_json["url3"], res_json["update"]]
         for i in home_url:
             url = "https://" + i
-            print(url)
             try:
-                res = requests.get(url, timeout=5)
+                res = requests.get(url, timeout=10)
                 if res.status_code == 200:
                     print(f"获取到的地址是:{url}")
+                self.source_url = url
                 return url
             except:
                 continue
+
+    def get_userinfo(self):
+        print("get_userinfo_bycookie-----")
+        # 获取下一页的链接, 有就返回，没有就返回false
+        source_url = self.get_source_url()
+        url = source_url + "/profile.php"
+        soup = self.get_soup(url)
+        if soup:
+            gread_span = soup.select("#main > div.t > table > tr > td:nth-child(3) > a")  # 如果没有找到，返回None
+            email_span = soup.select("#main > div.t > table > tr > td:nth-child(2) > a")  # 如果没有找到，返回None
+            info_url = f"{source_url}/{gread_span[0].get('href')}"
+            email_url = f"{source_url}/{email_span[0].get('href')}"
+            print(f"您的用户名是：, 您的等级是：{info_url}")
+            info_soup = self.get_soup(info_url)
+            email_soup = self.get_soup(email_url)
+            if info_soup and email_soup:
+                email = re.search(r"E-MAIL\n(.*?)com",
+                                  email_soup.select("#main > form")[0].get_text()).group(1) + "com"
+                all_info = info_soup.select("#main > div:nth-child(3)")[0].select("table")[0].get_text()
+                user_name = re.search(r'用戶名(.*?) \(', all_info).group(1)
+                user_id = re.search(r'\(數字ID:(.*?)\)', all_info).group(1)
+                dengji = re.search(r'會員頭銜(.*?)\n', all_info).group(1)
+                jifen = re.search(r'綜合積分(.*?)\n', all_info).group(1)
+                fatie = re.search(r'發帖(.*?)\n', all_info).group(1)
+                weiwang = re.search(r'威望(.*?) 點\n', all_info).group(1)
+                money = re.search(r'金錢(.*?) USD\n', all_info).group(1)
+                gongxian = re.search(r'貢獻(.*?) 點\n', all_info).group(1)
+                gongxian_link = re.search(r'隨機生成\)(.*?)\n', all_info).group(1)
+                regist_time = re.search(r'註冊時間(.*?)\n', all_info).group(1)
+                self.userinfo = {
+                    "user_name": user_name,
+                    "user_id": user_id,
+                    "dengji": dengji,
+                    "jifen": jifen,
+                    "fatie": fatie,
+                    "weiwang": weiwang,
+                    "money": money,
+                    "gongxian": gongxian,
+                    "gongxian_link": gongxian_link,
+                    "regist_time": regist_time,
+                    "email": email
+                }
+                return self.userinfo
+            else:
+                return {}
+        else:
+            return {}
 
     # 获取已评论文章列表
     def get_commiteds(self):
@@ -135,10 +186,15 @@ class AutoCommit:
         # 获取下一页的链接, 有就返回，没有就返回false
         url = self.source_url + "/index.php"
         soup = self.get_soup(url)
-        gread_span = soup.select(".tr3 td:first-child .s3")  # 如果没有找到，返回None
-        self.user_name = soup.select('div[colspan="2"] span')[0].get_text()
-        self.grader = gread_span[0].get_text()
-        print(f"您的用户名是：{self.user_name}, 您的等级是：{self.grader}")
+        gread_span = soup.select("body")[0].get_text()  # 如果没有找到，返回None
+        self.user_name = re.search(r'\t(.*?) 退出', gread_span).group(1)
+        self.grader = re.search(r'您的等級: (.*?) ', gread_span).group(1)
+        self.weiwang = re.search(r'威望: (.*?) 點', gread_span).group(1)
+        self.jinqian = re.search(r'金錢: (.*?) USD', gread_span).group(1)
+        self.gongxian = re.search(r'貢獻: (.*?) 點', gread_span).group(1)
+        print(f"您的用户名：{self.user_name}, 等级：{self.grader}, 威望：{self.weiwang}，貢獻：{self.gongxian}")
+        if int(self.weiwang) >= 100:
+            print("开始产邀请码了")
         return self.grader
 
     # 获取技术交流版块前两页文章列表
@@ -246,6 +302,7 @@ class AutoCommit:
             if self.grader == "新手上路":
                 commit = "1024"  # 回复帖子的内容
             else:
+                commit_list = ["我支持你", "了解一下", "发帖辛苦", "我喜欢这个", "点赞支持"]
                 commit = "感谢分享"  # 回复帖子的内容
             print("评论的内容是：" + commit)
             try:
@@ -259,15 +316,20 @@ def one_commit():
     print("正在运行的脚本名称: '{}'".format(sys.argv[0]))
     print("脚本的参数数量: '{}'".format(len(sys.argv)))
     print("脚本的参数: '{}'".format(str(sys.argv)))
-    user_name = sys.argv[1]
-    cookie = sys.argv[2]
-    user_agent = sys.argv[3]
+    if len(sys.argv) <= 1:
+        user_name = "两杯可乐"
+        cookie = "PHPSESSID=8g3re69fe5m27q75oeesp31f0u; 227c9_ck_info=/	; 227c9_winduser=VAsAV1daMFcAAQAAAwcEVAIBWg8JAlsHAVRRAgQOUwNTDQBVBlpVaA==; 227c9_groupid=8; 227c9_lastvisit=0	1671972878	/index.php?"
+        user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+    else:
+        user_name = sys.argv[1]
+        cookie = sys.argv[2]
+        user_agent = sys.argv[3]
     commiter = AutoCommit(user_name, cookie)
     # 配置不可以回复的文章
     commiter.cant_tid = ['5448754', "5448978", "5424564"]
     commiter.cant_title = ["禁止无关回复", "乱入直接禁言"]
     commiter.user_agent = user_agent
-    commiter.run()
+    commiter.get_grade()
 
 
 if __name__ == '__main__':
