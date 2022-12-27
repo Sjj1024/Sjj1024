@@ -75,4 +75,4 @@ github:
 ![](https://sjj1024.github.io/CvReport/img/220310103457shan.jpg)
 
 github:
-<iframe src="https://sjj1024.github.io/CvReport/img/test.mp4">
+<iframe height=498 width=510 src="https://sjj1024.github.io/CvReport/img/test.mp4">
