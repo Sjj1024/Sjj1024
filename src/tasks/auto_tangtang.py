@@ -100,7 +100,24 @@ def post_comm(tid, txt):
         print("评论失败了")
 
 
-def post_commit(tid, txt):
+def get_formhash(tid):
+    print("获取hash值")
+    url = f"{source_url}/forum.php?mod=viewthread&tid={tid}&extra=page%3D1"
+    payload = {}
+    headers = {
+        'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+        'accept-language': 'zh-CN,zh;q=0.9,zh-HK;q=0.8,zh-TW;q=0.7',
+        'cache-control': 'max-age=0',
+        'cookie': cookie,
+        'user-agent': user_agent
+    }
+    response = requests.request("GET", url, headers=headers, data=payload)
+    # print(response.text)
+    form_hash = re.search(r'formhash=(.*?)">退出</a>', response.text).group(1)
+    return form_hash
+
+
+def post_commit(tid, txt, form_hash):
     print(f"开始回复评论：{tid} : {txt}")
     url = f"https://zxfdsfdsf.online/forum.php?mod=post&action=reply&fid=95&tid={tid}&extra=page%3D1&replysubmit=yes&infloat=yes&handlekey=fastpost&inajax=1"
     # payload = 'file=&message=%E4%B8%80%E7%9B%B4%E5%8F%91%E7%83%A7&posttime=1672651842&formhash=44a857f9&usesig=&subject=%2B%2B'
@@ -108,7 +125,7 @@ def post_commit(tid, txt):
         "file": "",
         "message": txt,
         "posttime": "1672656117",
-        "formhash": "a6a275ea",
+        "formhash": form_hash,
         "usesig": "",
         "subject": ""
     }
@@ -144,7 +161,8 @@ def run():
     # 发起评论
     for index, value in enumerate(need_post):
         commit_txt = get_comment_txt(index)
-        res = post_commit(value, commit_txt)
+        form_hash = get_formhash(value)
+        res = post_commit(value, commit_txt, form_hash)
         if res:
             break
         else:
