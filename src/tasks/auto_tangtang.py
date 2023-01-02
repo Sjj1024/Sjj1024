@@ -41,8 +41,8 @@ def get_commenteds():
         url = f"{source_url}/forum.php?mod=guide&view=my&type=reply&page={page}"
         html = get_html(url)
         comment_list = re.findall(r'tid=.*?class="xst"', html)
-        print(comment_list)
-        print(len(comment_list))
+        # print(comment_list)
+        # print(len(comment_list))
         ids = [i[4:10] for i in comment_list]
         if "下一页" in html and page <= 5:
             page += 1
@@ -118,7 +118,7 @@ def get_formhash(tid):
 
 
 def post_commit(tid, txt, form_hash):
-    print(f"开始回复评论：{tid} : {txt}")
+    print(f"开始回复评论：{tid} : {txt} hash:{form_hash}")
     url = f"https://zxfdsfdsf.online/forum.php?mod=post&action=reply&fid=95&tid={tid}&extra=page%3D1&replysubmit=yes&infloat=yes&handlekey=fastpost&inajax=1"
     # payload = 'file=&message=%E4%B8%80%E7%9B%B4%E5%8F%91%E7%83%A7&posttime=1672651842&formhash=44a857f9&usesig=&subject=%2B%2B'
     body = {
