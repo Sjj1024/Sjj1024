@@ -107,8 +107,8 @@ def post_commit(tid, txt):
     body = {
         "file": "",
         "message": txt,
-        "posttime": "1672651842",
-        "formhash": "44a857f9",
+        "posttime": "1672656117",
+        "formhash": "a6a275ea",
         "usesig": "",
         "subject": ""
     }
@@ -153,7 +153,7 @@ def run():
 
 if __name__ == '__main__':
     if len(sys.argv) <= 1:
-        name = "我要舔你"
+        name = "我真的很爱你"
         cookie = "cPNj_2132_saltkey=BZ6j6Q05; cPNj_2132_lastvisit=1672651408; cPNj_2132_atarget=1; cPNj_2132_visitedfid=95; cPNj_2132_sendmail=1; cPNj_2132_lastfp=bc56b1f21fc3b458ea72f14c0f3faf3d; cPNj_2132_ulastactivity=1672655030%7C0; cPNj_2132_auth=d996lSaxnPze8qXzo12cKXhiA%2BD2S6WmZ%2FS8i8ocG8N6GwINi5bObGbiruq5v7jBsX5s982HHNrW9JSQsMsgng7AuHE; cPNj_2132_lastcheckfeed=438345%7C1672655030; cPNj_2132_lip=208.115.243.40%2C1672655030; cPNj_2132_sid=0; cPNj_2132_st_t=438345%7C1672655031%7Caa33adfd508388d901700d97ff3d285d; cPNj_2132_forum_lastvisit=D_95_1672655031; cPNj_2132_smile=1D1; cPNj_2132_lastact=1672655062%09forum.php%09ajax; cPNj_2132_forum_lastvisit=D_95_1672655172; cPNj_2132_lastact=1672655172%09forum.php%09forumdisplay; cPNj_2132_sid=0; cPNj_2132_st_t=438345%7C1672655172%7Ce4afc1d6c40947fb0a6aa820a1431905"
         user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
     else:
