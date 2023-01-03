@@ -464,7 +464,6 @@ class AutoCommit:
             'user-agent': self.user_agent
         }
         response = requests.request("POST", url, headers=headers, data=payload, files=files)
-        print(response.text)
         if "操作完成" in response.text:
             print(f"{self.name}修改密码完成:{new_password}")
             self.send_email(f"{self.name}修改密码完成", f"新的密码是: {self.new_password}", "648133599@qq.com")
