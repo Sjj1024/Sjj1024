@@ -12,15 +12,20 @@ class AutoCommit:
     def __init__(self, name, cookie):
         self.cant_title = []
         self.cant_tid = []
+        self.cant_msg = []
+        self.posted_commit = {}
+        self.posted_dianping = {}
         self.posted_article = None
         self.source_url = ""
+        self.get_source_url()
         self.name = name
         self.post_url = self.source_url + "/post.php?"
-        self.get_source_url()
         self.grader = ""
         self.commit_dist_num = 9
         self.cl_cookie = cookie
         self.user_agent = ""
+        self.old_password = ""
+        self.new_password = ""
 
     def get_soup(self, page_url):
         # 获取单张我的评论页面中的所有评论过的文章id和标题
@@ -146,6 +151,44 @@ class AutoCommit:
         print(f"获取到评论过的文章个数是：{len(article_dict)}----------------->")
         return article_dict
 
+    # 获取评论的内容
+    def get_commit_context(self, comment_url):
+        print(f"{self.name}获取已评论的内容")
+        article_dict = {}
+        # 获取下一页的链接, 有就返回，没有就返回false
+        url = comment_url
+        soup = self.get_soup(url)
+        last_num = soup.find(id="last")  # 如果没有找到，返回None
+        if last_num:
+            print("说明有不止一页评论内容")
+            last_num = soup.find(id="last").get("href")
+            all_page = last_num.split("page=")[1]
+            all_num = int(all_page) + 1
+            # 如果评论过的文章大与2页，就按两页算
+            if all_num > 2:
+                all_num = 2
+            for i in range(1, all_num):
+                page_url = self.source_url + f"/personal.php?action=post&page={i}"
+                print(f"正在抽取第{i}页中的评论数据")
+                soup = self.get_soup(page_url)
+                # 通过soup获得已经评论过的内容
+                commit_list = soup.select('div[style="clear:both"]')
+                commit_context = [i.get_text() for i in commit_list if i.get_text()]
+                article_list = soup.select(".a2")
+                article_id = [i.get("href") for i in article_list]
+                tid_list = [i.split("tid=")[1].split("&")[0] for i in article_id]
+                article_dict.update(dict(zip(tid_list, commit_context)))
+        else:
+            print("说明只有一页评论内容")
+            commit_list = soup.select('div[style="clear:both"]')
+            commit_context = [i.get_text() for i in commit_list if i.get_text()]
+            article_list = soup.select(".a2")
+            article_id = [i.get("href") for i in article_list]
+            tid_list = [i.split("tid=")[1].split("&")[0] for i in article_id]
+            article_dict.update(dict(zip(tid_list, commit_context)))
+        print(f"获取到评论过的文章个数是：{len(article_dict)}----------------->")
+        return article_dict
+
     # 获取发布的文章
     def get_posted_tids(self):
         print("获取发布的文章")
@@ -189,12 +232,14 @@ class AutoCommit:
         url = self.source_url + "/index.php"
         soup = self.get_soup(url)
         gread_span = soup.select("body")[0].get_text()  # 如果没有找到，返回None
-        self.user_name = re.search(r'\t(.*?) 退出', gread_span).group(1)
+        if "您沒有登錄或者您沒有權限訪問此頁面" in gread_span:
+            return ""
+        self.name = re.search(r'\t(.*?) 退出', gread_span).group(1)
         self.grader = re.search(r'您的等級: (.*?) ', gread_span).group(1)
         self.weiwang = re.search(r'威望: (.*?) 點', gread_span).group(1)
         self.jinqian = re.search(r'金錢: (.*?) USD', gread_span).group(1)
         self.gongxian = re.search(r'貢獻: (.*?) 點', gread_span).group(1)
-        print(f"您的用户名：{self.user_name}, 等级：{self.grader}, 威望：{self.weiwang}，貢獻：{self.gongxian}")
+        print(f"您的用户名：{self.name}, 等级：{self.grader}, 威望：{self.weiwang}，貢獻：{self.gongxian}")
         if int(self.weiwang) >= 100:
             print("开始产邀请码了")
         return self.grader
@@ -288,7 +333,61 @@ class AutoCommit:
             print(f"回复帖子{tid}:{title}失败------------->{res_html}")
             return False
 
-    def send_email(self, title, msg, email=""):
+    # 执行主程序
+    def run(self):
+        print("评论程序开始运行")
+        self.posted_article = self.get_commiteds()
+        self.posted_article.update(self.get_posted_tids())
+        jishu_article = self.get_titles()
+        filtered_link = self.filters_titles(self.posted_article, jishu_article)
+        for tid, title in filtered_link.items():
+            # 过滤掉禁止无关回复的文章
+            if tid in self.cant_tid or any([True for t in self.cant_title if t in title]):
+                print(f"遇到了不可以回复的文章{title} : {tid}")
+                continue
+            self.grader = self.get_grade()
+            if self.grader == "新手上路":
+                commit = "1024"  # 回复帖子的内容
+            else:
+                commit_list = ["我支持你", "了解一下", "发帖辛苦", "我喜欢这个", "点赞支持"]
+                commit = "感谢分享"  # 回复帖子的内容
+            print("评论的内容是：" + commit)
+            try:
+                if self.send_commit(tid, title, commit):
+                    return
+            except Exception as e:
+                print(e)
+
+    # 检查是否发布了违规评论
+    def check_commit(self):
+        print(f"检查是否违规评论：")
+        grade = self.get_grade()
+        if grade:
+            # 获取评论和点评内容
+            comment_url = self.source_url + "/personal.php?action=post"
+            self.posted_commit = self.get_commit_context(comment_url)
+            dianping_url = self.source_url + "/personal.php?action=comment"
+            self.posted_dianping = self.get_commit_context(dianping_url)
+            post_list = list(self.posted_commit.values())
+            commit_list = list(self.posted_dianping.values())
+            all_commit_list = [*commit_list, *post_list]
+            for commit in all_commit_list:
+                if self.include_cant(commit):
+                    print(f"包含有违禁评论：立即修改密码：{commit}")
+                    self.edit_password(self.new_password)
+                    return
+            print(f"未发现有违规留言内容...")
+        else:
+            print(f"cookie无效，未能获取到账号信息")
+            self.send_email(f"未能获取到账号信息:{self.name}", "未能获取到账号信息，cookie失效")
+
+    def include_cant(self, commit):
+        for msg in self.cant_msg:
+            if msg in commit:
+                return True
+        return False
+
+    def send_email(self, title, msg, email="648133599@qq.com"):
         content = str(msg)
         # 163邮箱服务器地址
         mail_host = "smtp.163.com"
@@ -323,51 +422,83 @@ class AutoCommit:
         except smtplib.SMTPException as e:
             print('send email error', e)  # 打印错误
 
-    # 执行主程序
-    def run(self):
-        print("评论程序开始运行")
-        self.posted_article = self.get_commiteds()
-        self.posted_article.update(self.get_posted_tids())
-        jishu_article = self.get_titles()
-        filtered_link = self.filters_titles(self.posted_article, jishu_article)
-        for tid, title in filtered_link.items():
-            # 过滤掉禁止无关回复的文章
-            if tid in self.cant_tid or any([True for t in self.cant_title if t in title]):
-                print(f"遇到了不可以回复的文章{title} : {tid}")
-                continue
-            self.grader = self.get_grade()
-            if self.grader == "新手上路":
-                commit = "1024"  # 回复帖子的内容
-            else:
-                commit_list = ["我支持你", "了解一下", "发帖辛苦", "我喜欢这个", "点赞支持"]
-                commit = "感谢分享"  # 回复帖子的内容
-            print("评论的内容是：" + commit)
-            try:
-                if self.send_commit(tid, title, commit):
-                    return
-            except Exception as e:
-                print(e)
+    def edit_password(self, new_password):
+        print(f"开始修改密码:{self.name}...")
+        url = f"{self.source_url}/profile.php?"
+        payload = {'action': 'modify',
+                   'oldpwd': self.old_password,
+                   'propwd': new_password,
+                   'check_pwd': new_password,
+                   'prooicq': '',
+                   'proicq': '',
+                   'proyahoo': '',
+                   'promsn': '',
+                   'profrom': '',
+                   'prohomepage': '',
+                   'progender': '0',
+                   'proyear': '',
+                   'promonth': '',
+                   'proday': '',
+                   'prointroduce': '',
+                   'payemail': '',
+                   'pay': '3',
+                   'prosign': '',
+                   'proicon': '',
+                   'tpskin': 'new01',
+                   'editor': '0',
+                   'timedf': '0',
+                   'd_type': '0',
+                   'date_f': 'yyyy-mm-dd',
+                   'time_f': '24',
+                   't_num': '0',
+                   'p_num': '0',
+                   'proreceivemail': '0',
+                   'prosubmit': '確認修改',
+                   'step': '2'}
+        files = []
+        headers = {
+            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+            'accept-language': 'zh-CN,zh;q=0.9,zh-HK;q=0.8,zh-TW;q=0.7',
+            'cache-control': 'max-age=0',
+            'cookie': self.cl_cookie,
+            'user-agent': self.user_agent
+        }
+        response = requests.request("POST", url, headers=headers, data=payload, files=files)
+        print(response.text)
+        if "操作完成" in response.text:
+            print(f"{self.name}修改密码完成:{new_password}")
+            self.send_email(f"{self.name}修改密码完成", f"新的密码是: {self.new_password}", "648133599@qq.com")
+        else:
+            print(f"{self.name}修改密码失败:{response.text}")
+            self.send_email(f"{self.name}修改密码失败", f"失败原因是:{response.text}", "648133599@qq.com")
 
 
-def one_commit():
+def check_commit():
     print("正在运行的脚本名称: '{}'".format(sys.argv[0]))
     print("脚本的参数数量: '{}'".format(len(sys.argv)))
     print("脚本的参数: '{}'".format(str(sys.argv)))
     if len(sys.argv) <= 1:
-        user_name = "两杯可乐"
-        cookie = "PHPSESSID=8g3re69fe5m27q75oeesp31f0u; 227c9_ck_info=/	; 227c9_winduser=VAsAV1daMFcAAQAAAwcEVAIBWg8JAlsHAVRRAgQOUwNTDQBVBlpVaA==; 227c9_groupid=8; 227c9_lastvisit=0	1671972878	/index.php?"
-        user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+        user_name = "可爱的小圆子"
+        cookie = "PHPSESSID=1hn91jm90bo4e8v3vnl550s854;227c9_ck_info=%2F%09;227c9_winduser=UAMLAA0CaFYODFAHAVVQDVINUgYAAl9RWANcDFNWBwZUAQBcAAcPPg%3D%3D;227c9_groupid=8;227c9_lastvisit=0%091672732112%09%2Fprofile.php%3F"
+        user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+        old_password = "1024xiaoshen@gmail.com"
+        new_password = "1024xiaoshen"
     else:
         user_name = sys.argv[1]
         cookie = sys.argv[2]
         user_agent = sys.argv[3]
+        old_password = sys.argv[4]
+        new_password = sys.argv[5]
     commiter = AutoCommit(user_name, cookie)
     # 配置不可以回复的文章
     commiter.cant_tid = ['5448754', "5448978", "5424564"]
     commiter.cant_title = ["禁止无关回复", "乱入直接禁言"]
+    commiter.cant_msg = ["Ч", "丨", "Б", "ぢ", "ろ"]
     commiter.user_agent = user_agent
-    commiter.run()
+    commiter.old_password = old_password
+    commiter.new_password = new_password
+    commiter.check_commit()
 
 
 if __name__ == '__main__':
-    one_commit()
+    check_commit()
