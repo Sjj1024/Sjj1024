@@ -1,5 +1,5 @@
 想我了？ 请star我  
-这是一个跑定时任务的仓库，支持定时签到等服务哦，感谢github  
+这是一个普普通通的仓库，感谢github  
 个人网站地址：[www.1024shen.com](https://1024shen.com/)
 
 先安装依赖吧:   
@@ -13,7 +13,7 @@ http://mirrors.163.com/pypi/simple/ 网易
 pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/
 ```
 
-action定时签到配置：  
+action签到配置：  
 ```json
 {
   "github": {
@@ -73,7 +73,3 @@ cdnd:
 
 github:
 ![](https://sjj1024.github.io/CvReport/img/220310103457shan.jpg)
-
-github:
-<iframe height=498 width=510 src="https://sjj1024.github.io/CvReport/img/test.mp4">
-<video controls height='100%' width='100%' src="https://sjj1024.github.io/CvReport/img/test.mp4"></video>

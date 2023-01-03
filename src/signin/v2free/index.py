@@ -41,4 +41,7 @@ def main():
     common.common_msg["V2FREE"] = f"签到:{msg_list}"
 
 
-main()
+if __name__ == '__main__':
+    main()
+else:
+    main()
