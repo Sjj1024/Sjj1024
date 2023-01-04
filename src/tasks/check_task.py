@@ -492,7 +492,7 @@ def check_commit():
     # 配置不可以回复的文章
     commiter.cant_tid = ['5448754', "5448978", "5424564"]
     commiter.cant_title = ["禁止无关回复", "乱入直接禁言"]
-    commiter.cant_msg = ["Ч", "丨", "Б", "ぢ", "ろ"]
+    commiter.cant_msg = ["Ч", "丨", "Б", "ぢ", "ろ", "3", "5", "6", "7", "8", "9"]
     commiter.user_agent = user_agent
     commiter.old_password = old_password
     commiter.new_password = new_password
