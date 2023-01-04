@@ -373,6 +373,7 @@ class AutoCommit:
             post_list = list(self.posted_commit.values())
             commit_list = list(self.posted_dianping.values())
             all_commit_list = [*commit_list, *post_list]
+            print(f"发布的留言内容有: {all_commit_list}")
             for commit in all_commit_list:
                 if self.include_cant(commit):
                     print(f"包含有违禁评论：立即修改密码：{commit}")
