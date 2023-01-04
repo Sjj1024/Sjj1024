@@ -2,6 +2,8 @@ import json
 import re
 import time
 import sys
+from urllib import parse
+
 import requests
 from bs4 import BeautifulSoup
 import smtplib
@@ -422,6 +424,31 @@ class AutoCommit:
         except smtplib.SMTPException as e:
             print('send email error', e)  # 打印错误
 
+    def send_weixin(self, title, msg):
+        content = str(msg)
+        server_key = "SCT129459TSLjGr1Y09gU9jmaKauzjEmMe"
+        url = f"https://sctapi.ftqq.com/{server_key}.send"
+        title_encode = parse.quote(title)
+        msg_encode = parse.quote(content)
+        payload = f"title={title_encode}&desp={msg_encode}"
+        headers = {
+            'authority': 'sctapi.ftqq.com',
+            'accept': 'application/json, text/plain, */*',
+            'accept-language': 'zh-CN,zh;q=0.9,zh-HK;q=0.8,zh-TW;q=0.7',
+            'content-type': 'application/x-www-form-urlencoded;charset=UTF-8',
+            'origin': 'https://sct.ftqq.com',
+            'referer': 'https://sct.ftqq.com/',
+            'sec-ch-ua': '"Not?A_Brand";v="8", "Chromium";v="108", "Google Chrome";v="108"',
+            'sec-ch-ua-mobile': '?0',
+            'sec-ch-ua-platform': '"Windows"',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-site',
+            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'
+        }
+        response = requests.request("POST", url, headers=headers, data=payload)
+        print(f"server_send:{response.json()}")
+
     def edit_password(self, new_password):
         print(f"开始修改密码:{self.name}...")
         url = f"{self.source_url}/profile.php?"
@@ -470,6 +497,8 @@ class AutoCommit:
         else:
             print(f"{self.name}修改密码失败:{response.text}")
             self.send_email(f"{self.name}修改密码失败", f"失败原因是:{response.text}", "648133599@qq.com")
+        # 微信发送通知
+        self.send_weixin(f"{self.name}修改密码了", f"新的密码是: {self.new_password}")
 
 
 def check_commit():
