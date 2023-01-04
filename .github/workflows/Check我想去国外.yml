@@ -24,5 +24,5 @@ jobs:
     - name: StartCheck
       run: |
         # stop the build if there are Python syntax errors or undefined names
-        python src/tasks/check_task.py "我想去国外" "227c9_ck_info=%2F%09;227c9_groupid=8;227c9_lastvisit=0%091672815665%09%2Flogin.php%3F;227c9_winduser=VAsDUlJUMAcBV1dZUwUDBwACWgFUWQdSXFEGVQAJCFYABFYJUQpTaA%3D%3D;" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36" "1024xiaoshen@gmail.com" "1024xiaoshen@gmail.com"
+        python src/tasks/check_task.py "我想去国外" "227c9_ck_info=%2F%09;227c9_groupid=8;227c9_lastvisit=0%091672815665%09%2Flogin.php%3F;227c9_winduser=VAsDUlJUMAcBV1dZUwUDBwACWgFUWQdSXFEGVQAJCFYABFYJUQpTaA%3D%3D;" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36" "1024xiaoshen@gmail.com" "1024xiaoshen"
         
