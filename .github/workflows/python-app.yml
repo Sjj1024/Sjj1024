@@ -6,6 +6,11 @@ name: SomeSignIn
 on:
   schedule:
     - cron: '0 */12 * * *'
+  # 手动触发一个工作流
+  workflow_dispatch:
+    inputs:
+      tags:
+        description: 'Test scenario tags'
 #  push:
 #      branches: [ "master" ]
 #  pull_request:
