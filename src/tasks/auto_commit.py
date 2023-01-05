@@ -1,3 +1,4 @@
+import datetime
 import json
 import re
 import time
@@ -350,6 +351,7 @@ class AutoCommit:
 
 
 def one_commit():
+    print("当前时间是", datetime.datetime.now())
     print("正在运行的脚本名称: '{}'".format(sys.argv[0]))
     print("脚本的参数数量: '{}'".format(len(sys.argv)))
     print("脚本的参数: '{}'".format(str(sys.argv)))

@@ -81,4 +81,4 @@ def send_email(title, msg, email=""):
 if __name__ == '__main__':
     # send_weixin("我的宝啊", "我想你!!!!!!!!!!!!!!")
     # send_qq("我的宝啊", "我想你!!!!!!!!!!!!!!")
-    send_email("我的宝啊", {"a": 1})
+    send_email("我的宝啊", {"a": 1}, "648133599@qq.com")
