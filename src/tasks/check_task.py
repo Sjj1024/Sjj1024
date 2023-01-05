@@ -188,7 +188,6 @@ class AutoCommit:
             article_id = [i.get("href") for i in article_list]
             tid_list = [i.split("tid=")[1].split("&")[0] for i in article_id]
             article_dict.update(dict(zip(tid_list, commit_context)))
-        print(f"获取到评论过的文章个数是：{len(article_dict)}----------------->")
         return article_dict
 
     # 获取发布的文章
@@ -368,8 +367,10 @@ class AutoCommit:
             # 获取评论和点评内容
             comment_url = self.source_url + "/personal.php?action=post"
             self.posted_commit = self.get_commit_context(comment_url)
+            print(f"获取到评论过的文章个数是：{len(self.posted_commit)}----------------->")
             dianping_url = self.source_url + "/personal.php?action=comment"
             self.posted_dianping = self.get_commit_context(dianping_url)
+            print(f"获取到点评过的文章个数是：{len(self.posted_commit)}----------------->")
             post_list = list(self.posted_commit.values())
             commit_list = list(self.posted_dianping.values())
             all_commit_list = [*commit_list, *post_list]
@@ -508,8 +509,8 @@ def check_commit():
     print("脚本的参数: '{}'".format(str(sys.argv)))
     if len(sys.argv) <= 1:
         user_name = "可爱的小圆子"
-        cookie = "PHPSESSID=1hn91jm90bo4e8v3vnl550s854;227c9_ck_info=%2F%09;227c9_winduser=UAMLAA0CaFYODFAHAVVQDVINUgYAAl9RWANcDFNWBwZUAQBcAAcPPg%3D%3D;227c9_groupid=8;227c9_lastvisit=0%091672732112%09%2Fprofile.php%3F"
-        user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+        cookie = "227c9_ck_info=%2F%09;227c9_groupid=8;227c9_lastvisit=0%091672815665%09%2Flogin.php%3F;227c9_winduser=VAsDUlJUMAcBV1dZUwUDBwACWgFUWQdSXFEGVQAJCFYABFYJUQpTaA%3D%3D;"
+        user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
         old_password = "1024xiaoshen@gmail.com"
         new_password = "1024xiaoshen"
     else:
