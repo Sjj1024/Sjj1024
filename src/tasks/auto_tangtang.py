@@ -6,14 +6,6 @@ import requests
 import random
 
 
-def set_cookies(res):
-    global cookie
-    cookie_dict = {i.split("=")[0]: i.split("=")[1] for i in cookie.split("; ")}
-    c = res.cookies.get_dict()
-    cookie_dict.update(c)
-    cookie = "; ".join([f"{key}={val}" for key, val in cookie_dict.items()])
-
-
 def get_html(page_url):
     print(f"开始获取html: {page_url}")
     payload = {}
@@ -96,10 +88,12 @@ def get_comment_txt(count):
                 "感谢大佬的精彩分享", "都是神人", "艺高人胆大", "就是喜欢这样的题材", "这个不太好吧", "也开始拍剧情了",
                 "看着真实", "不知道真的假的", "这么会玩的吗", "这可太刺激了", "看看这次是什么情况", "看着眼熟",
                 "好资源，评分送上", "有够刺激的", "这玩意儿看看就好", "多更新这种题材的", "满足一下幻想", "不会是假的吧",
-                "不好意思发了", "怎么全是链接错误", "但还是很喜欢", "刺激就行啊", "看不到了", "这些资源", "真不错真不错",
-                "笑死我了哈哈哈", "高手在民间", "多谢老哥分享", "看起来挺不错", "先赞后看", "的确是好内容", "真人想多了",
+                "不好意思发了", "怎么全是链接错误", "但还是很喜欢", "刺激就行啊", "看不到了", "这些资源",
+                "真不错真不错",
+                "笑死我了哈哈哈", "高手在民间", "多谢老哥分享", "看起来挺不错", "先赞后看", "的确是好内容",
+                "真人想多了",
                 "因为我本纯良", "这个主题不错"]
-    return txt_list[random.randint(0, len(txt_list)-1)]
+    return txt_list[random.randint(0, len(txt_list) - 1)]
 
 
 def post_comm(tid, txt):
@@ -115,7 +109,7 @@ def post_comm(tid, txt):
         "formhash": "24435fbb"
     }
     res = requests.post(url, headers=header, data=data)
-    set_cookies(res)
+    set_cookies(res, cookie)
     print(res.content.decode())
     html = res.content.decode()
     if "回复发布成功" in html:
@@ -174,9 +168,89 @@ def post_commit(tid, txt, form_hash):
         return False
 
 
+def exec_jisuan(sunshu):
+    res = eval(sunshu)
+    print(f"算术答案: {sunshu} = {res}")
+    return res
+
+
+def set_cookies(res, cookie):
+    cookie_dict = {i.split("=")[0]: i.split("=")[1] for i in cookie.split("; ")}
+    c = res.cookies.get_dict()
+    cookie_dict.update(c)
+    cookie = "; ".join([f"{key}={val}" for key, val in cookie_dict.items()])
+    return cookie
+
+
+def get_suanshu(cookie):
+    print(f"获取算术内容")
+    url = f"{source_url}/plugin.php?id=dd_sign&mod=sign&mobile=2"
+    payload = {}
+    headers = {
+        'authority': 'zxfdsfdsf.online',
+        'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+        'accept-language': 'zh-CN,zh;q=0.9,zh-HK;q=0.8,zh-TW;q=0.7',
+        'cookie': cookie,
+        'referer': f'{source_url}/plugin.php?id=dd_sign:index&mobile=2',
+        'upgrade-insecure-requests': '1',
+        'user-agent': "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1"
+    }
+    response = requests.request("GET", url, headers=headers, data=payload)
+    cookie = set_cookies(response, cookie)
+    suanshu = re.search(r'输入下面问题的答案<br />(.*?) = \?</span>', response.text).group(1)
+    res = exec_jisuan(suanshu)
+    params = {
+        "id": "dd_sign",
+        "mod": "sign",
+        "signsubmit": "yes",
+        "signhash": "",
+        "handlekey": "signform_",
+        "inajax": "1",
+        "formhash": re.search(r'formhash" value="(.*?)" />', response.text).group(1),
+        "signtoken": re.search(r'name="signtoken" value="(.*?)" />', response.text).group(1),
+        "secqaahash": re.search(r'secqaahash" type="hidden" value="(.*?)" />', response.text).group(1),
+        "secanswer": res,
+        "cookie": cookie
+    }
+    return params
+
+
+def start_sign(params):
+    print("开始签到")
+    url = "https://zxfdsfdsf.online/plugin.php?id=dd_sign&mod=sign&signsubmit=yes&signhash=&handlekey=signform_&inajax=1"
+    payload = f"formhash={params.get('formhash')}&signtoken={params.get('signtoken')}&secqaahash={params.get('secqaahash')}&secanswer={params.get('secanswer')}"
+    headers = {
+        'authority': 'zxfdsfdsf.online',
+        'accept': 'application/xml, text/xml, */*; q=0.01',
+        'accept-language': 'zh-CN,zh;q=0.9,zh-HK;q=0.8,zh-TW;q=0.7',
+        'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'cookie': params.get("cookie"),
+        'origin': 'https://zxfdsfdsf.online',
+        'referer': 'https://zxfdsfdsf.online/plugin.php?id=dd_sign&mod=sign&mobile=2',
+        'sec-fetch-dest': 'empty',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-site': 'same-origin',
+        'user-agent': "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1",
+        'x-requested-with': 'XMLHttpRequest'
+    }
+    response = requests.request("POST", url, headers=headers, data=payload)
+    if "签到成功" in response.text:
+        print("签到成功，金钱+2，明天记得来哦")
+        return True
+    elif "已经签到过啦，请明天再来" in response.text:
+        print("已经签到过啦，请明天再来！")
+        return True
+    else:
+        print(f"签到失败：{response.text}")
+        return False
+
+
 def run():
     user_info = get_user_info()
     print(f"开始98评论主程序：{user_info.get('用户名')}")
+    # 开始签到
+    # params = get_suanshu(cookie)
+    # start_sign(params)
     # 获取评论过的文章
     id_list = get_commenteds()
     # 获取前10页的文章链接
