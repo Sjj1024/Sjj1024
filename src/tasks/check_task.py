@@ -378,7 +378,13 @@ class AutoCommit:
             for commit in all_commit_list:
                 if self.include_cant(commit):
                     print(f"包含有违禁评论：立即修改密码：{commit}")
-                    self.edit_password(self.new_password)
+                    flag, res = self.edit_password(self.new_password)
+                    if flag:
+                        self.send_email(f"{self.name}修改密码成功", f"修改原因是: 发现违禁评论内容：{commit}, 修改后的密码是： {self.new_password}", "648133599@qq.com")
+                    else:
+                        self.send_email(f"{self.name}修改密码失败", f"失败原因是:{res}", "648133599@qq.com")
+                    # 微信发送通知
+                    self.send_weixin(f"{self.name}修改密码了", f"修改原因:违禁评论内容({commit}), 新的密码是: {self.new_password}")
                     return
             print(f"未发现有违规留言内容...")
         else:
@@ -396,11 +402,11 @@ class AutoCommit:
         # 163邮箱服务器地址
         mail_host = "smtp.163.com"
         # 163用户名
-        mail_user = "sjjhub@163.com"
+        mail_user = "lanxingsjj@163.com"
         # 密码(部分邮箱为授权码)
-        mail_pass = "521xiaoshen"
+        mail_pass = "QULRMYHTUVMHYVGM"
         # 邮件发送方邮箱地址
-        sender = "sjjhub@163.com"
+        sender = "lanxingsjj@163.com"
         # 邮件接受方邮箱地址，注意需要[]包裹，这意味着你可以写多个邮件地址群发
         receivers = [email]
         # 设置email信息
@@ -495,12 +501,10 @@ class AutoCommit:
         response = requests.request("POST", url, headers=headers, data=payload, files=files)
         if "操作完成" in response.text:
             print(f"{self.name}修改密码完成:{new_password}")
-            self.send_email(f"{self.name}修改密码完成", f"新的密码是: {self.new_password}", "648133599@qq.com")
+            return True, f"修改密码完成{new_password}"
         else:
             print(f"{self.name}修改密码失败:{response.text}")
-            self.send_email(f"{self.name}修改密码失败", f"失败原因是:{response.text}", "648133599@qq.com")
-        # 微信发送通知
-        self.send_weixin(f"{self.name}修改密码了", f"新的密码是: {self.new_password}")
+            return False, response.text
 
 
 def check_commit():
