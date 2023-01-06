@@ -15,22 +15,46 @@ def set_cookies(res):
 
 
 def get_html(page_url):
-    # print("开始获取html")
-    global cookie
+    print(f"开始获取html: {page_url}")
     payload = {}
     headers = {
+        'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+        'accept-language': 'zh-CN,zh;q=0.9,zh-HK;q=0.8,zh-TW;q=0.7',
+        'cache-control': 'max-age=0',
         'cookie': cookie,
         'user-agent': user_agent
     }
     res = requests.request("GET", page_url, headers=headers, data=payload)
     try:
         html = res.content.decode()
-        set_cookies(res)
+        # set_cookies(res)
         return html
     except Exception as e:
         print(res.text)
         print(f"获取html出错：{e},开始重试新的请求。。。。。。。")
         raise Exception("获取html出错")
+
+
+def get_user_info(param=""):
+    url = f"{source_url}/home.php?mod=spacecp&ac=credit&showcredit=1"
+    payload = {}
+    headers = {
+        'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+        'accept-language': 'zh-CN,zh;q=0.9,zh-HK;q=0.8,zh-TW;q=0.7',
+        'cache-control': 'max-age=0',
+        'cookie': cookie,
+        'user-agent': user_agent
+    }
+    response = requests.request("GET", url, headers=headers, data=payload)
+    # print(response.text)
+    user_info = {
+        "用户名": re.search(r'访问我的空间">(.*?)</a>', response.text).group(1),
+        "用户组": re.search(r'用户组: (.*?)</a>', response.text).group(1),
+        "金钱": re.search(r'金钱: </em>(.*?)  &nbsp;', response.text).group(1),
+        "积分": re.search(r'积分: </em>(.*?) </li>', response.text).group(1),
+    }
+    print(f"今日用户信息: {user_info}")
+    return user_info
 
 
 def get_commenteds():
@@ -151,7 +175,8 @@ def post_commit(tid, txt, form_hash):
 
 
 def run():
-    print(f"开始98评论主程序：{name}")
+    user_info = get_user_info()
+    print(f"开始98评论主程序：{user_info.get('用户名')}")
     # 获取评论过的文章
     id_list = get_commenteds()
     # 获取前10页的文章链接
@@ -172,11 +197,11 @@ def run():
 if __name__ == '__main__':
     if len(sys.argv) <= 1:
         name = "我真的很爱你"
-        cookie = "cPNj_2132_saltkey=BZ6j6Q05; cPNj_2132_lastvisit=1672651408; cPNj_2132_atarget=1; cPNj_2132_visitedfid=95; cPNj_2132_sendmail=1; cPNj_2132_lastfp=bc56b1f21fc3b458ea72f14c0f3faf3d; cPNj_2132_ulastactivity=1672655030%7C0; cPNj_2132_auth=d996lSaxnPze8qXzo12cKXhiA%2BD2S6WmZ%2FS8i8ocG8N6GwINi5bObGbiruq5v7jBsX5s982HHNrW9JSQsMsgng7AuHE; cPNj_2132_lastcheckfeed=438345%7C1672655030; cPNj_2132_lip=208.115.243.40%2C1672655030; cPNj_2132_sid=0; cPNj_2132_st_t=438345%7C1672655031%7Caa33adfd508388d901700d97ff3d285d; cPNj_2132_forum_lastvisit=D_95_1672655031; cPNj_2132_smile=1D1; cPNj_2132_lastact=1672655062%09forum.php%09ajax; cPNj_2132_forum_lastvisit=D_95_1672655172; cPNj_2132_lastact=1672655172%09forum.php%09forumdisplay; cPNj_2132_sid=0; cPNj_2132_st_t=438345%7C1672655172%7Ce4afc1d6c40947fb0a6aa820a1431905"
-        user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+        cookie = "cPNj_2132_saltkey=r9fMr1et;cPNj_2132_lastvisit=1672979843;cPNj_2132__refer=%252Fhome.php%253Fmod%253Dspacecp%2526ac%253Dinvite;cPNj_2132_lastfp=66abe79b56fe4d1db0defa055279da8b;cPNj_2132_sendmail=1;cPNj_2132_ulastactivity=1672983458%7C0;cPNj_2132_auth=43873yPqTgtEoPyWDNJ%2Fgd86pFxYXj45LvXi3QquKWYazTni4wpzUO7%2FrGaeEvlWwd6X0qnpxJ8APJxY2iyaTVlfScA;cPNj_2132_lastcheckfeed=438758%7C1672983458;cPNj_2132_checkfollow=1;cPNj_2132_lip=116.236.218.154%2C1672983458;cPNj_2132_sid=0;cPNj_2132_checkpm=1;cPNj_2132_home_diymode=1;cPNj_2132_lastact=1672983482%09misc.php%09patch"
+        user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
     else:
         name = sys.argv[1]
         cookie = sys.argv[2]
         user_agent = sys.argv[3]
-    source_url = "https://zxfdsfdsf.online"
+    source_url = "https://zcdsade.cfd"
     run()
