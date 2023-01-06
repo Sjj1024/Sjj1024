@@ -24,5 +24,5 @@ jobs:
     - name: StartCommit
       run: |
         # stop the build if there are Python syntax errors or undefined names
-        python src/tasks/auto_tangtang.py "我要舔你" "cPNj_2132_saltkey=AB9A1L1t;cPNj_2132_lastvisit=1672978463;cPNj_2132_lastfp=a28e211d9fb024578c8687f2a6b7416c;cPNj_2132_ulastactivity=1672982576%7C0;cPNj_2132_auth=5e66eMX2kr9jWx6U58Wj7NN%2BUn8LoHmJSKxQjlCCZeG7Q4AKiyWEdZM%2B2mlp9sZLYVp0GgP5giYiJqdL9cy%2F8EFlONw;cPNj_2132_sid=0;cPNj_2132_home_diymode=1;cPNj_2132_sendmail=1;cPNj_2132_noticeTitle=1;cPNj_2132_lastact=1672982590%09plugin.php%09;PHPSESSID=gmkogb4oljmtbecgvdqr466ps0" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.54"
+        python src/tasks/auto_tangtang.py "一个小书生" "cPNj_2132_saltkey=AB9A1L1t;cPNj_2132_lastvisit=1672978463;cPNj_2132_lastfp=a28e211d9fb024578c8687f2a6b7416c;cPNj_2132_ulastactivity=1672982576%7C0;cPNj_2132_auth=5e66eMX2kr9jWx6U58Wj7NN%2BUn8LoHmJSKxQjlCCZeG7Q4AKiyWEdZM%2B2mlp9sZLYVp0GgP5giYiJqdL9cy%2F8EFlONw;cPNj_2132_sid=0;cPNj_2132_home_diymode=1;cPNj_2132_sendmail=1;cPNj_2132_noticeTitle=1;cPNj_2132_lastact=1672982590%09plugin.php%09;PHPSESSID=gmkogb4oljmtbecgvdqr466ps0" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.54"
     
