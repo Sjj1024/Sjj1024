@@ -38,7 +38,7 @@ def main():
         sign_msg = sign(cookie=val)
         print(f"52破解签到:{sign_msg}")
         msg_list.append(sign_msg)
-    common.common_msg["52破解"] = f"签到:{msg_list}"
+    common.common_msg["52破解"] = msg_list
 
 
 main()

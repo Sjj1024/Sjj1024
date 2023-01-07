@@ -2,7 +2,7 @@ import datetime
 import os
 import json
 import src.common.index as common
-from src.utils.sendMsg.sendWx import send_email
+from src.utils.sendMsg.sendWx import send_email, send_html_email
 
 
 def load_conf():
@@ -61,7 +61,8 @@ def run():
         if app.endswith(".py"):
             load_model(app)
     print(f"定时签到结果：{common.common_msg}")
-    send_email(f"定时签到{datetime.datetime.now()}", common.common_msg)
+    # send_email(f"定时签到{datetime.datetime.now()}", common.common_msg)
+    send_html_email(f"定时签到{datetime.datetime.now()}", common.common_msg)
 
 
 if __name__ == '__main__':

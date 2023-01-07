@@ -38,7 +38,7 @@ def main():
     for (key, val) in some_one.items():
         msg = get_ssr(key, val)
         msg_list.append(msg)
-    common.common_msg["V2FREE"] = f"签到:{msg_list}"
+    common.common_msg["V2FREE"] = msg_list
 
 
 if __name__ == '__main__':

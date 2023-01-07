@@ -113,7 +113,7 @@ def run():
         if res_flag:
             msg = get_user_info(params)
             msg_list.append(msg)
-    common.common_msg["98Tang"] = f"签到:{msg_list}"
+    common.common_msg["98Tang"] = msg_list
 
 
 source_url = "https://zxfdsfdsf.online"

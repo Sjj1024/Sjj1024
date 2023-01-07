@@ -20,7 +20,7 @@ def main():
         elif push and push == "email":
             send_email("哔哩哔哩签到", res, email)
     if together:
-        common.common_msg["bilibili"] = msg_list
+        common.common_msg["哔哩哔哩"] = msg_list
 
 
 main()
