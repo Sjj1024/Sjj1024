@@ -1,0 +1,28 @@
+name: Commit忍不住尝
+
+on:
+  schedule:
+      - cron: '0 */2 * * *'
+  # 手动触发一个工作流
+  workflow_dispatch:
+    inputs:
+      tags:
+        description: 'Test scenario tags'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: StartCommit
+      run: |
+        # stop the build if there are Python syntax errors or undefined names
+        python src/tasks/auto_commit.py "忍不住尝" "227c9_ck_info=%2F%09;227c9_groupid=8;227c9_lastvisit=0%091673152331%09%2Flogin.php%3F;227c9_winduser=VAsCUFRXMFJRAgVcCARfAgoHUwgFVwUDDQUFAA8KCAtQVAEHBFlXaA%3D%3D;" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+    
