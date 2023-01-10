@@ -109,6 +109,7 @@ def run():
     msg_list = []
     for (key, val) in some_one.items():
         params = get_suanshu(val)
+        msg = get_user_info(params)
         res_flag = start_sign(params)
         if res_flag:
             msg = get_user_info(params)

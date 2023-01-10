@@ -1,20 +1,26 @@
-import os
-import sys
-import time
+from flask import Flask
+from flask import request
+import logging
+
+app = Flask(__name__)
+app.logger.setLevel(logging.DEBUG)
 
 
-def test1():
-    print("HEELO WORLD")
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    return '欢迎来到我的主页'
+
+
+@app.route('/receive', methods=['GET', 'POST'])
+def receive():
+    print(f"receive-----{request.data}")
+    # if request.method == 'POST':
+    #     data = request.form
+    #     print("-----")
+    #     print(data)
+    #     return 'success!'
+    return 'success!'
 
 
 if __name__ == '__main__':
-    test1()
-    time.sleep(3)
-    print('程序重启...')
-    # 获取当前解释器路径
-    p = sys.executable
-    # 启动新程序(解释器路径, 当前程序)
-    os.execl(p, p, *sys.argv)
-    # 关闭当前程序
-    sys.exit()
-
+    app.run(port=8888)
