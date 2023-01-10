@@ -1,6 +1,9 @@
 import datetime
 import os
 import json
+
+import requests
+
 import src.common.index as common
 from src.utils.sendMsg.sendWx import send_email, send_html_email
 
@@ -51,6 +54,12 @@ def recursive_dir(path, f, file_list):
                 recursive_dir("/".join(newDir.split("/")[0:-1]), newDir.split("/")[-1], file_list)  # 如果不是文件，递归这个文件夹的路径
 
 
+def get_my_ip():
+    res = requests.get('http://myip.ipip.net', timeout=5).text
+    print(res)
+    return res
+
+
 def run():
     print("当前时间是", datetime.datetime.now())
     load_conf()
@@ -61,7 +70,7 @@ def run():
         if app.endswith(".py"):
             load_model(app)
     print(f"定时签到结果：{common.common_msg}")
-    # send_email(f"定时签到{datetime.datetime.now()}", common.common_msg)
+    common.common_msg["服务IP"] = get_my_ip()
     send_html_email(f"定时签到{datetime.datetime.now()}", common.common_msg)
 
 

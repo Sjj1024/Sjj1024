@@ -351,7 +351,13 @@ class AutoCommit:
                 print(e)
 
 
+def get_my_ip():
+    res = requests.get('http://myip.ipip.net', timeout=5).text
+    print(res)
+
+
 def one_commit():
+    get_my_ip()
     print("当前时间是", datetime.datetime.now())
     print("正在运行的脚本名称: '{}'".format(sys.argv[0]))
     print("脚本的参数数量: '{}'".format(len(sys.argv)))
