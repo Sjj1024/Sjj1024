@@ -19,10 +19,16 @@ def send_html_email(title, json: dict, email="648133599@qq.com"):
     # 邮件内容设置
     content = ""
     for (key, val) in json.items():
-        content += f"""
-        <p>{key}</p>
-        <p style="color: red;">{"<br>".join([str(i) for i in val])}</p>
-        """
+        if isinstance(val, dict) or isinstance(val, list):
+            content += f"""
+                        <p>{key}</p>
+                        <p style="color: red;">{"<br>".join([str(i) for i in val])}</p>
+                        """
+        else:
+            content += f"""
+                        <p>{key}</p>
+                        <p style="color: red;">{val}</p>
+                        """
     message = MIMEText(content, _subtype="html", _charset="utf-8")
     # 邮件主题
     message['Subject'] = title
