@@ -353,8 +353,10 @@ class AutoCommit:
                     return
                 else:
                     self.send_email(f"{self.user_name}评论异常", res)
+                    return
             except Exception as e:
                 print(e)
+                self.send_email(f"{self.user_name}评论异常", e)
 
 
 def get_my_ip():
