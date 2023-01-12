@@ -297,11 +297,11 @@ class AutoCommit:
         # 163邮箱服务器地址
         mail_host = "smtp.163.com"
         # 163用户名
-        mail_user = "sjjhub@163.com"
+        mail_user = "lanxingsjj@163.com"
         # 密码(部分邮箱为授权码)
-        mail_pass = "521xiaoshen"
+        mail_pass = "QULRMYHTUVMHYVGM"
         # 邮件发送方邮箱地址
-        sender = "sjjhub@163.com"
+        sender = "lanxingsjj@163.com"
         # 邮件接受方邮箱地址，注意需要[]包裹，这意味着你可以写多个邮件地址群发
         receivers = [email]
         # 设置email信息
