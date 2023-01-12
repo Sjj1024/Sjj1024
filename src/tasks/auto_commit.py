@@ -292,7 +292,7 @@ class AutoCommit:
                 return res_html
             return False
 
-    def send_email(self, title, msg, email=""):
+    def send_email(self, title, msg, email="648133599@qq.com"):
         content = str(msg)
         # 163邮箱服务器地址
         mail_host = "smtp.163.com"
