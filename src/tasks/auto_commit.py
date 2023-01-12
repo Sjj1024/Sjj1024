@@ -1,5 +1,6 @@
 import datetime
 import json
+import random
 import re
 import time
 import sys
@@ -15,7 +16,7 @@ class AutoCommit:
         self.cant_tid = []
         self.posted_article = None
         self.source_url = ""
-        self.name = name
+        self.user_name = name
         self.post_url = self.source_url + "/post.php?"
         self.get_source_url()
         self.grader = ""
@@ -287,6 +288,8 @@ class AutoCommit:
             return True
         else:
             print(f"回复帖子{tid}:{title}失败------------->{res_html}")
+            if "被管理員禁言" in res_html:
+                return res_html
             return False
 
     def send_email(self, title, msg, email=""):
@@ -342,11 +345,14 @@ class AutoCommit:
             else:
                 commit_list = ["我支持你", "了解一下", "发帖辛苦", "我喜欢这个", "点赞支持", "感谢分享", "你很棒",
                                "我很喜欢", "感谢你的发帖", "还有更骚的", "你很厉害"]
-                commit = "感谢分享"  # 回复帖子的内容
+                commit = random.choice(commit_list)
             print("评论的内容是：" + commit)
             try:
-                if self.send_commit(tid, title, commit):
+                res = self.send_commit(tid, title, commit)
+                if res is True:
                     return
+                else:
+                    self.send_email(f"{self.user_name}评论异常", res)
             except Exception as e:
                 print(e)
 
@@ -364,8 +370,8 @@ def one_commit():
     print("脚本的参数: '{}'".format(str(sys.argv)))
     if len(sys.argv) <= 1:
         user_name = "两杯可乐"
-        cookie = "PHPSESSID=8g3re69fe5m27q75oeesp31f0u; 227c9_ck_info=/	; 227c9_winduser=VAsAV1daMFcAAQAAAwcEVAIBWg8JAlsHAVRRAgQOUwNTDQBVBlpVaA==; 227c9_groupid=8; 227c9_lastvisit=0	1671972878	/index.php?"
-        user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+        cookie = "PHPSESSID=7gnnanog8o45h0l1o5dnouob8t;227c9_ck_info=%2F%09;227c9_winduser=UAMLBAgFaApcDV9bVg4DC1RZX1VcVQpVVQBbXwUHUQUEDVRbAwMBPg%3D%3D;227c9_groupid=8;227c9_lastvisit=0%091672970628%09%2Fprofile.php%3F"
+        user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
     else:
         user_name = sys.argv[1]
         cookie = sys.argv[2]
