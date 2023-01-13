@@ -191,7 +191,7 @@ class AutoCommit:
         url = self.source_url + "/index.php"
         soup = self.get_soup(url)
         if "請輸入用戶名" in soup.decode():
-            return self.send_email(f"{self.user_name} :评论异常,Cookie失效", soup.decode())
+            self.send_email(f"{self.user_name} :评论异常,Cookie失效", soup.decode())
         gread_span = soup.select("body")[0].get_text()  # 如果没有找到，返回None
         self.user_name = re.search(r'\t(.*?) 退出', gread_span).group(1)
         self.grader = re.search(r'您的等級: (.*?) ', gread_span).group(1)
@@ -374,7 +374,7 @@ def one_commit():
     print("脚本的参数: '{}'".format(str(sys.argv)))
     if len(sys.argv) <= 1:
         user_name = "两杯可乐"
-        cookie = "227c9_ck_info=%2F%09;227c9_groupid=8;227c9_lastvisit=0%091673591294%09%2Flogin.php%3F;227c9_winduser=VAgBWFZRMAZUAAMOBQMABQsFWlwCUlcBDlMMDVAIUQFVBAADVQtQaA%3D%3D;PHPSESSID=1g5nqmcqjvoqusj2or8jnql745;"
+        cookie = "PHPSESSID=rfbtkc0f0v6s8chku4hflmcv7h;227c9_ck_info=%2F%09;227c9_winduser=UAAJDgwAaAsOXwdVVAJUDFRaBQRYVg0CAlZdC1FRAQ4CDwcMUgNYPg%3D%3D;227c9_groupid=8;227c9_lastvisit=0%091673614803%09%2Fprofile.php%3F"
         user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
     else:
         user_name = sys.argv[1]
