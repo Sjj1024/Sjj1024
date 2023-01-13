@@ -191,6 +191,7 @@ class AutoCommit:
         url = self.source_url + "/index.php"
         soup = self.get_soup(url)
         if "請輸入用戶名" in soup.decode():
+            print(f"没有获取到用户名等信息:{soup.decode()}")
             self.send_email(f"{self.user_name} :评论异常,Cookie失效", soup.decode())
         gread_span = soup.select("body")[0].get_text()  # 如果没有找到，返回None
         self.user_name = re.search(r'\t(.*?) 退出', gread_span).group(1)
@@ -332,6 +333,7 @@ class AutoCommit:
     # 执行主程序
     def run(self):
         print("评论程序开始运行")
+        self.grader = self.get_grade()
         self.posted_article = self.get_commiteds()
         self.posted_article.update(self.get_posted_tids())
         jishu_article = self.get_titles()
@@ -341,7 +343,6 @@ class AutoCommit:
             if tid in self.cant_tid or any([True for t in self.cant_title if t in title]):
                 print(f"遇到了不可以回复的文章{title} : {tid}")
                 continue
-            self.grader = self.get_grade()
             if self.grader == "新手上路":
                 commit = "1024"  # 回复帖子的内容
             else:
@@ -374,7 +375,8 @@ def one_commit():
     print("脚本的参数: '{}'".format(str(sys.argv)))
     if len(sys.argv) <= 1:
         user_name = "两杯可乐"
-        cookie = "PHPSESSID=rfbtkc0f0v6s8chku4hflmcv7h;227c9_ck_info=%2F%09;227c9_winduser=UAAJDgwAaAsOXwdVVAJUDFRaBQRYVg0CAlZdC1FRAQ4CDwcMUgNYPg%3D%3D;227c9_groupid=8;227c9_lastvisit=0%091673614803%09%2Fprofile.php%3F"
+        # cookie = "PHPSESSID=rfbtkc0f0v6s8chku4hflmcv7h;227c9_ck_info=%2F%09;227c9_winduser=UAAJDgwAaAsOXwdVVAJUDFRaBQRYVg0CAlZdC1FRAQ4CDwcMUgNYPg%3D%3D;227c9_groupid=8;227c9_lastvisit=0%091673614803%09%2Fprofile.php%3F"
+        cookie = '227c9_ck_info=%2F%09;227c9_groupid=8;227c9_lastvisit=0%091673615325%09%2Flogin.php%3F;227c9_winduser=VAgBWFZRMAZUAAMOBQMABQsFWlwCUlcBDlMMDVAIUQFVBAADVQtQaA%3D%3D;PHPSESSID=hh5nrgiqa9so9ov3k9e79k3fc1;'
         user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
     else:
         user_name = sys.argv[1]
