@@ -190,7 +190,7 @@ class AutoCommit:
         # 获取下一页的链接, 有就返回，没有就返回false
         url = self.source_url + "/index.php"
         soup = self.get_soup(url)
-        if "登陆" in soup.decode():
+        if "請輸入用戶名" in soup.decode():
             return self.send_email(f"{self.user_name} :评论异常,Cookie失效", soup.decode())
         gread_span = soup.select("body")[0].get_text()  # 如果没有找到，返回None
         self.user_name = re.search(r'\t(.*?) 退出', gread_span).group(1)
