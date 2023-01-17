@@ -90,7 +90,7 @@ class TangTang(object):
         return params
 
     def get_web_suan_shu(self):
-        id_hash = "qSAXuI0"
+        id_hash = "qSAUcj0"
         url = f"{self.source_url}/misc.php?mod=secqaa&action=update&idhash={id_hash}&0.4640535681735929"
         payload = {}
         headers = {
@@ -130,8 +130,41 @@ class TangTang(object):
         self.set_cookies(response)
         print(response.text)
 
-    def start_iphone_sign(self, params):
+    def get_suanshu(self):
+        print(f"获取算术内容")
+        url = f"{source_url}/plugin.php?id=dd_sign&mod=sign&mobile=2"
+        payload = {}
+        headers = {
+            'authority': 'zxfdsfdsf.online',
+            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+            'accept-language': 'zh-CN,zh;q=0.9,zh-HK;q=0.8,zh-TW;q=0.7',
+            'cookie': self.cookie,
+            'referer': f'{source_url}/plugin.php?id=dd_sign:index&mobile=2',
+            'upgrade-insecure-requests': '1',
+            'user-agent': "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1"
+        }
+        response = requests.request("GET", url, headers=headers, data=payload)
+        cookie = self.set_cookies(response)
+        suanshu = re.search(r'输入下面问题的答案<br />(.*?) = \?</span>', response.text).group(1)
+        res = self.exec_jisuan(suanshu)
+        params = {
+            "id": "dd_sign",
+            "mod": "sign",
+            "signsubmit": "yes",
+            "signhash": "",
+            "handlekey": "signform_",
+            "inajax": "1",
+            "formhash": re.search(r'formhash" value="(.*?)" />', response.text).group(1),
+            "signtoken": re.search(r'name="signtoken" value="(.*?)" />', response.text).group(1),
+            "secqaahash": re.search(r'secqaahash" type="hidden" value="(.*?)" />', response.text).group(1),
+            "secanswer": res,
+            "cookie": cookie
+        }
+        return params
+
+    def start_iphone_sign(self):
         print("开始签到")
+        params = self.get_suanshu()
         url = f"{self.source_url}/plugin.php?id=dd_sign&mod=sign&signsubmit=yes&signhash=&handlekey=signform_&inajax=1"
         payload = f"formhash={params.get('formhash')}&signtoken={params.get('signtoken')}&secqaahash={params.get('secqaahash')}&secanswer={params.get('secanswer')}"
         headers = {
@@ -139,8 +172,13 @@ class TangTang(object):
             'accept': 'application/xml, text/xml, */*; q=0.01',
             'accept-language': 'zh-CN,zh;q=0.9,zh-HK;q=0.8,zh-TW;q=0.7',
             'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-            'cookie': self.cookie,
-            'user-agent': self.user_agent,
+            'cookie': params.get("cookie"),
+            'origin': f'{self.source_url}',
+            'referer': f'{self.source_url}/plugin.php?id=dd_sign&mod=sign&mobile=2',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-origin',
+            'user-agent': "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1",
             'x-requested-with': 'XMLHttpRequest'
         }
         response = requests.request("POST", url, headers=headers, data=payload)
@@ -177,15 +215,18 @@ class TangTang(object):
         }
         response = requests.request("GET", url, headers=headers, data=payload)
         # print(response.text)
-        if "今日已签到" in response.text:
+        if "今日未签到，点击签到" in response.text:
             # print(f"{self.user_name} : 今日已签到")
-            return f"{self.user_name} : 今日已签到"
+            return "今日未签到，点击签到"
         elif "您尚未登录" in response.text:
             print("您尚未登录")
             return response.text
+        elif "今日已签到" in response.text:
+            # print("今日已签到")
+            return "今日已签到"
         else:
             print(f"没有检测到已签到：{response.text}")
-            return response.text
+            return "没有签到"
 
     def start_web_sign(self):
         print(f"开始web端签到...")
@@ -213,6 +254,8 @@ class TangTang(object):
         # print(response.text)
         if "succeed" in response.text:
             print(f"签到成功")
+        else:
+            print(f"签到异常:{response.text}")
 
     def send_email(self, title, msg, email="648133599@qq.com"):
         content = str(msg)
@@ -394,10 +437,11 @@ def run():
     tang.cookie = cookie
     tang.user_agent = user_agent
     tang.get_user_info()
-    tang.start_commit_one()
+    # tang.start_commit_one()
     qiandao = tang.has_signed()
-    if qiandao == "没有签到":
-        tang.start_web_sign()
+    if qiandao == "今日未签到，点击签到":
+        # tang.start_web_sign()
+        tang.start_iphone_sign()
     elif "今日已签到" in qiandao:
         print(qiandao)
     else:
@@ -406,8 +450,8 @@ def run():
 
 if __name__ == '__main__':
     if len(sys.argv) <= 1:
-        name = "我真的很爱你"
-        cookie = "cPNj_2132_saltkey=AVb50B3V; cPNj_2132_lastvisit=1673912617; PHPSESSID=fkljphjg5dqlnueq9bicburahd; cPNj_2132_lastfp=66abe79b56fe4d1db0defa055279da8b; cPNj_2132_auth=b1dcw%2Bde9r7%2FiLGc2UWrQTpy1MORKEcrQh%2Basf1aYg9cH9M4V%2FwObEpvP3m7lwL4ChsRmClZfDX7UOkakIcVd6RNFkk; cPNj_2132_lastcheckfeed=415015%7C1673916222; cPNj_2132_lip=123.5.163.159%2C1673916222; cPNj_2132_sid=0; cPNj_2132_ulastactivity=1673919440%7C0; cPNj_2132_sendmail=1; cPNj_2132_checkpm=1; cPNj_2132_lastact=1673919442%09misc.php%09patch"
+        name = "LCJ1275"
+        cookie = "cPNj_2132_saltkey=pRGuETKZ; cPNj_2132_lastvisit=1673947874; cPNj_2132_lastfp=ff63697e01d406ee4e4f20a439084855; cPNj_2132_ulastactivity=1673951520%7C0; cPNj_2132_auth=d9f28KJ95Omo%2BEJQ38UJPM%2BAmd2mMmABXyKdsu10mfEjnuPqnknFCgadBlDel4wvNbbjeQT5QNLGvDxWpGXtoUeRmLU; cPNj_2132_lastcheckfeed=422246%7C1673951520; cPNj_2132_sid=0; cPNj_2132_nofavfid=1; cPNj_2132_sendmail=1; PHPSESSID=qk7vnd0dr5ldpf1439srof848r; cPNj_2132_lastact=1673951855%09index.php%09"
         user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
     else:
         name = sys.argv[1]
