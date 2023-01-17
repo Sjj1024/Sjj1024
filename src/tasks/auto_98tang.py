@@ -1,5 +1,6 @@
 import random
 import re
+import sys
 from urllib import parse
 import requests
 from src.tasks.base_obj import BaseMessage
@@ -351,16 +352,11 @@ class TangTang(BaseMessage):
 
 
 def run():
-    print("签到")
     tang = TangTang()
-    tang.source_url = "https://zxfdsfdsf.online"
-    # web端
-    # tang.cookie = "cPNj_2132_saltkey=ib5H0TWT; cPNj_2132_lastvisit=1673857218; cPNj_2132_lastfp=66abe79b56fe4d1db0defa055279da8b; cPNj_2132_sendmail=1; cPNj_2132_ulastactivity=1673860855%7C0; cPNj_2132_auth=34a5O6Teoz26HN4VGmyXA4uZ%2BGxVkXuP9p4BxesxPPbGSrSmBK7jYE5bLAMoZYz%2FoBar0MIdXNIFgXXO5e3SwBzXJ1Q; cPNj_2132_lastcheckfeed=417586%7C1673860855; cPNj_2132_lip=123.5.163.159%2C1673860855; cPNj_2132_sid=0; cPNj_2132_lastact=1673860870%09home.php%09spacecp"
-    tang.cookie = "cPNj_2132_saltkey=ib5H0TWT; cPNj_2132_lastvisit=1673857218; cPNj_2132_lastfp=66abe79b56fe4d1db0defa055279da8b; cPNj_2132_auth=34a5O6Teoz26HN4VGmyXA4uZ%2BGxVkXuP9p4BxesxPPbGSrSmBK7jYE5bLAMoZYz%2FoBar0MIdXNIFgXXO5e3SwBzXJ1Q; cPNj_2132_lastcheckfeed=417586%7C1673860855; cPNj_2132_lip=123.5.163.159%2C1673860855; cPNj_2132_sid=0; cPNj_2132_ulastactivity=1673864110%7C0; cPNj_2132_sendmail=1; cPNj_2132_lastact=1673864111%09home.php%09spacecp; cPNj_2132_checkpm=1"
-    tang.user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
-    # 手机端
-    # tang.cookie = "cPNj_2132_saltkey=hxX55J5a; cPNj_2132_lastvisit=1672828669; cPNj_2132_lastfp=ca2c26c95a40ea67064e19fe01c0d6f2; cPNj_2132_hide_show=true; cPNj_2132_ulastactivity=1672832277%7C0; cPNj_2132_auth=ebee2aeAXGN1Udu4ehZWA%2FHlmYn0diMDOpYzhLsnAYR7FB929oOqy9FJI9cyFroAcNnBzLjYAuj2K30dSDQ2kyPp90E; cPNj_2132_lastcheckfeed=438345%7C1672832277; cPNj_2132_lip=101.86.157.94%2C1672832277; cPNj_2132_sid=0; cPNj_2132_home_diymode=1; cPNj_2132_lastact=1672832295%09home.php%09space"
-    # tang.user_agent = "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1"
+    tang.source_url = source_url
+    tang.user_name = name
+    tang.cookie = cookie
+    tang.user_agent = user_agent
     tang.get_user_info()
     tang.start_commit_one()
     qiandao = tang.has_signed()
@@ -373,4 +369,13 @@ def run():
 
 
 if __name__ == '__main__':
+    if len(sys.argv) <= 1:
+        name = "我真的很爱你"
+        cookie = "cPNj_2132_saltkey=AVb50B3V; cPNj_2132_lastvisit=1673912617; PHPSESSID=fkljphjg5dqlnueq9bicburahd; cPNj_2132_lastfp=66abe79b56fe4d1db0defa055279da8b; cPNj_2132_auth=b1dcw%2Bde9r7%2FiLGc2UWrQTpy1MORKEcrQh%2Basf1aYg9cH9M4V%2FwObEpvP3m7lwL4ChsRmClZfDX7UOkakIcVd6RNFkk; cPNj_2132_lastcheckfeed=415015%7C1673916222; cPNj_2132_lip=123.5.163.159%2C1673916222; cPNj_2132_sid=0; cPNj_2132_ulastactivity=1673919440%7C0; cPNj_2132_sendmail=1; cPNj_2132_checkpm=1; cPNj_2132_lastact=1673919442%09misc.php%09patch"
+        user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+    else:
+        name = sys.argv[1]
+        cookie = sys.argv[2]
+        user_agent = sys.argv[3]
+    source_url = "https://zxfdsfdsf.online"
     run()
