@@ -437,7 +437,7 @@ def run():
     tang.cookie = cookie
     tang.user_agent = user_agent
     tang.get_user_info()
-    # tang.start_commit_one()
+    tang.start_commit_one()
     qiandao = tang.has_signed()
     if qiandao == "今日未签到，点击签到":
         # tang.start_web_sign()
