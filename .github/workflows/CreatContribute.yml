@@ -2,7 +2,7 @@ name: ContributeSjj
 
 on:
   schedule:
-      - cron: '*/30 * * * *'
+      - cron: '*/40 * * * *'
   # 手动触发一个工作流
   workflow_dispatch:
     inputs:
