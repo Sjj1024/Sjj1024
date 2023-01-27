@@ -43,8 +43,8 @@ def get_file_sha():
 def run():
     print("创造贡献...")
     # 产生一个随机数，然后判断是否发送请求
-    num = random.randint(0, 10)
-    if num > 3:
+    num = random.randint(0, 100)
+    if num > 70:
         print("开始发送请求")
         update_file()
 
