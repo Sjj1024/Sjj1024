@@ -65,13 +65,13 @@ def run():
     print("当前时间是", current_time)
     if current_hour < 10:
         content = f"上班打卡了，亲爱的宝子们~，当前时间:{current_time}"
-        work_on_remind(url, content)
+        # work_on_remind(url, content)
     elif current_hour < 12:
         content = f"快点外卖吧，吃的胖胖的才有劲干活啊，亲爱的宝~, 当前时间:{current_time}"
-        pay_lunch_remind(url, content)
+        # pay_lunch_remind(url, content)
     elif current_hour < 19:
         content = f"别干了，快下班打卡吧！总是忘记打卡的人，是不是你？！！！,当前时间:{current_time}"
-        work_off_remind(url, content)
+        # work_off_remind(url, content)
 
 
 if __name__ == '__main__':
