@@ -75,7 +75,7 @@ def run():
     elif (current_hour == 11) and (0 <= current_minute <= 10):
         content = f"快点外卖吧，吃的胖胖的才有劲干活啊，亲爱的宝~, 当前时间:{current_time}"
         pay_lunch_remind(url, content)
-    elif (current_hour == 18) and (30 <= current_minute <= 39):
+    elif (current_hour == 18) and (20 <= current_minute <= 29):
         content = f"别干了，快下班打卡吧！总是忘记打卡的人，是不是你？！！！,当前时间:{current_time}"
         work_off_remind(url, content)
     else:
