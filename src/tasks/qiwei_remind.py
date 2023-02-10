@@ -61,17 +61,25 @@ def work_off_remind(url, content):
 def run():
     url = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=89c9eedd-31db-4e36-bbb3-6176ed9b4395"
     current_time = datetime.datetime.now()
-    current_hour = datetime.datetime.now().hour
-    print("当前时间是", current_time)
-    if current_hour < 10:
+    current_year = datetime.datetime.now().year
+    current_month = datetime.datetime.now().month
+    current_day = datetime.datetime.now().day
+    current_hour = datetime.datetime.now().hour + 8
+    current_minute = datetime.datetime.now().minute
+    current_second = datetime.datetime.now().second
+    current_time = f"{current_hour}点{current_minute}分{current_second}秒"
+    print("当前时间是：", current_time)
+    if (current_hour == 9) and (50 <= current_minute <= 59):
         content = f"上班打卡了，亲爱的宝子们~，当前时间:{current_time}"
-        # work_on_remind(url, content)
-    elif current_hour < 12:
+        work_on_remind(url, content)
+    elif (current_hour == 11) and (0 <= current_minute <= 10):
         content = f"快点外卖吧，吃的胖胖的才有劲干活啊，亲爱的宝~, 当前时间:{current_time}"
-        # pay_lunch_remind(url, content)
-    elif current_hour < 19:
+        pay_lunch_remind(url, content)
+    elif (current_hour == 18) and (30 <= current_minute <= 39):
         content = f"别干了，快下班打卡吧！总是忘记打卡的人，是不是你？！！！,当前时间:{current_time}"
-        # work_off_remind(url, content)
+        work_off_remind(url, content)
+    else:
+        print("不用发送打卡内容")
 
 
 if __name__ == '__main__':
