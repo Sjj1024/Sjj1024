@@ -1,4 +1,4 @@
-name: TestInternet
+name: QiWeiReMind
 
 on:
   schedule:
