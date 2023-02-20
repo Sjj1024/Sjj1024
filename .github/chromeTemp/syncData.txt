@@ -1,1 +1,1 @@
-{"data":"https://www.cnblogs.com/baizhouzhou/p/15271919.html","data2":"https://blog.csdn.net/MRlaochen/article/details/120284076","data1":"对象的函数btoa和atob"}
+{"data":"https://www.cnblogs.com/baizhouzhou/p/15271919.html","data2":"https://blog.csdn.net/MRlaochen/article/details/120284076","data1":"å¯¹è±¡çå½æ°btoaåatob","data3":"原因是加密的的字符串中有特殊字符那些，所以得先使用encodeURIComponent编码再加密。"}
