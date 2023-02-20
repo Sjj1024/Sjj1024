@@ -1,1 +1,1 @@
-{"data":"https://www.cnblogs.com/baizhouzhou/p/15271919.html","data2":"https://blog.csdn.net/MRlaochen/article/details/120284076","data1":"2323232323"}
+{"data":"https://www.cnblogs.com/baizhouzhou/p/15271919.html","data2":"https://blog.csdn.net/MRlaochen/article/details/120284076","data1":"对象的函数btoa和atob"}
