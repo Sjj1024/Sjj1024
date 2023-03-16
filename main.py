@@ -1,9 +1,7 @@
 import datetime
 import os
 import json
-
 import requests
-
 import src.common.index as common
 from src.utils.sendMsg.sendWx import send_email, send_html_email
 

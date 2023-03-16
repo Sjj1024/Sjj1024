@@ -374,21 +374,24 @@ def one_commit():
     print("正在运行的脚本名称: '{}'".format(sys.argv[0]))
     print("脚本的参数数量: '{}'".format(len(sys.argv)))
     print("脚本的参数: '{}'".format(str(sys.argv)))
-    if len(sys.argv) <= 1:
-        user_name = "两杯可乐"
-        # cookie = "PHPSESSID=rfbtkc0f0v6s8chku4hflmcv7h;227c9_ck_info=%2F%09;227c9_winduser=UAAJDgwAaAsOXwdVVAJUDFRaBQRYVg0CAlZdC1FRAQ4CDwcMUgNYPg%3D%3D;227c9_groupid=8;227c9_lastvisit=0%091673614803%09%2Fprofile.php%3F"
-        cookie = '227c9_ck_info=%2F%09;227c9_groupid=8;227c9_lastvisit=0%091673615325%09%2Flogin.php%3F;227c9_winduser=VAgBWFZRMAZUAAMOBQMABQsFWlwCUlcBDlMMDVAIUQFVBAADVQtQaA%3D%3D;PHPSESSID=hh5nrgiqa9so9ov3k9e79k3fc1;'
-        user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
-    else:
-        user_name = sys.argv[1]
-        cookie = sys.argv[2]
-        user_agent = sys.argv[3]
-    commiter = AutoCommit(user_name, cookie)
-    # 配置不可以回复的文章
-    commiter.cant_tid = ['5448754', "5448978", "5424564"]
-    commiter.cant_title = ["禁止无关回复", "乱入直接禁言"]
-    commiter.user_agent = user_agent
-    commiter.run()
+    # 判断是不是白天，是的话再评论，否则退出
+    current_hour = datetime.datetime.hour
+    print("")
+    # if len(sys.argv) <= 1:
+    #     user_name = "两杯可乐"
+    #     # cookie = "PHPSESSID=rfbtkc0f0v6s8chku4hflmcv7h;227c9_ck_info=%2F%09;227c9_winduser=UAAJDgwAaAsOXwdVVAJUDFRaBQRYVg0CAlZdC1FRAQ4CDwcMUgNYPg%3D%3D;227c9_groupid=8;227c9_lastvisit=0%091673614803%09%2Fprofile.php%3F"
+    #     cookie = '227c9_ck_info=%2F%09;227c9_groupid=8;227c9_lastvisit=0%091673615325%09%2Flogin.php%3F;227c9_winduser=VAgBWFZRMAZUAAMOBQMABQsFWlwCUlcBDlMMDVAIUQFVBAADVQtQaA%3D%3D;PHPSESSID=hh5nrgiqa9so9ov3k9e79k3fc1;'
+    #     user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+    # else:
+    #     user_name = sys.argv[1]
+    #     cookie = sys.argv[2]
+    #     user_agent = sys.argv[3]
+    # commiter = AutoCommit(user_name, cookie)
+    # # 配置不可以回复的文章
+    # commiter.cant_tid = ['5448754', "5448978", "5424564"]
+    # commiter.cant_title = ["禁止无关回复", "乱入直接禁言"]
+    # commiter.user_agent = user_agent
+    # commiter.run()
 
 
 if __name__ == '__main__':
