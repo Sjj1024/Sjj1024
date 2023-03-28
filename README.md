@@ -1,6 +1,5 @@
 想我了？ 请star我  
-这是一个普普通通的仓库，感谢github  
-个人网站地址：[www.1024shen.com](https://1024shen.com/)
+这是一个普普通通的仓库，感谢github
 
 先安装依赖吧:   
 https://pypi.tuna.tsinghua.edu.cn/simple/ 清华  
