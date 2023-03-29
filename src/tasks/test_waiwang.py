@@ -14,3 +14,5 @@ headers = {
 response = requests.request("GET", url, headers=headers, data=payload)
 
 print(response.text)
+with open("waiwang.txt", "w", encoding="utf-8") as f:
+    f.write(response.text)

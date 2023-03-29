@@ -194,7 +194,7 @@ def encode_json(info):
     b_encode = base64.b64encode(jsonStr.encode("utf-8"))
     bs64_str = b_encode.decode("utf-8")
     realContent = f"VkdWxlIGV4cHJlc3Npb25z{bs64_str}VkdWxlIGV4cHJlc3Npb25z"
-    print(f"加密结果:\n{realContent}")
+    # print(f"加密结果:\n{realContent}")
     print(f"博客园加密：")
     print(f"""
     <div style="display: none">{realContent}</div>
@@ -220,6 +220,7 @@ def put_github_file(path, content, commit=""):
         print("文件不存在,开始创建...")
         res = repo.create_file(path, "添加一个新文件", content)
         print(res)
+
 
 def run():
     print("开始获取地址")
