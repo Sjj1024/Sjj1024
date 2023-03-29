@@ -87,6 +87,70 @@ def cao_app_exe_page(html_path):
         return content_html
 
 
+def url_to_iphone(more_info, is_iphone=True):
+    # 先将热门导航里面的内容通过模板写入到daohang.html中
+    """
+      <div class="tabBox">
+        <h3 class="tabTitle">热门推荐</h3>
+        <div class="aBox">
+          <a href="https://www.baidu.com/" class="alink" target="_blank">百度一下</a>
+        </div>
+      </div>
+    """
+    # 提示的内容
+    guide_div_str = f"""<div class="guide-time">{datetime.now().strftime("%d-%m-%Y %H:%M:%S")}</div>"""
+    tips_div_str = f"""<div class="tips">{more_info}</div>"""
+    # 功能区按钮：安卓版，win版等
+    btn_buttons = f"""<div class="tabBox">
+            <h3 class="tabTitle tabTop">1024回家iPhone版</h3>
+            <div class="testBox">
+                <div class="btnBox">
+                    <button class="btn" id="android">安卓APP</button>
+                    <button class="btn" id="windows">Windows</button>
+                    <button class="btn" id="macbook">Mac电脑</button>
+                    <button class="btn" id="iphone">iPhone版</button>
+                    <button class="btn" id="yongjiu">永久地址</button>
+                    <button class="btn" id="share">分享插件</button>
+                </div>
+                {guide_div_str}
+                {tips_div_str}
+            </div>
+          </div>"""
+    tab_box_list = [btn_buttons]
+    cate_lists = get_cate_list()
+    for key, val in cate_lists.items():
+        # print(f"{key} : {val}")
+        title = val["title"]
+        data_url = val["data"]
+        a_box_list = []
+        for url_a in data_url:
+            a_template = f"""<a href="{url_a["url"]}" class="alink" target="_blank">{url_a["title"]}</a>\n"""
+            a_box_list.append(a_template)
+        a_box_strs = "".join(a_box_list)
+        tab_box_template = f"""<div class="tabBox">
+                <h3 class="tabTitle">{title}</h3>
+                <div class="aBox" >
+                  {a_box_strs}
+                </div>
+              </div>"""
+        tab_box_list.append(tab_box_template)
+    tab_box_strs = "".join(tab_box_list)
+    daohang_html = read_daohang_html("daohang_iphone_template.html")
+    daohang_html_res = daohang_html.replace("templatePalace", tab_box_strs)
+    iphone_release_path = "release_html/daohang_iphone_releases.html"
+    with open(iphone_release_path, "w", encoding="utf-8") as f:
+        f.write(daohang_html_res)
+    # 同步到github，用于测试预览效果是否正确
+    put_github_file(iphone_release_path, daohang_html_res)
+    # 同步到iphone端的内容
+    if is_iphone:
+        iphone_html = daohang_html_res.replace("""<!DOCTYPE html>
+    <html>""", "").replace("</html>", "")
+        return iphone_html
+    else:
+        return daohang_html_res
+
+
 def get_app_files():
     print("生成安卓app配置")
     """
@@ -169,23 +233,251 @@ def get_app_files():
 
 def get_iphone_files():
     print("生成iphone配置")
-    return {
-        "name": "Chrome1024",
-        "file_path": ".github/hubsql/iphoneHuijia.txt", }
+    """
+    iPhone插件内容
+    github:https://api.github.com/repos/Sjj1024/Sjj1024/contents/.github/hubsql/iphoneHuijia.txt
+    博客园:https://www.cnblogs.com/sdfasdf/p/16966745.html
+    CSDN:https://xiaoshen.blog.csdn.net/article/details/129709226
+    """
+    iphone_home = {
+        "name": "IPhone1024",
+        "file_path": ".github/hubsql/iphoneHuijia.txt",
+        "version": 0.1,
+        "dialog": {
+            "show": False,
+            "content": "这是弹窗信息"
+        },
+        "update": {
+            "show": False,
+            "content": "更新了更高级的信息",
+            "url": "https://www.jsons.cn/base64/"
+        },
+        "data": {
+            "interval": 1,  # 刷贡献速率，几个小时刷一次
+            "brush_rate": 100,  # 刷贡献的百分比，越大越容易触发开刷
+            "brush_all": False,  # 是否全部刷，只要是headers里面的，就都刷？
+            "show_hotUrl": True,  # 是否在热门推荐的URl地址中展示
+            # 刷贡献的头部，三个地址平均分布一个
+            "GongXians": ["/index.php?u=628155&ext=9a511", "/index.php?u=529913&ext=99ea2",
+                          "/index.php?u=595394&ext=c180e"],
+            # 匹配cookie的规则
+            "cookieRule": {"clcookies": "227c9_winduser",
+                           "91VideoCookies": "USERNAME",
+                           "91ImgCookies": "CzG_auth",
+                           "98cookies": "cPNj_2132_auth"},
+            # 其他回家客户端下载
+            "yongjiu": "永久地址: http://www.jsons.cn/base64/",
+            "android": "安卓APP：https://blog.csdn.net/weixin_42565127/article/details/127068694",
+            "windows": "Window：https://element.eleme.cn/#/zh-CN/component/container",
+            "macbook": "Mac电脑：https://antdv.com/components/layout-cn",
+            "iphone": "iPhone：https://antdv.com/components/layout-cn",
+            "share": "老司机来了：http://www.jsons.cn/base64/",
+        },
+        # 其中的内容是消息提醒内容
+        "content": url_to_iphone("""<span>提示: 部分网站可能需要VPN翻墙后访问，IPhone版</span>""", True)
+    }
+    return iphone_home
 
 
 def get_chrome_files():
-    print("生成chrome配置")
-    return {
+    print("生成chrome 配置")
+    # 以下是1024回家插件的数据信息
+    """
+    三个地址:
+    github:https://api.github.com/repos/Sjj1024/Sjj1024/contents/.github/hubsql/chromHuijia.txt
+    博客园:https://www.cnblogs.com/sdfasdf/p/15115801.html
+    CSDN:https://xiaoshen.blog.csdn.net/article/details/129345827
+    """
+    chrome_extension = {
         "name": "Chrome1024",
-        "file_path": ".github/hubsql/chromeHuijia.txt", }
+        "file_path": ".github/hubsql/chromHuijia.txt",
+        "version": 0.1,
+        # 实验功能访问密码
+        "password": "521121",
+        "dialog": {
+            "show": False,
+            "content": "这是弹窗信息",
+            "url": "http://www.jsons.cn/base64/"
+        },
+        "update": {
+            "show": True,
+            "content": "更新了更高级的信息",
+            "url": "http://www.jsons.cn/base64/"
+        },
+        "data": {
+            "interval": 1,  # 展示在草榴URL上的贡献链接
+            "brush_rate": 100,  # 刷贡献的百分比，越大越容易触发刷
+            "brush_all": False,  # 是否全部刷，只要是headers里面的，就都刷？
+            "show_hotUrl": True,  # 是否在热门推荐的URl地址中展示
+            # 刷贡献的头部，三个地址平均分布一个
+            "GongXians": ["/index.php?u=628155&ext=9a511", "/index.php?u=529913&ext=99ea2",
+                          "/index.php?u=595394&ext=c180e"],
+            # 匹配cookie的规则
+            "cookieRule": {"clcookies": "227c9_winduser",
+                           "91VideoCookies": "USERNAME",
+                           "91ImgCookies": "CzG_auth",
+                           "98cookies": "cPNj_2132_auth"},
+            # 更多消息提醒
+            "more_info": f"""<div style="color: red;"><span style="color: red;">提示: 部分网站可能需要VPN翻墙后访问</span>，如果你想感谢我，
+    我的比特币账户：<span style="padding: 0 5px 0 2px;">3HJTSzf2GL7Bj8r7HakUNS1G9jauemk1Lt</span>我的以太坊账户：<span style="padding: 0 5px 0 2px;">0xb9061992ea948e247a4542209c14c5e7ea79afc6</span></div>
+            """,
+            # 其他回家客户端下载
+            "yongjiu": "http://www.jsons.cn/base64/",
+            "android": "https://blog.csdn.net/weixin_42565127/article/details/127068694",
+            "windows": "https://element.eleme.cn/#/zh-CN/component/container",
+            "macbook": "https://antdv.com/components/layout-cn",
+            "iphone": "https://antdv.com/components/layout-cn",
+            "share": "老司机来了：http://www.jsons.cn/base64/",
+            # 购买邀请码功能: 后面再做，先做桌面端
+            "open_pay": {
+                "open": False,
+                "pay_ma": "老司机来了：http://www.jsons.cn/base64/"
+            },
+            # 过滤广告或者添加广告配置
+            "filter_all": {
+                "doumei": {
+                    "filter": False,
+                    "down": """<a href="https://www.baidu.com/">百度一下</a>"""
+                },
+                "caoliu": {
+                    "filter": False,  # 广告开关
+                    "invcode_info": "1024邀请码:请加微信",
+                    "article_tip0": "1024邀请码:请加微信0",
+                    "article_tip1": "1024邀请码:请加微信1",
+                    "article_tip2": """<a href="https://www.baidu.com/">百度一下1024</a>""",
+                    "article_tip3": "1024邀请码:请加微信3",
+                    "article_tip4": "1024邀请码:请加微信4",
+                    "article_tip5": "1024邀请码:请加微信5",
+                    "sptable_footer": "1024邀请码:请加微信sptable_footer",
+                    "article_hd": "1024邀请码:请加微信article_hd",
+                    "article_ad": "1024邀请码:请加微信article_ad",
+                    "app_exe_down_page": cao_app_exe_page("caoliu_app_exe_page.html"),
+                    "appDownNa": """<a href="https://www.baidu.com/" target="_blank">下载91APP</a>""",
+                },
+                "91video": {
+                    "filter": False,  # 广告开关
+                    "invcode_info": "91邀请码:请加微信",
+                    "page_header_ad": "91屏蔽头部广告",
+                    "video_header_ad1": "91屏蔽视频头部广告1",
+                    "video_header_ad2": "91屏蔽视频头部广告2",
+                    "rightFirstAd": "91侧边栏第一个广告",
+                    "appDownLiBox": """<a href="https://www.baidu.com/" target="_blank">下载91APP</a>""",
+                    "iframeBoxsShow": True
+                },
+                "91image": {
+                    "filter": False,  # 广告开关
+                    "invcode_info": "邀请码:91请加微信",
+                    "app_exe_down_page": cao_app_exe_page("porn_app_down.html"),
+                    "porn_vip_page": cao_app_exe_page("porn_vip_page.html"),
+                    "appDownLiBox": """<a href="https://www.baidu.com/" target="_blank">下载91APP</a>""",
+                },
+                "tang98": {
+                    "filter": False,  # 广告开关
+                    "invcode_info": "邀请码:请加微信",
+                    "headerAd": "98头部广告",
+                    "footerAd": "98屏蔽页脚底部广告",
+                    "listFootAd": "98文章列表页底部内容",
+                    "articleFooterAd": "98文章详情页底部广告",
+                    "commitAds0": "98评论区广告0",
+                    "commitAds1": "98评论区广告1",
+                    "appDownLiBox": """<a href="https://www.baidu.com/" target="_blank">下载98APP</a>""",
+                },
+                "heiliao": {
+                    "filter": False,  # 广告开关
+                    "invcode_info": "邀请码:请加微信",
+                    "headerAd": "98头部广告",
+                    "appDownLiBox": """<a class="nav-link" href="/category/1.html">下载黑料APP</a>""",
+                    "articleLikeAd0": """<a class="nav-link" href="/category/1.html">下载黑料APP0</a>""",
+                    "articleLikeAd1": """<a class="nav-link" href="/category/1.html">下载黑料APP1</a>""",
+                    "articleLikeAd2": """<a class="nav-link" href="/category/1.html">下载黑料APP2</a>""",
+                    "articleLikeAd3": """<a class="nav-link" href="/category/1.html">下载黑料APP3</a>""",
+                    "articleLikeAd4": """<a class="nav-link" href="/category/1.html">下载黑料APP4</a>""",
+                    "articleHeaderAd0": """<a class="nav-link" href="/category/1.html">下载黑料APP0</a>""",
+                    "articleHeaderAd1": """<a class="nav-link" href="/category/1.html">下载黑料APP0</a>""",
+                    "articleHeaderAd2": """<a class="nav-link" href="/category/1.html">下载黑料APP0</a>""",
+                    "articleHeaderAd3": """<a class="nav-link" href="/category/1.html">下载黑料APP0</a>""",
+                    "articleHeaderAd4": """<a class="nav-link" href="/category/1.html">下载黑料APP0</a>""",
+                    "articleHeaderAd5": """<a class="nav-link" href="/category/1.html">下载黑料APP0</a>""",
+                    "articleHeaderAd6": """<a class="nav-link" href="/category/1.html">下载黑料APP0</a>""",
+                    "articleHeaderAd7": """<a class="nav-link" href="/category/1.html">下载黑料APP0</a>""",
+                    "articleHeaderAd9": """<a class="nav-link" href="/category/1.html">下载黑料APP0</a>""",
+                },
+                "pornhub": {
+                    "filter": False,  # 广告开关
+                    "invcode_info": "邀请码:请加微信",
+                    "headerAd": "98头部广告",
+                    "appDownLiBox": """<a class="nav-link" href="/category/1.html">下载黑料APP</a>""",
+                },
+                "baidu": {
+                    "filter": False,
+                    "appDownLiBox": """<a class="nav-link" href="/category/1.html">下载黑料APP</a>"""
+                }
+            },
+            # 导航链接更新时间
+            "guide_time": datetime.now().strftime("%d-%m-%Y %H:%M:%S"),
+            # 更多导航列表
+            "navigation": cate_list
+        }
+    }
+    return chrome_extension
 
 
 def get_desktop_files():
     print("生成desktop配置")
-    return {
-        "name": "Chrome1024",
-        "file_path": ".github/hubsql/desktopHuijia.txt", }
+    # 以下是1024回家跨平台桌面软件
+    """
+    三个地址:
+    github:https://api.github.com/repos/Sjj1024/Sjj1024/contents/.github/hubsql/deskHuijia.txt
+    博客园:https://www.cnblogs.com/sdfasdf/p/16101765.html
+    CSDN:https://xiaoshen.blog.csdn.net/article/details/129388703
+    """
+    desk_platform = {
+        "name": "Desk1024",
+        "file_path": ".github/hubsql/deskHuijia.txt",
+        "version": 0.1,
+        # 实验功能访问密码
+        "password": "521121",
+        "dialog": {
+            "show": False,
+            "content": "这是弹窗信息",
+            "url": "http://www.jsons.cn/base64/"
+        },
+        "update": {
+            "show": True,
+            "content": "更新了更高级的信息",
+            "url": "http://www.jsons.cn/base64/"
+        },
+        "data": {
+            "interval": 1,  # 展示在草榴URL上的贡献链接
+            "brush_rate": 100,  # 刷贡献的百分比，越大越容易触发刷
+            "brush_all": False,  # 是否全部刷，只要是headers里面的，就都刷？
+            "show_hotUrl": True,  # 是否在热门推荐的URl地址中展示
+            # 刷贡献的头部，三个地址平均分布一个
+            "GongXians": ["/index.php?u=628155&ext=9a511", "/index.php?u=529913&ext=99ea2",
+                          "/index.php?u=595394&ext=c180e"],
+            # 更多消息提醒
+            "more_info": f"""<div style="color: red;"><span style="color: red;">提示: 部分网站可能需要VPN翻墙后访问</span>，如果你想感谢我，
+            我的比特币账户：<span style="padding: 0 5px 0 2px;">3HJTSzf2GL7Bj8r7HakUNS1G9jauemk1Lt</span>我的以太坊账户：<span style="padding: 0 5px 0 2px;">0xb9061992ea948e247a4542209c14c5e7ea79afc6</span></div>
+    """,
+            # 其他回家客户端下载
+            "android": "https://blog.csdn.net/weixin_42565127/article/details/127068694",
+            "windows": "https://element.eleme.cn/#/zh-CN/component/container",
+            "macbook": "https://antdv.com/components/layout-cn",
+            "iphone": "https://www.baidu.com/",
+            "yongjiu": "http://www.jsons.cn/base64/",
+            "share": "老司机带你回家：https://wwd.lanzoue.com/iQeC00912epc，\n浏览器插件：https://wwd.lanzoue.com/iQeC00912epc",
+            # 购买邀请码功能: 后面再做，先做桌面端
+            "open_pay": {
+                "open": False,
+                "pay_ma": "老司机来了：http://www.jsons.cn/base64/"
+            },
+            # 导航链接更新时间
+            "guide_time": datetime.now().strftime("%d-%m-%Y %H:%M:%S"),
+            # 更多导航列表
+            "navigation": cate_list
+        }
+    }
+    return desk_platform
 
 
 def encode_json(info):
@@ -195,10 +487,10 @@ def encode_json(info):
     bs64_str = b_encode.decode("utf-8")
     realContent = f"VkdWxlIGV4cHJlc3Npb25z{bs64_str}VkdWxlIGV4cHJlc3Npb25z"
     # print(f"加密结果:\n{realContent}")
-    print(f"博客园加密：")
-    print(f"""
-    <div style="display: none">{realContent}</div>
-    """)
+    # print(f"博客园加密：")
+    # print(f"""
+    # <div style="display: none">{realContent}</div>
+    # """)
     return realContent
 
 
@@ -206,8 +498,11 @@ def save_encode_content_html(app_type, content):
     with open("./replace_html/encode_content_template.html", "r", encoding="utf-8") as f:
         template = f.read()
         content_html = template.replace("encodeContent", content)
-        with open(f"release_html/boke_content_{app_type}.html", "w", encoding="utf-8") as res:
+        release_path = f"release_html/boke_content_{app_type}.html"
+        with open(release_path, "w", encoding="utf-8") as res:
             res.write(content_html)
+        # 同步到github中
+        put_github_file(release_path, content_html)
 
 
 def put_github_file(path, content, commit=""):
@@ -232,17 +527,16 @@ def run():
     # 生成加密内容分发到git
     for app in [app_file, iphone_file, chrome_file, desktop_file]:
         file_path = app.get("file_path")
-        print(f"原始信息:{app}")
+        # print(f"原始信息:{app}")
         content = encode_json(app)
         name = app.get("name")
-        print(f"{name} 加密后的数据是: {content}")
+        # print(f"{name} 加密后的数据是: {content}")
         save_encode_content_html(name, content)
         put_github_file(file_path, content)
-    # 生成html内容存储到git
 
 
 if __name__ == '__main__':
-    GIT_REPO = "1024dasehn/huijia"
+    GIT_REPO = "1024dasehn/GoHome"
     GIT_TOKEN = "ghp_888LSkJC7DbB8pgMw6mynhQGLienoPv4P0pOLZ0".replace("888", "")
     g = Github(GIT_TOKEN)
     repo = g.get_repo(GIT_REPO)
