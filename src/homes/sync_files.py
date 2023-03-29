@@ -48,11 +48,10 @@ def run():
     recursive_dir(os.getcwd(), "", home_files)
     print(home_files)
     for app in home_files:
-        if app.endswith(".py") or app.endswith(".pyc") or app.endswith("html") or app.endswith("yml"):
-            print(app)
-            # 同步到github上
-            with open(app, "r", encoding="utf-8") as f:
-                put_github_file(app, f.read())
+        print(app)
+        # 同步到github上
+        with open(app, "r", encoding="utf-8") as f:
+            put_github_file(app, f.read())
 
 
 if __name__ == '__main__':

@@ -5,8 +5,8 @@ import base64
 from datetime import datetime
 import json
 from github import Github
-from src.homes.hotbox import hot_urls
-from src.homes.url_list import cate_list
+from hotbox import hot_urls
+from url_list import cate_list
 
 
 def get_hot_urls():
