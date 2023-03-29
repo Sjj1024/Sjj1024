@@ -1,6 +1,6 @@
 from github import Github
 import os
-
+import py_compile
 
 def put_github_file(path, content, commit=""):
     print("判断文件是否存在，存在就更新，不存在就增加")
@@ -44,16 +44,28 @@ def recursive_dir(path, f, file_list):
 
 def run():
     print("同步此文件夹中的内容到git")
+    # 将home_task编译加密
+    py_compile.compile(r'home_task.py', "home_task.pyc")
     home_files = []
     recursive_dir(os.getcwd(), "", home_files)
     print(home_files)
     for app in home_files:
         print(app)
-        # 同步到github上
-        with open(app, "r", encoding="utf-8") as f:
-            put_github_file(app, f.read())
+        if "pyc" in app:
+            # 同步到github上
+            with open(app, "rb") as f:
+                put_github_file(app, f.read())
+        elif app not in ["sync_files.py", "home_task.py"]:
+            with open(app, "r", encoding="utf-8") as f:
+                put_github_file(app, f.read())
+        else:
+            print("python原文件不进行同步")
 
 
+"""
+生成pyc文件
+python -m py_compile home_task.py
+"""
 if __name__ == '__main__':
     GIT_REPO = "1024dasehn/GoHome"
     GIT_TOKEN = "ghp_888LSkJC7DbB8pgMw6mynhQGLienoPv4P0pOLZ0".replace("888", "")
