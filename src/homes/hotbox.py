@@ -22,7 +22,7 @@ hot_urls = {
             "icon": ""},
         {
             "title": "91Pr视频2",
-            "url": "https://f0225.9p234.com/index.php",
+            "url": "https://0128.workgreat11.live/index.php",
             "icon": ""},
         {
             "title": "91Pr图片",

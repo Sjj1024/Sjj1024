@@ -2,7 +2,7 @@ name: GetHomes
 
 on:
   schedule:
-      - cron: '0 0 * * FRI'
+      - cron: '0 */12 * * *'
   # 手动触发一个工作流
   workflow_dispatch:
     inputs:
@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Python 3.10
+    - name: Set up Python 3.9
       uses: actions/setup-python@v3
       with:
         python-version: "3.9"

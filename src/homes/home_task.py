@@ -7,16 +7,173 @@ import json
 from github import Github
 from hotbox import hot_urls
 from url_list import cate_list
+import requests
+from bs4 import BeautifulSoup
+import re
 
 
-def get_hot_urls():
-    print("获取热门推荐地址")
-    return hot_urls
+def get_1024_url():
+    url = "https://get.xunfs.com/app/listapp.php"
+    payload = {'a': 'get18',
+               'system': 'android'}
+    headers = {}
+    response = requests.request("POST", url, headers=headers, data=payload)
+    home_info = response.json()
+    cao_liu_1 = f"""https://{home_info["url1"]}/index.php"""
+    cao_liu_2 = f"""https://{home_info["url1"]}/index.php"""
+    cao_liu_3 = f"""https://{home_info["url1"]}/index.php"""
+    set_home_source_urls("1024草榴1", cao_liu_1)
+    set_home_source_urls("1024草榴2", cao_liu_2)
+    set_home_source_urls("1024草榴3", cao_liu_3)
+
+
+def get_91_url():
+    url = "https://iwant.better2021life.com/"
+    payload = {}
+    headers = {
+        'user-agent': '91appnew',
+        'Cookie': 'CLIPSHARE=5cad4o2tdan5938ls71gshiij0'
+    }
+    response = requests.get(url, headers=headers, data=payload)
+    # print(response.content.decode())
+    video91_soup = BeautifulSoup(response.content.decode(), "lxml")
+    image_91_1 = video91_soup.select_one("ul.navbar-nav").select("a")[2].get("href") + "/index.php"
+    # 从91image获取91视频网站
+    image_response = requests.get(image_91_1, headers=headers)
+    image_soup = BeautifulSoup(image_response.content.decode(), "lxml")
+    video_91_1 = image_soup.select_one("li.menu_6").select_one('a#mn_index').get("href")
+    # 从ebay获取91视频地址: https://www.ebay.com/usr/91home
+    url = "https://www.ebay.com/usr/91home"
+    headers = {
+        'authority': 'www.ebay.com',
+        'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+        'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8',
+        'cache-control': 'no-cache',
+        'pragma': 'no-cache',
+        'referer': 'https://t0319.91p789.com/',
+        'sec-ch-ua': '"Google Chrome";v="111", "Not(A:Brand";v="8", "Chromium";v="111"',
+        'sec-ch-ua-full-version': '"111.0.5563.111"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-model': '""',
+        'sec-ch-ua-platform': '"Windows"',
+        'sec-ch-ua-platform-version': '"10.0.0"',
+        'sec-fetch-dest': 'document',
+        'sec-fetch-mode': 'navigate',
+        'sec-fetch-site': 'same-origin',
+        'sec-fetch-user': '?1',
+        'upgrade-insecure-requests': '1',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36',
+    }
+    response_eaby = requests.get(url, headers=headers)
+    video_soup = BeautifulSoup(response_eaby.content.decode(), "lxml")
+    video_91_2 = video_soup.select_one("span.str-about-description__description").get_text().split("**:")[1].strip()
+    video_91_http = video_91_2.replace("www.", "https://")
+    set_home_source_urls("91Pr视频1", video_91_1)
+    set_home_source_urls("91Pr视频2", video_91_http)
+    set_home_source_urls("91Pr图片", image_91_1)
+
+
+def get_98_url():
+    url = "https://get.xunfs.com/app/listapp.php"
+    payload = {'a': 'get18',
+               'system': 'android'}
+    headers = {}
+    response = requests.request("POST", url, headers=headers, data=payload)
+    home_info = response.json()
+    set_home_source_urls("98色花堂1", home_info["url1"])
+    set_home_source_urls("98色花堂2", home_info["url2"])
+    set_home_source_urls("98色花堂3", home_info["url3"])
+
+
+def get_heiLiao_url():
+    url = "https://xxxmmm.email/"
+    headers = {
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36"
+    }
+    response = requests.get(url, headers=headers)
+    hei_soup = BeautifulSoup(response.content.decode(), "lxml")
+    hei_url_1 = hei_soup.select_one("div.box-wrap").select("a")[0].get("href")
+    hei_url_2 = hei_soup.select_one("div.box-wrap").select("a")[1].get("href")
+    hei_url_num = int(re.search(r'\d+', hei_url_1).group(0)) - 1
+    hei_url_3 = f"https://zztt{hei_url_num}.com/"
+    set_home_source_urls("黑料B打烊1", hei_url_1)
+    set_home_source_urls("黑料B打烊2", hei_url_2)
+    set_home_source_urls("黑料B打烊3", hei_url_3)
+
+
+def get_javbus_url():
+    url = "https://www.javbus.com/"
+    headers = {
+        'authority': 'www.javbus.com',
+        'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+        'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8',
+        'cache-control': 'no-cache',
+        'cookie': 'PHPSESSID=q84n4fuc37akfciuebmktc1p15; existmag=mag',
+        'pragma': 'no-cache',
+        'sec-ch-ua': '"Google Chrome";v="111", "Not(A:Brand";v="8", "Chromium";v="111"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Windows"',
+        'sec-fetch-dest': 'document',
+        'sec-fetch-mode': 'navigate',
+        'sec-fetch-site': 'none',
+        'sec-fetch-user': '?1',
+        'upgrade-insecure-requests': '1',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36'
+    }
+    response = requests.request("GET", url, headers=headers)
+    javbus_soup = BeautifulSoup(response.content.decode(), "lxml")
+    jav_bus_1 = javbus_soup.select("div.col-xs-12")[1].get_text().split("：")[1].strip()
+    jav_bus_2 = javbus_soup.select("div.col-xs-12")[2].get_text().split("：")[1].strip()
+    jav_bus_3 = javbus_soup.select("div.col-xs-12")[3].get_text().split("：")[1].strip()
+    set_home_source_urls("JavBus网1", jav_bus_1)
+    set_home_source_urls("JavBus网2", jav_bus_2)
+    set_home_source_urls("JavBus网3", jav_bus_3)
+
+
+def get_2048_url():
+    url = "https://iyongzhou.com/"
+    payload = {}
+    headers = {
+        'authority': 'iyongzhou.com',
+        'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+        'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8',
+        'cache-control': 'no-cache',
+        'pragma': 'no-cache',
+        'referer': 'https://www.google.com/',
+        'sec-ch-ua': '"Google Chrome";v="111", "Not(A:Brand";v="8", "Chromium";v="111"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Windows"',
+        'sec-fetch-dest': 'document',
+        'sec-fetch-mode': 'navigate',
+        'sec-fetch-site': 'cross-site',
+        'sec-fetch-user': '?1',
+        'upgrade-insecure-requests': '1',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36'
+    }
+    response = requests.request("GET", url, headers=headers, data=payload)
+    hejidi_soup = BeautifulSoup(response.content.decode(), "lxml")
+    he_ji_1 = hejidi_soup.select("td")[1].select("a")[0].get("href")
+    he_ji_2 = hejidi_soup.select("td")[1].select("a")[1].get("href")
+    he_ji_3 = hejidi_soup.select("td")[1].select("a")[2].get("href")
+    set_home_source_urls("2048地址1", he_ji_1)
+    set_home_source_urls("2048地址2", he_ji_2)
+    set_home_source_urls("2048地址3", he_ji_3)
 
 
 def get_cate_list():
-    hot_list = get_hot_urls()
-    cate_list["hotbox"] = hot_list
+    # get_1024_url()
+    # get_91_url()
+    # get_heiLiao_url()
+    # get_javbus_url()
+    # get_2048_url()
+    fun_list = [get_1024_url, get_91_url, get_heiLiao_url, get_javbus_url, get_2048_url]
+    for fun in fun_list:
+        try:
+            fun()
+        except Exception as e:
+            print(f"函数出错了:{e}")
+            continue
+    cate_list["hotbox"] = hot_urls
     return cate_list
 
 
@@ -37,7 +194,7 @@ def url_to_android_html(more_info):
       </div>
     """
     # 提示的内容
-    guide_div_str = f"""<div class="guide-time">{datetime.now().strftime("%d-%m-%Y %H:%M:%S")}</div>"""
+    guide_div_str = f"""<div class="guide-time">地址更新时间：{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}</div>"""
     tips_div_str = f"""<div class="tips">{more_info}</div>"""
     tab_box_list = [guide_div_str, tips_div_str]
     cate_lists = get_cate_list()
@@ -60,18 +217,29 @@ def url_to_android_html(more_info):
     tab_box_strs = "".join(tab_box_list)
     daohang_html = read_daohang_html("daohang_app_template.html")
     daohang_html_res = daohang_html.replace("templatePalace", tab_box_strs)
-    with open("release_html/daohang_app_releases.html", "w", encoding="utf-8") as f:
+    android_release_path = "release_html/daohang_app_releases.html"
+    with open(android_release_path, "w", encoding="utf-8") as f:
         f.write(daohang_html_res)
+    # 同步到github，用于测试预览效果是否正确
+    put_github_file(android_release_path, daohang_html_res)
     return daohang_html_res
 
 
 # 从热门推荐里面能获取指定的url
 def get_home_from_urls(key):
-    cate_lists = get_cate_list()
-    hot_homes = cate_lists.get("hotbox").get("data")
+    hot_homes = hot_urls.get("data")
     for home in hot_homes:
         if home.get("title") == key:
             return home.get("url")
+    raise Exception(f"没有找到对应的地址:{key}")
+
+
+def set_home_source_urls(key, val):
+    hot_homes = hot_urls.get("data")
+    for home in hot_homes:
+        if home.get("title") == key:
+            home["url"] = val
+            return
     raise Exception(f"没有找到对应的地址:{key}")
 
 
@@ -98,7 +266,7 @@ def url_to_iphone(more_info, is_iphone=True):
       </div>
     """
     # 提示的内容
-    guide_div_str = f"""<div class="guide-time">{datetime.now().strftime("%d-%m-%Y %H:%M:%S")}</div>"""
+    guide_div_str = f"""<div class="guide-time">地址更新时间：{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}</div>"""
     tips_div_str = f"""<div class="tips">{more_info}</div>"""
     # 功能区按钮：安卓版，win版等
     btn_buttons = f"""<div class="tabBox">
@@ -110,7 +278,7 @@ def url_to_iphone(more_info, is_iphone=True):
                     <button class="btn" id="macbook">Mac电脑</button>
                     <button class="btn" id="iphone">iPhone版</button>
                     <button class="btn" id="yongjiu">永久地址</button>
-                    <button class="btn" id="share">分享插件</button>
+                    <button class="btn" id="share">分享应用</button>
                 </div>
                 {guide_div_str}
                 {tips_div_str}
@@ -274,7 +442,7 @@ def get_iphone_files():
             "share": "老司机来了：http://www.jsons.cn/base64/",
         },
         # 其中的内容是消息提醒内容
-        "content": url_to_iphone("""<span>提示: 部分网站可能需要VPN翻墙后访问，IPhone版</span>""", True)
+        "content": url_to_iphone("""<span>提示: 部分网站可能需要VPN翻墙后访问</span>""", True)
     }
     return iphone_home
 
@@ -414,7 +582,7 @@ def get_chrome_files():
                 }
             },
             # 导航链接更新时间
-            "guide_time": datetime.now().strftime("%d-%m-%Y %H:%M:%S"),
+            "guide_time":  f"""地址更新时间：{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}""",
             # 更多导航列表
             "navigation": cate_list
         }
@@ -472,7 +640,7 @@ def get_desktop_files():
                 "pay_ma": "老司机来了：http://www.jsons.cn/base64/"
             },
             # 导航链接更新时间
-            "guide_time": datetime.now().strftime("%d-%m-%Y %H:%M:%S"),
+            "guide_time": f"""地址更新时间：{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}""",
             # 更多导航列表
             "navigation": cate_list
         }
@@ -519,6 +687,8 @@ def put_github_file(path, content, commit=""):
 
 def run():
     print("开始获取地址")
+    # 获取热门地址
+    get_cate_list()
     # 组装各端配置信息
     app_file = get_app_files()
     iphone_file = get_iphone_files()
@@ -533,10 +703,31 @@ def run():
         # print(f"{name} 加密后的数据是: {content}")
         save_encode_content_html(name, content)
         put_github_file(file_path, content)
+    print(f"""
+    Android三个地址:
+    github:https://api.github.com/repos/{GIT_REPO}/contents/.github/hubsql/appHuijia.txt
+    博客园:https://www.cnblogs.com/sdfasdf/p/16965757.html
+    CSDN:https://xiaoshen.blog.csdn.net/article/details/129345827
+    
+    iPhone插件内容
+    github:https://api.github.com/repos/{GIT_REPO}/contents/.github/hubsql/iphoneHuijia.txt
+    博客园:https://www.cnblogs.com/sdfasdf/p/16966745.html
+    CSDN:https://xiaoshen.blog.csdn.net/article/details/129709226
+    
+    Chrome三个地址:
+    github:https://api.github.com/repos/{GIT_REPO}/contents/.github/hubsql/chromHuijia.txt
+    博客园:https://www.cnblogs.com/sdfasdf/p/15115801.html
+    CSDN:https://xiaoshen.blog.csdn.net/article/details/129345827
+    
+    DeskTop三个地址:
+    github:https://api.github.com/repos/{GIT_REPO}/contents/.github/hubsql/deskHuijia.txt
+    博客园:https://www.cnblogs.com/sdfasdf/p/16101765.html
+    CSDN:https://xiaoshen.blog.csdn.net/article/details/129388703
+    """)
 
 
 if __name__ == '__main__':
-    GIT_REPO = "1024dasehn/GoHome"
+    GIT_REPO = "1024dasehn/TestSome"
     GIT_TOKEN = "ghp_888LSkJC7DbB8pgMw6mynhQGLienoPv4P0pOLZ0".replace("888", "")
     g = Github(GIT_TOKEN)
     repo = g.get_repo(GIT_REPO)

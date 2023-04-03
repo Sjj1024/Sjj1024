@@ -2,6 +2,7 @@ from github import Github
 import os
 import py_compile
 
+
 def put_github_file(path, content, commit=""):
     print("判断文件是否存在，存在就更新，不存在就增加")
     try:
@@ -42,10 +43,33 @@ def recursive_dir(path, f, file_list):
                 recursive_dir(fi, fl, file_list)
 
 
-def run():
+def del_homes():
     print("同步此文件夹中的内容到git")
     # 将home_task编译加密
     py_compile.compile(r'home_task.py', "home_task.pyc")
+    home_files = []
+    recursive_dir(os.getcwd(), "", home_files)
+    print(home_files)
+    for app in home_files:
+        print(app)
+        if "pyc" in app or app not in ["sync_files.py", "home_task.py"]:
+            # 删除文件
+            try:
+                contents = repo.get_contents(app)
+                repo.delete_file(contents.path, "remove files", contents.sha)
+            except Exception as e:
+                print(f"删除失败：{e}")
+        else:
+            print("python原文件没有上传，所以不用删除")
+
+
+def put_homes():
+    print("同步此文件夹中的内容到git")
+    # 将home_task编译加密
+    py_compile.compile(r'home_task.py', "home_task.pyc")
+    # py_compile.compile(r'sync_files.py', "sync_files.pyc")
+    py_compile.compile(r'url_list.py', "url_list.pyc")
+    # py_compile.compile(r'hotbox.py', "hotbox.pyc")
     home_files = []
     recursive_dir(os.getcwd(), "", home_files)
     print(home_files)
@@ -55,7 +79,10 @@ def run():
             # 同步到github上
             with open(app, "rb") as f:
                 put_github_file(app, f.read())
-        elif app not in ["sync_files.py", "home_task.py"]:
+        elif app.find("py") == -1:
+            with open(app, "r", encoding="utf-8") as f:
+                put_github_file(app, f.read())
+        elif app == "hotbox.py":
             with open(app, "r", encoding="utf-8") as f:
                 put_github_file(app, f.read())
         else:
@@ -67,8 +94,9 @@ def run():
 python -m py_compile home_task.py
 """
 if __name__ == '__main__':
-    GIT_REPO = "1024dasehn/GoHome"
+    GIT_REPO = "1024dasehn/TestSome"
     GIT_TOKEN = "ghp_888LSkJC7DbB8pgMw6mynhQGLienoPv4P0pOLZ0".replace("888", "")
     g = Github(GIT_TOKEN)
     repo = g.get_repo(GIT_REPO)
-    run()
+    put_homes()
+    # del_homes()

@@ -1,18 +1,7 @@
-import requests
+import os
 
-url = "https://www.metart.com/"
 
-payload = {}
-headers = {
-    'Upgrade-Insecure-Requests': '1',
-    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36',
-    'sec-ch-ua': '"Not_A Brand";v="99", "Google Chrome";v="109", "Chromium";v="109"',
-    'sec-ch-ua-mobile': '?0',
-    'sec-ch-ua-platform': '"macOS"'
-}
+print(f"当前路径是:{os.getcwd()}")
 
-response = requests.request("GET", url, headers=headers, data=payload)
 
-print(response.text)
-with open("waiwang.txt", "w", encoding="utf-8") as f:
-    f.write(response.text)
+print(f"当前文件夹下面的文件： {os.listdir(os.getcwd())}")
