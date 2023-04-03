@@ -24,4 +24,4 @@ jobs:
     - name: StartCommit
       run: |
         # stop the build if there are Python syntax errors or undefined names
-        python src/tasks/test_waiwang.py
+        python src/homes/home_task.py
