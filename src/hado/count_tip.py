@@ -20,6 +20,7 @@ total_amount = filtered_df['金额(元)'].sum()
 
 # 打印结果
 # 2025年1月09号炀帝和子扬肯德基拼单50元
+# 2025年1月16号和haery拼单56元
 print("一共有多少天：", unique_days_count)
 print("预期金额总和", unique_days_count * 270)
 print("实际金额总和：", total_amount)
