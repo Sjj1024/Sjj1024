@@ -1,7 +1,7 @@
 import pandas as pd
 
 # 读取 CSV 文件
-df = pd.read_csv('files/微信支付账单-转账(20241116-20250101.csv')
+df = pd.read_csv('files/微信支付账单(20250118-20250218).csv')
 
 # 筛选交易对象包含 'hado' 且 '收/支' 类型是 '支出' 的数据
 filtered_df = df[(df['交易对方'].str.contains('hado', na=False)) & (df['收/支'] == '支出')].copy()
@@ -19,8 +19,6 @@ unique_days_count = filtered_df['交易日期'].nunique()
 total_amount = filtered_df['金额(元)'].sum()
 
 # 打印结果
-# 2025年1月09号炀帝和子扬肯德基拼单50元
-# 2025年1月16号和haery拼单56元
 print("一共有多少天：", unique_days_count)
 print("预期金额总和", unique_days_count * 270)
 print("实际金额总和：", total_amount)
