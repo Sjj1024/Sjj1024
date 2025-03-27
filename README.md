@@ -1,5 +1,5 @@
 ![1024小神's GitHub stats](https://github-readme-stats.vercel.app/api?username=sjj1024)
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anuraghazra)
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=sjj1024)
 
 ## 让我们认识一下？
 
