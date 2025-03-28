@@ -1,42 +1,52 @@
-![1024小神's GitHub stats](https://github-readme-stats.vercel.app/api?username=sjj1024)
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=sjj1024)
+# 👋 Welcome to My Tech Journey
 
-## 让我们认识一下？
+## 📚 About Me
 
-个人CSDN博客地址：<https://xiaoshen.blog.csdn.net/>   
-个人掘金博客地址：<https://juejin.cn/user/70007368988926/>   
-努力学习中，不会就去学，学习永远不会吃亏的。
-In the process of hard work, if you don't know how to learn, go ahead and learn. Learning will never be at a
-disadvantage
+**Continuous Learner | Tech Blogger | Open Source Enthusiast**  
 
-## Python源:
+🔗 **Connect through my technical blogs**:  
+- **CSDN Blog**: <https://xiaoshen.blog.csdn.net/>  
+- **掘金 Blog**: <https://juejin.cn/user/70007368988926/>  
 
-https://pypi.tuna.tsinghua.edu.cn/simple/ 清华    
-http://pypi.doubanio.com/simple/ 豆瓣     
-http://mirrors.aliyun.com/pypi/simple/ 阿里    
-https://pypi.mirrors.ustc.edu.cn/simple/ 中国科学技术大学    
-http://mirrors.163.com/pypi/simple/ 网易
+🌟 **My Learning Philosophy**:  
+> *"When you encounter obstacles in your coding journey, learn relentlessly. Knowledge compounds – it's the ultimate investment that never depreciates."*
 
-```angular2html
+---
+
+## 🐍 Python Development Setup
+
+### Recommended Package Mirrors (China):
+- **Tsinghua University**: `https://pypi.tuna.tsinghua.edu.cn/simple/`  
+- **Douban**: `http://pypi.doubanio.com/simple/`  
+- **Aliyun**: `http://mirrors.aliyun.com/pypi/simple/`  
+- **USTC**: `https://pypi.mirrors.ustc.edu.cn/simple/`  
+- **NetEase**: `http://mirrors.163.com/pypi/simple/`  
+
+**Installation Example**:
+```bash
 pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/
 ```
 
-## npm源:
+## 📦 JavaScript/Node.js Configuration
 
-常用源地址：  
-官方： http://www.npmjs.org    
-阿里： https://registry.npmmirror.com
+### Trusted npm Registries:
+- **Official Registry**: `http://www.npmjs.org`  
+- **Aliyun Mirror**: `https://registry.npmmirror.com`  
 
-查看源地址
-
-```sh
+**CLI Operations**:  
+Check current registry:
+```bash
 npm config get registry
 ```
 
-设置源地址：
-
-```
+Switch registries:
+```bash
+# For official
 npm config set registry http://www.npmjs.org
 
+# For Aliyun mirror
 npm config set registry https://registry.npmmirror.com
 ```
+
+
+![](./profile-3d-contrib/profile-green.svg)
