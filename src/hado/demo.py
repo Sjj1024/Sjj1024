@@ -78,24 +78,18 @@ def wait_label(label):
         else:
             time.sleep(3)
 
+
 def work_click():
     print("点击上班按钮")
-    # btn = Selector().index(7).find()
-    # if btn:
-    #     btn.click()
-    #     time.sleep(2)
     if find_and_click("上班打卡"):
         time.sleep(2)
 
 
 def down_click():
     print("点击下班按钮")
-    # btn = Selector().index(9).find()
-    # if btn:
-    #     btn.click()
-    #     time.sleep(2)
     if find_and_click("下班打卡"):
-        time.sleep(2)
+        time.sleep(4)
+        signle_v2free()
 
 
 def click_btn():
@@ -160,7 +154,7 @@ def control():
 
 def signle_v2free():
     system.open_url("https://w1.v2free.cc/user")
-    time.sleep(3)
+    time.sleep(6)
     wait_label("知道了")
     time.sleep(3)
     # 滑动显示签到
@@ -174,7 +168,8 @@ def signle_v2free():
         wait_label("知道了")
     else:
         print("没有找到点我获取流量")
-    time.sleep(3)
+    time.sleep(6)
+    system.app_start(bundle_id="com.bytedance.ee.lark")
 
 
 def main():
@@ -198,7 +193,6 @@ def main():
         else:
             print("不是")
         print("开始睡眠20分钟")
-        signle_v2free()
         time.sleep(6 * 60)
 
 
