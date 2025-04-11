@@ -83,13 +83,13 @@ def work_click():
     print("点击上班按钮")
     if find_and_click("上班打卡"):
         time.sleep(2)
+        signle_v2free()
 
 
 def down_click():
     print("点击下班按钮")
     if find_and_click("下班打卡"):
         time.sleep(4)
-        signle_v2free()
 
 
 def click_btn():
