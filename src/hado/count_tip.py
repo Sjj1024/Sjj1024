@@ -1,7 +1,7 @@
 import pandas as pd
 
 # 读取 CSV 文件
-df = pd.read_csv('files/微信支付账单250420.csv')
+df = pd.read_csv('files/微信支付账单-转账(20250420-20250506).csv')
 
 # 筛选交易对象包含 'hado' 且 '收/支' 类型是 '支出' 的数据
 filtered_df = df[(df['交易对方'].str.contains('hado', na=False)) & (df['收/支'] == '支出')].copy()

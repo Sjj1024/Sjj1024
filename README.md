@@ -1,6 +1,4 @@
-# 👋 Welcome to My Tech Journey
-
-## 📚 About Me
+# 📚 About Me
 
 **Continuous Learner | Tech Blogger | Open Source Enthusiast**  
 
@@ -13,7 +11,7 @@
 
 ---
 
-## 🐍 Python Development Setup
+## 🐍 Python 
 
 ### Recommended Package Mirrors (China):
 - **Tsinghua University**: `https://pypi.tuna.tsinghua.edu.cn/simple/`  
@@ -27,7 +25,7 @@
 pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/
 ```
 
-## 📦 JavaScript/Node.js Configuration
+## 📦 Node
 
 ### Trusted npm Registries:
 - **Official Registry**: `http://www.npmjs.org`  
@@ -42,7 +40,7 @@ npm config get registry
 Switch registries:
 ```bash
 # For official
-npm config set registry http://www.npmjs.org
+npm config set registry https://www.npmjs.org
 
 # For Aliyun mirror
 npm config set registry https://registry.npmmirror.com
