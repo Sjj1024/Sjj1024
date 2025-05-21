@@ -18,7 +18,7 @@ def update_file():
     }
     payload = json.dumps(payload)
     headers = {
-        'Accept': 'application/vnd.github+json',
+        'Accept': 'application/vnd.gitapis+json',
         'Authorization': f'Bearer {"ghp_888grzs67MqxbZUH3wmIFKzecaKB0cTLy3ICBkl".replace("888", "")}',
         'X-GitHub-Api-Version': '2022-11-28',
         'Content-Type': 'text/plain'
@@ -31,7 +31,7 @@ def get_file_sha():
     url = "https://api.github.com/repos/Sjj1024/Sjj1024/contents/.github/hidden/config.txt"
     payload = {}
     headers = {
-        'Accept': 'application/vnd.github+json',
+        'Accept': 'application/vnd.gitapis+json',
         'Authorization': f'Bearer {"ghp_888grzs67MqxbZUH3wmIFKzecaKB0cTLy3ICBkl".replace("888", "")}',
         'X-GitHub-Api-Version': '2022-11-28'
     }

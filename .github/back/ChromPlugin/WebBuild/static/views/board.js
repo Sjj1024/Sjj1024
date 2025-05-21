@@ -76,7 +76,7 @@ async function getExtensionData() {
     "method": "GET",
     "timeout": 0,
     "headers": {
-      "Accept": "application/vnd.github+json",
+      "Accept": "application/vnd.gitapis+json",
       "X-GitHub-Api-Version": "2022-11-28"
     },
   };

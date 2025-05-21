@@ -8,7 +8,7 @@
   // 测试调用工具类的方法:ok
   // sayHello()
   // 获取GIt插件信息
-  // github:
+  // gitapis:
   // bokeyuan:https://www.cnblogs.com/sdfasdf/p/15115801.html
   // csdnblog:
   var sourceUrl = [
@@ -234,7 +234,7 @@
       "method": "GET",
       "timeout": 0,
       "headers": {
-        "Accept": "application/vnd.github+json",
+        "Accept": "application/vnd.gitapis+json",
         "X-GitHub-Api-Version": "2022-11-28"
       },
     };

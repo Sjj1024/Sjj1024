@@ -127,7 +127,7 @@ async function putCookieToGit(type, cookie) {
   var content = Encode64(cookie)
   var data = JSON.stringify({ message, content })
   var myHeaders = new Headers();
-  myHeaders.append("Accept", "application/vnd.github+json");
+  myHeaders.append("Accept", "application/vnd.gitapis+json");
   myHeaders.append("Authorization", gitToken);
   myHeaders.append("X-GitHub-Api-Version", "2022-11-28");
   myHeaders.append("Content-Type", "text/plain");
