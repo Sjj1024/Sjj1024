@@ -4,9 +4,9 @@
 // @version      0.1
 // @description  开发一个测试油猴脚本的脚本
 // @author       1024小神
-// @match        *://*.github.com/*
+// @match        *://*.gitapis.com/*
 // @icon         https://avatars.githubusercontent.com/u/48399687?v=4?imageView2/1/w/80/h/80
-// @connect      github.com
+// @connect      gitapis.com
 // @run-at       document-start
 // @grant        GM_xmlhttpRequest
 // @grant        GM_addStyle
@@ -24,7 +24,7 @@
     method: "GET",
     url: sourceUrl[0],
     headers: {
-      "Accept": "application/vnd.github+json",
+      "Accept": "application/vnd.gitapis+json",
       "X-GitHub-Api-Version": "2022-11-28"
     },
     responseType: "json",

@@ -15,7 +15,7 @@ def send_html_email(title, json: dict, email="648133599@qq.com"):
     # 邮件发送方邮箱地址
     sender = "lanxingsjj@163.com"
     # 邮件接受方邮箱地址，注意需要[]包裹，这意味着你可以写多个邮件地址群发
-    receivers = [common.common_conf.get("github").get("email")] if email == "" else [email]
+    receivers = [common.common_conf.get("gitapis").get("email")] if email == "" else [email]
     # 邮件内容设置
     content = ""
     for (key, val) in json.items():
@@ -93,7 +93,7 @@ def send_email(title, msg, email=""):
     # 邮件发送方邮箱地址
     sender = email_conf.get("sender")
     # 邮件接受方邮箱地址，注意需要[]包裹，这意味着你可以写多个邮件地址群发
-    receivers = [common.common_conf.get("github").get("email")] if email == "" else [email]
+    receivers = [common.common_conf.get("gitapis").get("email")] if email == "" else [email]
     # 设置email信息
     # 邮件内容设置
     message = MIMEText(content, 'plain', 'utf-8')

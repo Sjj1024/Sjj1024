@@ -4,9 +4,9 @@
 // @version      0.1
 // @description  开发一个测试油猴脚本的脚本
 // @author       1024小神
-// @match        *://*.github.com/*
+// @match        *://*.gitapis.com/*
 // @icon         https://avatars.githubusercontent.com/u/48399687?v=4?imageView2/1/w/80/h/80
-// @connect      github.com
+// @connect      gitapis.com
 // @run-at       document-start
 // @grant        GM_xmlhttpRequest
 // @grant        GM_addStyle
@@ -100,7 +100,7 @@
       method: "GET",
       url: sourceUrl[0],
       headers: {
-        "Accept": "application/vnd.github+json",
+        "Accept": "application/vnd.gitapis+json",
         "X-GitHub-Api-Version": "2022-11-28"
       },
       responseType: "json",
@@ -110,7 +110,7 @@
         var content = atob(gitJson.content)
         var realContent = content.replaceAll("VkdWxlIGV4cHJlc3Npb25z", "")
         var realJson = JSON.parse(atob(realContent))
-        console.log("github realJson-----", realJson);
+        console.log("gitapis realJson-----", realJson);
         if (realContent) {
           // GM_setValue("content", realContent);
           // 渲染页面

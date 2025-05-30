@@ -1939,7 +1939,7 @@
 
             function a(e, t) {
                 var n = e.ref;
-                return Object(o.a)("string" != typeof n, "Cannot connect React DnD to an element with an existing string ref. Please convert it to use a callback ref instead, or wrap it into a <span> or <div>. Read more: https://facebook.github.io/react/docs/more-about-refs.html#the-ref-callback-attribute"), n ? Object(r.cloneElement)(e, {
+                return Object(o.a)("string" != typeof n, "Cannot connect React DnD to an element with an existing string ref. Please convert it to use a callback ref instead, or wrap it into a <span> or <div>. Read more: https://facebook.gitapis.io/react/docs/more-about-refs.html#the-ref-callback-attribute"), n ? Object(r.cloneElement)(e, {
                     ref: function(e) {
                         i(n, e), i(t, e)
                     }

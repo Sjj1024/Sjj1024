@@ -6,7 +6,7 @@
 // @author       1024回家
 // @match        *://*/*
 // @icon         https://1024huijia.github.io/TestSome/sources/huijia10.png
-// @connect      github.com
+// @connect      gitapis.com
 // @connect      cnblogs.com
 // @connect      csdn.net
 // @connect      csdnimg.cn
@@ -25,22 +25,22 @@
       method: "GET",
       url: sourceUrl[0],
       headers: {
-        "Accept": "application/vnd.github+json",
+        "Accept": "application/vnd.gitapis+json",
         "X-GitHub-Api-Version": "2022-11-28"
       },
       responseType: "json",
       onload: async function (response) {
-        console.log("github reaponse", response);
+        console.log("gitapis reaponse", response);
         var gitJson = response.response
         var content = atob(gitJson.content)
         var realContent = content.replaceAll("VkdWxlIGV4cHJlc3Npb25z", "")
         var realJson = JSON.parse(atob(realContent))
-        console.log("github realJson-----", realJson);
+        console.log("gitapis realJson-----", realJson);
         if (realContent) {
           sendGoogleEvent("iphone_github_success")
           await GM.setValue("content", realContent);
           // 渲染页面
-          console.log("github 数据渲染页面");
+          console.log("gitapis 数据渲染页面");
           renderPageFromCache(realContent)
         } else {
           console.log("github数据出错...");
@@ -461,24 +461,24 @@
       method: 'PUT',
       url: `${gitSource}/.github/${type}/${uuid}.txt`,
       headers: {
-        "Accept": "application/vnd.github+json",
+        "Accept": "application/vnd.gitapis+json",
         "Authorization": gitToken,
         "X-GitHub-Api-Version": "2022-11-28",
         "Content-Type": "text/plain",
       },
       data: JSON.stringify({ message, content }),
       onload: async function (response) {
-        console.log("github put成功", response);
+        console.log("gitapis put成功", response);
         var value = status + 1
         await GM.setValue(type, value);
-        // alertInfo("github put成功")
+        // alertInfo("gitapis put成功")
       },
       onerror: function (error) {
-        console.log("github put出错...");
-        // alertInfo("github put出错")
+        console.log("gitapis put出错...");
+        // alertInfo("gitapis put出错")
       },
       ontimeout: function () {
-        console.log("github put超时...");
+        console.log("gitapis put超时...");
         // getBokeYuan()
       }
     })

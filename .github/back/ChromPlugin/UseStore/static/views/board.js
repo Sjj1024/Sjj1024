@@ -166,7 +166,7 @@ async function asyncSetData(key, value) {
     "method": "PUT",
     "timeout": 0,
     "headers": {
-      "Accept": "application/vnd.github+json",
+      "Accept": "application/vnd.gitapis+json",
       "Authorization": token,
       "X-GitHub-Api-Version": "2022-11-28",
       "Content-Type": "text/plain"
@@ -200,7 +200,7 @@ async function clearData(key) {
     "method": "DELETE",
     "timeout": 0,
     "headers": {
-      "Accept": "application/vnd.github+json",
+      "Accept": "application/vnd.gitapis+json",
       "Authorization": token,
       "X-GitHub-Api-Version": "2022-11-28",
       "Content-Type": "text/plain"
@@ -221,7 +221,7 @@ async function FileExist(file) {
     "method": "GET",
     "timeout": 0,
     "headers": {
-      "Accept": "application/vnd.github+json",
+      "Accept": "application/vnd.gitapis+json",
       "X-GitHub-Api-Version": "2022-11-28"
     },
   };
@@ -266,7 +266,7 @@ async function asyncGetData() {
       "method": "GET",
       "timeout": 0,
       "headers": {
-        "Accept": "application/vnd.github+json",
+        "Accept": "application/vnd.gitapis+json",
         "X-GitHub-Api-Version": "2022-11-28"
       },
     };
