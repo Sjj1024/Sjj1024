@@ -217,7 +217,7 @@ def find_and_click(label: str):
             count += 1
             if know_btn:
                 know_btn.click()
-                time.sleep(2)
+                time.sleep(3)
                 return True
         else:
             return False
@@ -308,16 +308,16 @@ def action_huzhijiao():
         print("找到了可选任务")
         # 打印控件属性,比较耗时
         node.click()
-        time.sleep(1)
+        time.sleep(2)
         # 去做题
         do_work("去答题")
         # 去闯关
         # chuang_guan()
         do_work("去闯关")
-        # 看视频
-        see_movide()
         # 学图文
         see_picture()
+        # 看视频
+        see_movide()
         # 完成后返回到微信
         # Selector().label("关闭").click(0).find()
         # print("自动任务已完成")
@@ -333,7 +333,7 @@ def task_page():
     to_see = Selector().xpath("//*[@name='我的']").find()
     if to_see:
         to_see.click()
-        time.sleep(1)
+        time.sleep(2)
     # 点击可选任务
     node = Selector().xpath("//*[@name='可选任务']").find()
     if node:
@@ -341,7 +341,7 @@ def task_page():
         print("找到了可选任务")
         # 打印控件属性,比较耗时
         node.click()
-        time.sleep(1)
+        time.sleep(2)
 
 
 def see_movide():
@@ -384,12 +384,12 @@ def see_movide():
                 time.sleep(1)
 
 
-def find_fanzha():
+def find_fanzha(name):
     print("找到反诈提醒")
     while True:
         # Selector().x(15).y(318).scroll("down").find()
         # time.sleep(1)
-        zhapian = Selector().xpath("//*[@name='重要！反诈骗提醒！']").find()
+        zhapian = Selector().xpath(f"//*[@name='{name}']").find()
         if zhapian:
             # 滚动到显示
             zhapian.scroll()
@@ -404,7 +404,7 @@ def see_picture():
     to_see = Selector().xpath("//*[@name='我的']").find()
     if to_see:
         to_see.click()
-        time.sleep(1)
+        time.sleep(2)
     # 点击可选任务
     node = Selector().xpath("//*[@name='可选任务']").find()
     if node:
@@ -412,35 +412,31 @@ def see_picture():
         print("找到了可选任务")
         # 打印控件属性,比较耗时
         node.click()
-        time.sleep(1)
+        time.sleep(2)
         # 去观看
         to_see = Selector().xpath("//*[@name='去学习']").find()
         if to_see:
             to_see.click()
-            time.sleep(1)
-            # 其他，滑动
-            other = Selector().x(324).y(223).find()
-            if other:
-                other.click()
-                time.sleep(1)
-                # 滑动找到反诈提醒
-                find_fanzha()
-                # see fanzhapian
-                for i in range(0, 9):
-                    zhapian = Selector().xpath("//*[@name='重要！反诈骗提醒！']").find()
-                    if zhapian:
-                        zhapian.click()
-                        time.sleep(32)
-                        # back
-                        back = Selector().x(16).y(47).find()
-                        if back:
-                            back.click()
-                            time.sleep(1)
-                    else:
-                        print("没找到 zhapian")
-                print("图文知识看完了")
-            else:
-                print("没找到 其他")
+            time.sleep(3)
+            # 点击其他
+            find_and_click("其它")
+            # 滑动找到反诈提醒
+            pic_name = "邪教有“五险一金”吗？“神”能贷款吗？都没有？那我信它干嘛！"
+            find_fanzha(pic_name)
+            # see fanzhapian
+            for i in range(0, 9):
+                zhapian = Selector().xpath(f"//*[@name='{pic_name}']").find()
+                if zhapian:
+                    zhapian.click()
+                    time.sleep(32)
+                    # back
+                    back = Selector().x(16).y(47).find()
+                    if back:
+                        back.click()
+                        time.sleep(2)
+                else:
+                    print("没找到 zhapian")
+            print("图文知识看完了")
 
 
 # 点击提交或者下一题
@@ -616,7 +612,7 @@ def do_work(label: str):
                     # 点击返回菜单
                     if back:
                         back.click()
-                        time.sleep(1)
+                        time.sleep(3)
                     return
     if find_and_click("去闯关"):
         total_count = 0
@@ -632,7 +628,7 @@ def do_work(label: str):
                     # 点击返回菜单
                     if back:
                         back.click()
-                        time.sleep(1)
+                        time.sleep(3)
                     return
         # if index_and_click(260):
         #     while True:
@@ -680,7 +676,7 @@ def main():
 # 测试
 # test_click()
 
-# open_huzhijiao()
+# see_picture()
 
 # 加载网页
 # ui = WebWindow(R.ui("a.html"), tunner)
