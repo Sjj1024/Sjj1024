@@ -4,13 +4,23 @@ import { defineConfig } from 'rspress/config'
 export default defineConfig({
     root: path.join(__dirname, 'docs'),
     title: '1024小神',
-    icon: '/rspress-icon.png',
+    icon: '/xiaoshen.png',
     logo: {
-        light: '/rspress-light-logo.png',
-        dark: '/rspress-dark-logo.png',
+        light: '/light-logo.png',
+        dark: '/dark-logo.png',
     },
     themeConfig: {
         socialLinks: [
+            {
+                icon: 'bilibili',
+                mode: 'link',
+                content: 'https://space.bilibili.com/405719127',
+            },
+            {
+                icon: 'juejin',
+                mode: 'link',
+                content: 'https://juejin.cn/user/70007368988926',
+            },
             {
                 icon: 'github',
                 mode: 'link',
