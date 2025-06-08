@@ -3,7 +3,7 @@ import { defineConfig } from 'rspress/config'
 
 export default defineConfig({
     root: path.join(__dirname, 'docs'),
-    title: 'My Site',
+    title: '1024小神',
     icon: '/rspress-icon.png',
     logo: {
         light: '/rspress-light-logo.png',
@@ -14,7 +14,7 @@ export default defineConfig({
             {
                 icon: 'github',
                 mode: 'link',
-                content: 'https://github.com/web-infra-dev/rspress',
+                content: 'https://github.com/Sjj1024',
             },
         ],
     },
