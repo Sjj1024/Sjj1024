@@ -1,0 +1,21 @@
+[
+    {
+        "text": "技能",
+        "link": "/guide/",
+        "activeMatch": "/guide/"
+    },
+    {
+        "text": "摄影",
+        "link": "/hello/",
+        "activeMatch": "/hello/"
+    },
+    {
+        "text": "生活",
+        "link": "/hello/",
+        "activeMatch": "/hello/"
+    },
+    {
+        "text": "API",
+        "link": "https://github.com/"
+    }
+]
