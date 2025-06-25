@@ -1,3 +1,4 @@
+import json
 import time
 import requests
 import hashlib
@@ -89,15 +90,86 @@ def native_code():
         'total_fee': 120,  # 金额,单位:分
         'mchid': mchid
     }
+
     # 构造签名函数
     def sign(attributes):
         attributes_new = {k: attributes[k] for k in sorted(attributes.keys())}
         return hashlib.md5((unquote(urlencode(attributes_new)) + '&key=' + key)
                            .encode(encoding='utf-8')).hexdigest().upper()
+
     order['sign'] = sign(order)
     request_url = "https://payjs.cn/api/native"
     headers = {'content-type': 'application/x-www-form-urlencoded'}
     response = requests.post(request_url, data=order, headers=headers)
+    if response:
+        print(response.json())
+
+
+# 构造签名函数
+def sign_pay(attributes, sign_key):
+    attributes_new = {k: attributes[k] for k in sorted(attributes.keys())}
+    return hashlib.md5((unquote(urlencode(attributes_new)) + '&key=' + sign_key)
+                       .encode(encoding='utf-8')).hexdigest().upper()
+
+
+def get_sign(params_dict, key):
+    # 按字典键名排序
+    params_dict = {k: params_dict[k] for k in sorted(params_dict.keys())}
+    params_str = "&".join(
+        f'{key}={params_dict[key]}' for key in params_dict.keys()) + "&key=" + key
+    md5 = hashlib.md5()
+    md5.update(params_str.encode('utf-8'))
+    sign = md5.hexdigest().upper()  # 加密转换为大写
+    return sign
+
+
+def yun_native_code():
+    '''
+    扫码支付（主扫）
+    '''
+    timestamp_us = int(time.time() * 1_000_000)
+    key = ''  # 填写通信密钥
+    mchid = ''  # 特写商户号
+    # order = {
+    #     'body': 'test yunpay',  # 订单标题
+    #     'out_trade_no': timestamp_us,  # 订单号
+    #     'total_fee': 10,  # 金额,单位:分
+    #     'mch_id': mchid
+    # }
+    order = {"body": "YUN支付订单", "out_trade_no": timestamp_us, "total_fee": 10, "mch_id": ""}
+    order['sign'] = get_sign(order, key)
+    request_url = "https://api.pay.yungouos.com/api/pay/wxpay/nativePay"
+    response = requests.post(request_url, data=order)
+    if response:
+        print(response.json())
+
+
+def yun_js_pay():
+    key = ''
+    url = "https://api.pay.yungouos.com/api/pay/wxpay/nativePay"
+    payload = {
+        "body": "YUN支付订单",
+        "out_trade_no": "yunpay_demo_1750765774411",
+        "total_fee": "10",
+        "mch_id": "",
+        "sign": ""
+    }
+    print("请求参数:", payload)
+    response = requests.request("POST", url, data=payload)
+    print(response.text)
+
+
+def yun_order_check():
+    print("检查订单号")
+    key = ''  # 填写通信密钥
+    mchid = ''  # 特写商户号
+    order = {
+        'out_trade_no': "1750752437809532",  # 订单号
+        'mch_id': mchid
+    }
+    order['sign'] = get_sign(order, key)
+    request_url = "https://api.pay.yungouos.com/api/system/order/getPayOrderInfo"
+    response = requests.get(request_url, params=order)
     if response:
         print(response.json())
 
@@ -112,7 +184,14 @@ if __name__ == '__main__':
     # print("md5str", md5str)
 
     # 检查订单
-    check_order()
+    # check_order()
+
+    # 扫码支付
+    # yun_native_code()
+    yun_js_pay()
+
+    # 检查订单
+    # yun_order_check()
 
     # 扫码支付
     # native_code()
