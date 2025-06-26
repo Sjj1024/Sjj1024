@@ -146,7 +146,7 @@ def yun_native_code():
 
 def yun_js_pay():
     key = ''
-    url = "https://api.pay.yungouos.com/api/pay/wxpay/nativePay"
+    url = "https://zpayz.cn/mapi.php"
     payload = {
         "body": "YUN支付订单",
         "out_trade_no": "yunpay_demo_1750765774411",
@@ -174,6 +174,43 @@ def yun_order_check():
         print(response.json())
 
 
+# z pay
+def z_pay_test():
+    sign_key = ""
+    timestamp_us = int(time.time() * 1_000_000)
+    order = {
+        "pid": "",
+        "type": "alipay",
+        "out_trade_no": "zpay_" + str(timestamp_us),
+        "notify_url": "https://juejin.cn/",
+        "name": "VIP会员",
+        "money": "10",
+        "clientip": "192.168.1.100",
+        "sign_type": "MD5"
+    }
+    order['sign'] = get_sign(order, sign_key)
+    print("请求参数:", order)
+    url = "https://zpayz.cn/mapi.php"
+    response = requests.post(url, data=order)
+    if response:
+        print(response.json())
+
+
+# z pay check
+def z_pay_check():
+    sign_key = ""
+    order = {
+        "act": "order",
+        "pid": "",
+        "key": sign_key,
+        "out_trade_no": "zpay_1750927043587469"
+    }
+    url = "https://zpayz.cn/api.php"
+    response = requests.get(url, params=order)
+    if response:
+        print(response.json())
+
+
 if __name__ == '__main__':
     # 测试支付链接生成
     # paylod = {
@@ -188,10 +225,16 @@ if __name__ == '__main__':
 
     # 扫码支付
     # yun_native_code()
-    yun_js_pay()
+    # yun_js_pay()
 
     # 检查订单
-    yun_order_check()
+    # yun_order_check()
 
     # 扫码支付
     # native_code()
+
+    # 支付测试
+    # z_pay_test()
+
+    # 检查订单号
+    z_pay_check()

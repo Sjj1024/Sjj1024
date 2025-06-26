@@ -20,7 +20,6 @@ def pay(money, name, notify_url, out_trade_no, payType, pid, return_url, webName
     sign = hashlib.md5((sg + key).encode(encoding='UTF-8')).hexdigest()  # 签名计算
     # 最后要将参数返回给前端，前端访问url发起支付
     url = 'https://z-pay.cn/submit.php?' + sg + '&sign=' + sign + '&sign_type=MD5'
-
     res = requests.post(url).content.decode()
     return res
 
@@ -62,17 +61,17 @@ def orders(pid, key, limit):
 
 if __name__ == '__main__':
     money = '0.01'  # 金额
-    name = ''  # 商品名称
-    notify_url = ''  # 服务器异步通知地址
-    out_trade_no = ''  # 商户订单号
-    payType = ''  # 支付方式:alipay:支付宝,wxpay:微信支付,qqpay:QQ钱包,tenpay:财付通
-    pid = ''  # 商户ID
-    return_url = ''  # 页面跳转通知地址
-    webName = ''  # 网站名称
-    key = ''
+    name = 'PakePlus'  # 商品名称
+    notify_url = 'https://juejin.cn/'  # 服务器异步通知地址
+    out_trade_no = '33223234234234'  # 商户订单号
+    payType = 'alipay'  # 支付方式:alipay:支付宝,wxpay:微信支付,qqpay:QQ钱包,tenpay:财付通
+    pid = '2025062614485234'  # 商户ID
+    return_url = 'https://juejin.cn/'  # 页面跳转通知地址
+    webName = 'PakePlus'  # 网站名称
+    key = 'c1G3osG5rYUBN91dOeAQZYeqV99MfShB'
 
-    # res = pay(money, name, notify_url, out_trade_no, payType, pid, return_url, webName, key)
-    # print(res)
+    res = pay(money, name, notify_url, out_trade_no, payType, pid, return_url, webName, key)
+    print(res)
     # act(pid, key)
     # print(settle(pid, key))
     # print(order(pid, key, out_trade_no))
