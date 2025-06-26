@@ -191,7 +191,7 @@ if __name__ == '__main__':
     yun_js_pay()
 
     # 检查订单
-    # yun_order_check()
+    yun_order_check()
 
     # 扫码支付
     # native_code()
