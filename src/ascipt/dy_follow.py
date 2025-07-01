@@ -94,19 +94,19 @@ def click_unfollow():
 def single_click():
     all_user = Selector().xpath(f"//*[@name='互相关注']").find_all()
     print(f"找到{len(all_user)}个互相关注按钮")
-    if all_user:
+    if all_user and len(all_user) > 1:
         for i in range(len(all_user)):
             print(f"取消关注第{i + 1}个用户")
-            if i <= 0 or i >= 11:
+            if i <= 0 or i >= 8:
                 continue
             all_user[i].click()
-            time.sleep(1)
+            time.sleep(2)
             res = find_and_click("取消关注")
             if res:
                 print("取消关注成功")
             else:
                 print("取消关注失败")
-            time.sleep(1)
+            time.sleep(2)
     else:
         print("没有找到互相关注按钮")
 
@@ -117,7 +117,7 @@ def main():
     while True:
         Selector().scroll("down", 1).find()
         single_click()
-        time.sleep(1)
+        time.sleep(2)
 
 
 main()
