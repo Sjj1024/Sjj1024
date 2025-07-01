@@ -1,6 +1,5 @@
 import random
 import time
-
 import requests
 import os
 import json
@@ -22,8 +21,8 @@ def get_issue(keyword):
         if keyword in title:
             if "error" in title:
                 body = """PakePlus打包失败修复：
-1.需要重新填写token或点击同步按钮更新一下试试，
-2.老项目删除，重新创建一个新的项目再打包发布试试，
+1.使用最新版本，重新填写token或点击同步按钮试试，
+2.删除老项目，重新创建一个新的项目再打包发布试试，
 3.或查看常见问题文档：https://pakeplus.com/question/
 4.或可以加入我们交流群：https://pakeplus.com/exchange/"""
                 create_comments(issue_num, body)
