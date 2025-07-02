@@ -97,7 +97,7 @@ def single_click():
     if all_user:
         for i in range(len(all_user)):
             print(f"取消关注第{i + 1}个用户")
-            if i <= 0 or i >= 11:
+            if i <= 0 or i >= 10:
                 continue
             all_user[i].click()
             time.sleep(1)
@@ -106,6 +106,10 @@ def single_click():
                 print("取消关注成功")
             else:
                 print("取消关注失败")
+            know_btn = Selector().xpath(f"//*[@name='我知道了']").find()
+            if know_btn:
+                know_btn.click()
+                print("点击我知道了")
             time.sleep(1)
     else:
         print("没有找到互相关注按钮")
