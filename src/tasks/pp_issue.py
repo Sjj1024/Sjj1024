@@ -23,8 +23,8 @@ def get_issue(keyword):
                 body = """PakePlus打包失败修复：
 1.使用最新版本，重新填写token或点击同步按钮试试，
 2.删除老项目，重新创建一个新的项目再打包发布试试，
-3.或查看常见问题文档：https://pakeplus.com/question/
-4.或可以加入我们交流群：https://pakeplus.com/exchange/"""
+3.或查看常见问题文档：https://ppofficial.netlify.app/question/
+4.或可以加入我们交流群：https://ppofficial.netlify.app/exchange/"""
                 create_comments(issue_num, body)
             close_issue(issue_num, "closed")
 
