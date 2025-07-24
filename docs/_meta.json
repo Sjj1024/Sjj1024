@@ -1,16 +1,16 @@
 [
     {
-        "text": "技能",
+        "text": "Skill",
         "link": "/guide/",
         "activeMatch": "/guide/"
     },
     {
-        "text": "摄影",
+        "text": "Hobby",
         "link": "/hello/",
         "activeMatch": "/hello/"
     },
     {
-        "text": "生活",
+        "text": "Life",
         "link": "/hello/",
         "activeMatch": "/hello/"
     },
