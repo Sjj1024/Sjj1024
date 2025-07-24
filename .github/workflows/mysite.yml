@@ -1,4 +1,4 @@
-name: Deploy Rspress site to Pages
+name: Deploy GitHub Pages
 
 on:
     workflow_dispatch:
@@ -6,7 +6,7 @@ on:
             branch:
                 description: 'Branch to deploy'
                 required: true
-                default: 'main'
+                default: 'master'
 
 permissions:
     contents: read
