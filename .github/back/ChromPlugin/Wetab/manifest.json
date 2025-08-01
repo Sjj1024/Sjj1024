@@ -1,0 +1,34 @@
+{
+   "action": {
+      "default_icon": {
+         "16": "icons/icon_zh_16.png",
+         "32": "icons/icon_zh_32.png",
+         "48": "icons/icon_zh_48.png"
+      },
+      "default_popup": "popup/index.html",
+      "default_title": "__MSG_extension_add_to_home__"
+   },
+   "background": {
+      "service_worker": "serviceworker.js"
+   },
+   "chrome_url_overrides": {
+      "newtab": "hitab/index.html"
+   },
+   "default_locale": "zh_CN",
+   "description": "__MSG_extension_des__",
+   "differential_fingerprint": "1.07453b9897c690b8cee6b4415eda479fd44ec469dfcda5ab9ea804aed8cebdd8",
+   "host_permissions": [ "*://*/*" ],
+   "icons": {
+      "128": "icons/icon_zh_128.png",
+      "16": "icons/icon_zh_16.png",
+      "32": "icons/icon_zh_32.png",
+      "48": "icons/icon_zh_48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlIpbj/HbwIsnGR+2ecPL/aDtXqWvoRR9gGtw2jOPuMRZy7nmi/8QqhAtIWmUlUXnPS82zh6ky16ii1ZOURNDEuVTtToR47wdID5TsGJsLyEypPEkscHD1dcdAeQxuuo+5Gfh0uYCrmHa/gItbUOvXMH/Fau9I9xYNlfA/Qs0k7k6IvbIIDut8UV4P9yi/f3TPv2u3bNUcN3LY8NO32gsyAhpvHRpdtog9xw8vFr7X+Z3m+g8J+xPYtwqx5UZwSKl0oGT3xZrFzb+cXQJmjSDuvKPG+yh9sfoKRmyEYIKz22EpOx8eDI1+hyXmVklnm6QQhN2v1Lwf6VZXZx0+yQV9QIDAQAB",
+   "manifest_version": 3,
+   "name": "__MSG_extension_name__",
+   "optional_permissions": [ "system.cpu", "system.memory", "bookmarks", "favicon" ],
+   "permissions": [ "activeTab", "storage", "unlimitedStorage" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.0.43"
+}

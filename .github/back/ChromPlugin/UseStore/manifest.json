@@ -1,0 +1,43 @@
+{
+    "manifest_version": 3,
+    "name": "useStore",
+    "version": "0.0.1",
+    "description": "这是一个聚焦",
+    "icons": {
+        "16": "static/imgs/icon.png",
+        "32": "static/imgs/icon.png",
+        "48": "static/imgs/icon.png",
+        "128": "static/imgs/icon.png"
+    },
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "storage",
+        "cookies",
+        "tabs",
+        "nativeMessaging",
+        "declarativeNetRequest",
+        "declarativeNetRequestWithHostAccess",
+        "declarativeNetRequestFeedback"
+    ],
+    "declarative_net_request": {
+      "rule_resources": [{
+        "id": "1",
+        "enabled": false,
+        "path": "rules_1.json"
+      }]
+    },
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://*/*", "<all_urls>"],
+            "js": ["content.js"]
+        }
+    ]
+}

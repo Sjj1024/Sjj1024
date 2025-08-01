@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>使用Store</title>
+  <link rel="stylesheet" href="static/css/popup.css"></link>
+  <script src="static/js/jquery.js"></script>
+  <script src="static/js/popup.js" defer></script>
+</head>
+<body class="main">
+  <h2>总金额：<span id="money">0</span> &nbsp;&nbsp; <button id="clear-btn">清空</button></h2>
+  <div>
+    <span>请输入消费金额:</span><input type="text" id="sail"> <button id="save">存储</button>
+  </div>
+  <div class="action-box">
+    <button id="openset">打开单独一个设置页面</button> <button id="baiduauto">百度自动翻页</button>
+    <button id="douyinFansi">抖音粉丝滚动</button> <button id="nextPage">抖音关注下一页</button>
+    <button id="cancelPage">取消关注这页</button> <button id="autoPlayVideo">自动刷视频</button>
+  </div>
+  <div>
+    <button id="btn-1024">获取1024地址</button>
+    <div id="home-box">
+    </div>
+  </div>
+  <div>
+    <button id="toggle-useragent">修改UserAgent</button>
+    <button id="reset-useragent">恢复UserAgent</button>
+  </div>
+  <div class="site-cookie">
+    <h3>当前站点UserAgent是:</h3>
+    <span id="useragent"></span>
+    <h3>当前站点Cookie是:</h3>
+    <span id="cookies"></span>
+    <input type="text" id="hide" style="opacity: 0;height: 0px;" value="">
+    <div>
+      <button id="copyCookie">复制Cookie</button>
+      <button id="removeCookie">清空Cookie</button>
+    </div>
+  </div>
+  <div class="action-box">
+    <h3>你当前IP是:</h3>
+    <span id="ipbox"></span>
+  </div>
+</body>
+</html>

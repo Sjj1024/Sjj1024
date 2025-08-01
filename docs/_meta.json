@@ -1,0 +1,21 @@
+[
+    {
+        "text": "Skill",
+        "link": "/skill/",
+        "activeMatch": "/skill/"
+    },
+    {
+        "text": "Hobby",
+        "link": "/hobby/",
+        "activeMatch": "/hobby/"
+    },
+    {
+        "text": "Life",
+        "link": "/life/",
+        "activeMatch": "/life/"
+    },
+    {
+        "text": "API",
+        "link": "https://github.com/Sjj1024"
+    }
+]

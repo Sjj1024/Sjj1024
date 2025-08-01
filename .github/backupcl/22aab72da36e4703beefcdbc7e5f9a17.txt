@@ -1,0 +1,1 @@
+ismob=1; PHPSESSID=95610kjkpevfvfl4rmvohqb0k2; 227c9_lastwrite=1701529696; 227c9_ck_info=%2F%09; 227c9_winduser=AQJSBQ1QOVUABVZcAQYOV1FRAAZTAlFWVAYBCAYFVg1aVFJXDghcPA%3D%3D; 227c9_groupid=8; 227c9_lastvisit=0%091701531965%09%2Findex.php%3F

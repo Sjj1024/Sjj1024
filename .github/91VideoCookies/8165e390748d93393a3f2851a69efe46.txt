@@ -1,0 +1,1 @@
+return_url=https://aspecta.id/u/{AUTH_USERNAME}?campaignId=2; aspecta_token=cffa937fa2c31789a2f3045ad44ace9f2983b0aa2283940524214315edae913b; auth_provider=github; UserAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36; dateTimeLocal=2023/11/20 00:52:39

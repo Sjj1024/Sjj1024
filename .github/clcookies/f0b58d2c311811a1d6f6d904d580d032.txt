@@ -1,0 +1,1 @@
+; UserAgent=Mozilla/5.0 (Linux; Android 12; ELS-AN00) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Mobile Safari/537.36; dateTimeLocal=2024/10/2 23:05:32

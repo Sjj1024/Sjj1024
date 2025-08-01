@@ -1,0 +1,1 @@
+227c9_ck_info=%2F%09; 227c9_groupid=8; 227c9_winduser=AQVRAwdUOQkGBgZXBFYPVV5dUQgBDQJUCVIFCFcGUAIOUAVRU1MGPA%3D%3D; PHPSESSID=1m2qhu893m5g6kru3ii978nsqn; UserAgent=Mozilla/5.0 (iPhone; CPU iPhone OS 17_0_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0.1 Mobile/15E148 Safari/604.1; dateTimeLocal=2023/10/28 14:12:09

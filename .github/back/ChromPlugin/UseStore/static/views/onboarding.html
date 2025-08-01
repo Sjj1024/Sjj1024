@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="board.css">
+  <script src="../js/jquery.js"></script>
+  <script src="./board.js" defer></script>
+</head>
+
+<body>
+  <div>
+    <button id="btn-1024">获取1024地址</button>
+    <div id="home-box">
+    </div>
+  </div>
+  <div class="site-cookie">
+    <h3>当前站点UserAgent是:</h3>
+    <span id="useragent"></span>
+    <h3>当前站点Cookie是:</h3>
+    <span id="cookies"></span>
+  </div>
+  <br>
+  <div>
+    <button id="toggleUseragent">修改UserAgent</button>
+    <button id="resetUseragent">恢复UserAgent</button>
+    <div>
+      <span>请输入UserAgent：</span>
+      <div>
+        <!-- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 -->
+        <textarea name="cookie" id="userAgentVal" cols="150" rows="3"></textarea>
+      </div>
+      <select name="useragent" id="userAgentSel" class="useragentBox">
+        <option
+        value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36">
+        Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36</option>
+        <option
+          value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36">
+          Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0
+          Safari/537.36</option>
+        <option
+          value="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36">
+          Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0
+          Safari/537.36</option>
+        <option
+          value="Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25">
+          Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0
+          Mobile/10A5376e Safari/8536.25</option>
+        <option
+          value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36">
+          Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0
+          Safari/537.36</option>
+      </select>
+    </div>
+  </div>
+  <br>
+  <div>
+    <button id="editCookie">修改Cookie</button>
+    &nbsp;&nbsp; <span>请输入Url：</span><input type="text" id="cookieUrl">&nbsp;&nbsp; <span>请输入Cookie：</span>
+    <textarea name="cookie" id="cookieVal" cols="150" rows="3"></textarea>
+  </div>
+  <br>
+  <div>
+    <button id="asyncBtn">同步数据</button> <button id="asyncGetBtn">获取数据</button> <button id="clearAsyncBtn">清空数据</button>
+    <div class="dataAdd" style="margin: 5px;">
+      <span>key:</span>
+      <select name="dataKey" id="dataKey" class="dataKey">
+        <option value="data1">data1 </option>
+        <option value="data2">data2 </option>
+        <option value="data3">data3 </option>
+        <option value="data4">data4 </option>
+        <option value="data5">data5 </option>
+        <option value="data6">data6 </option>
+        <option value="data7">data7 </option>
+        <option value="data8">data8 </option>
+        <option value="data9">data9 </option>
+        <option value="data10">data10 </option>
+        <option value="data11">data11 </option>
+        <option value="data12">data12 </option>
+      </select>
+      <span>value:</span><input id="asyncData" type="text" style="width: 600px;">
+    </div>
+    <div class="dataBox"><span>已同步数据：</span></span><span id="asyncDataBox"></span></div>
+  </div>
+</body>
+
+</html>

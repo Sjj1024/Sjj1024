@@ -1,0 +1,67 @@
+            "multi": [
+3256
+            "regression": [
+3257
+                "explained_variance",
+3258
+                "mean_absolute_error",
+3259
+                "mean_squared_error",
+3265
+                "jaccard_similarity_score",
+3266
+                "fowlkes_mallows_score",
+3267
+                "adjusted_rand_score",
+3268
+                "davies_bouldin_index",
+3275
+        "_user_feeded_params": [
+3276
+            "unfold_multi_result",
+3277
+            "eval_type"
+3282
+[INFO] [2023-01-10 08:44:39,021] [202301100831111185130] [62715:140230155003712] - [task_executor._run_] [line:145]: task input dsl {'data': {'data': ['hetero_secure_boost_0.data', 'hetero_secure_boost_1.data']}}
+3283
+[INFO] [2023-01-10 08:44:39,021] [202301100831111185130] [62715:140230155003712] - [tracker_client.get_output_data_info] [line:265]: Request read job 202301100831111185130 task 202301100831111185130_evaluation_0 0 on guest 1000 data data info
+3284
+[INFO] [2023-01-10 08:44:39,037] [202301100831111185130] [62715:140230155003712] - [task_executor.get_task_run_args] [line:339]: load computing table use 4
+3328
+[INFO] [2023-01-10 08:44:48,463] [202301100831111185130] [62715:140230155003712] - [tracker_client.log_metric_data_common] [line:75]: Request save job 202301100831111185130 task 202301100831111185130_evaluation_0 0 on guest 1000 metric predict hetero_secure_boost_1_precision data
+3329
+[INFO] [2023-01-10 08:44:48,501] [202301100831111185130] [62715:140230155003712] - [tracker_client.set_metric_meta_common] [line:109]: Request save job 202301100831111185130 task 202301100831111185130_evaluation_0 0 on guest 1000 metric predict hetero_secure_boost_1_precision meta
+3330
+[INFO] [2023-01-10 08:44:48,519] [202301100831111185130] [62715:140230155003712] - [tracker_client.log_metric_data_common] [line:75]: Request save job 202301100831111185130 task 202301100831111185130_evaluation_0 0 on guest 1000 metric predict hetero_secure_boost_1_recall data
+3331
+[INFO] [2023-01-10 08:44:48,557] [202301100831111185130] [62715:140230155003712] - [tracker_client.set_metric_meta_common] [line:109]: Request save job 202301100831111185130 task 202301100831111185130_evaluation_0 0 on guest 1000 metric predict hetero_secure_boost_1_recall meta
+3332
+[INFO] [2023-01-10 08:44:48,574] [202301100831111185130] [62715:140230155003712] - [tracker_client.log_metric_data_common] [line:75]: Request save job 202301100831111185130 task 202301100831111185130_evaluation_0 0 on guest 1000 metric predict hetero_secure_boost_1_roc data
+3333
+[INFO] [2023-01-10 08:44:48,610] [202301100831111185130] [62715:140230155003712] - [tracker_client.set_metric_meta_common] [line:109]: Request save job 202301100831111185130 task 202301100831111185130_evaluation_0 0 on guest 1000 metric predict hetero_secure_boost_1_roc meta
+3334
+[INFO] [2023-01-10 08:44:48,623] [202301100831111185130] [62715:140230155003712] - [tracker_client.set_metric_meta_common] [line:109]: Request save job 202301100831111185130 task 202301100831111185130_evaluation_0 0 on guest 1000 metric predict hetero_secure_boost_1_confusion_mat meta
+3335
+[INFO] [2023-01-10 08:44:48,638] [202301100831111185130] [62715:140230155003712] - [tracker_client.set_metric_meta_common] [line:109]: Request save job 202301100831111185130 task 202301100831111185130_evaluation_0 0 on guest 1000 metric predict hetero_secure_boost_1_f1_score meta
+3336
+[INFO] [2023-01-10 08:44:48,654] [202301100831111185130] [62715:140230155003712] - [tracker_client.set_metric_meta_common] [line:109]: Request save job 202301100831111185130 task 202301100831111185130_evaluation_0 0 on guest 1000 metric predict hetero_secure_boost_1_quantile_pr meta
+3337
+[INFO] [2023-01-10 08:44:48,669] [202301100831111185130] [62715:140230155003712] - [evaluation.__save_summary] [line:675]: eval summary is {'hetero_secure_boost_0': {'train': {'auc': 0.7371993787626092, 'ks': 0.34314065880923306}}, 'hetero_secure_boost_1': {'predict': {'auc': 0.6804794137390915, 'ks': 0.2930745133139405}}}
+3338
+[INFO] [2023-01-10 08:44:48,670] [202301100831111185130] [62715:140230155003712] - [tracker_client.log_component_summary] [line:288]: Request save job 202301100831111185130 task 202301100831111185130_evaluation_0 0 on guest 1000 component summary
+3339
+[INFO] [2023-01-10 08:44:48,689] [202301100831111185130] [62715:140230155003712] - [_session.wait_remote_all_done] [line:440]: remote futures: set(), waiting...
+3340
+[INFO] [2023-01-10 08:44:48,689] [202301100831111185130] [62715:140230155003712] - [_session.wait_remote_all_done] [line:442]: remote futures: set(), all done
+3341
+[INFO] [2023-01-10 08:44:48,689] [202301100831111185130] [62715:140230155003712] - [task_executor._run_] [line:199]: task output data [None]
+3342
+[INFO] [2023-01-10 08:44:48,690] [202301100831111185130] [62715:140230155003712] - [task_base_worker.report_task_info_to_driver] [line:124]: report TaskExecutor 202301100831111185130_evaluation_0 0 guest 1000 to driver:
+3343
+{'job_id': '202301100831111185130', 'component_name': 'evaluation_0', 'task_id': '202301100831111185130_evaluation_0', 'task_version': '0', 'role': 'guest', 'party_id': '1000', 'run_ip': 'xxx.xxx', 'run_pid': 62715, 'party_status': 'success', 'src_role': '', 'src_party_id': '', 'end_time': 1673340288690, 'elapsed': 11795}
+3344
+[INFO] [2023-01-10 08:44:48,690] [202301100831111185130] [62715:140230155003712] - [control_client.report_task] [line:41]: request update job 202301100831111185130 task 202301100831111185130_evaluation_0 0 on guest 1000
+3345
+[INFO] [2023-01-10 08:44:48,727] [202301100831111185130] [62715:140230155003712] - [task_executor._run_] [line:254]: finish evaluation_0 202301100831111185130_evaluation_0 0 on guest 1000 with success
+3346
+[INFO] [2023-01-10 08:44:48,771] [202301100831111185130] [62715:140230155003712] - [base_worker.run] [line:122]: worker TaskExecutor, process role: ProcessRole.WORKER, pid: 62715, elapsed: 12661 ms

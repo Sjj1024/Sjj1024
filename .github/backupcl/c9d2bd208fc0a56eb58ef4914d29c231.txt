@@ -1,0 +1,1 @@
+ismob=1; PHPSESSID=6nnto0icktrlb89ogfoabdflro; 227c9_ck_info=%2F%09; 227c9_winduser=B1VQUAFdawcDUlQHAgMGBFQJClhUBg4GVVIEUldRVVZVBAULUAIAaw%3D%3D; 227c9_groupid=8; UserAgent=Mozilla/5.0 (Linux; Android 12; ELS-AN00) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Mobile Safari/537.36; dateTimeLocal=2023/8/25 18:09:24

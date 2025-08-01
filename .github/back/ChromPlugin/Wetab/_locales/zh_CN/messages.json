@@ -1,0 +1,17 @@
+{
+   "extension_add_to_home": {
+      "message": "添加到 Wetab"
+   },
+   "extension_des": {
+      "message": "用小组件自定义你的新标签页,支持暗黑模式，已整合 ChatGPT 组件"
+   },
+   "extension_name": {
+      "message": "Wetab 新标签页(已整合ChatGPT)"
+   },
+   "extension_name_edge": {
+      "message": "WeTab-免费ChatGPT新标签页"
+   },
+   "extension_name_safari": {
+      "message": "WeTab 免费ChatAI主页"
+   }
+}

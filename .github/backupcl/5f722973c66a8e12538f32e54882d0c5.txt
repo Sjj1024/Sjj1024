@@ -1,0 +1,1 @@
+227c9_lastvisit=0%091686832246%09%2Findex.php%3F; 227c9_ck_info=%2F%09; 227c9_winduser=AQVRAwdUOQkGBgZXBFYPVV5dUQgBDQJUCVIFCFcGUAIOUAVRU1MG; PHPSESSID=bdtcflg208rls8g0agijn3lvmh; UserAgent=Mozilla/5.0 (iPhone; CPU iPhone OS 16_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5 Mobile/15E148 Safari/604.1; dateTimeLocal=2023/6/15 20:30:48

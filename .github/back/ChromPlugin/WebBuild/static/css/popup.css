@@ -1,0 +1,97 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.main {
+    width: 360px;
+    min-height: 200px;
+    padding: 16px;
+}
+
+.a-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    flex-wrap: wrap;
+    margin-top: 4px;
+}
+
+.alink {
+    width: 25%;
+    margin-bottom: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 13px;
+    color: black;
+}
+
+.alink:hover {
+    color: #409eff;
+}
+
+.moreUrl {
+    color: black;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.moreUrl:hover {
+    color: #409eff;
+}
+
+#btn-1024 {
+    margin: 10px 0;
+}
+
+.tab-box {
+    margin-bottom: 5px;
+}
+
+.btn {
+    margin-right: 6px;
+    margin-bottom: 6px;
+    font-family: arial, sans-serif;
+    font-size: 12px;
+    border: solid 1px transparent;
+    border-radius: 2px;
+    cursor: pointer;
+    padding: 2px;
+    user-select: none;
+    /* color: white; */
+    color: black;
+    /* background: rgb(48, 65, 86); */
+}
+
+.btn:hover {
+    color: #409eff;
+}
+
+#cookies {
+    overflow-wrap: break-word;
+    margin-bottom: 10px;
+}
+
+.guide-time {
+    color: gray;
+}
+
+.info {
+    /* color: red; */
+    margin-top: 5px;
+    /* padding-left: 3px; */
+}
+
+.clicked {
+    color: red !important;
+}
+
+.action-box {
+    margin: 10px 0;
+}
+
+.home1024 {
+    font-size: 14px;
+    margin-right: 20px;
+    text-decoration: none;
+}

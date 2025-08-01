@@ -1,0 +1,29 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.main {
+    width: 500px;
+    height: 600px;
+    padding: 20px;
+}
+
+#btn-1024 {
+    margin: 10px 0;
+}
+
+#cookies {
+    overflow-wrap: break-word;
+    margin-bottom: 10px;
+}
+
+.action-box {
+    margin: 10px 0;
+}
+
+.home1024 {
+    font-size: 14px;
+    margin-right: 20px;
+    text-decoration: none;
+}

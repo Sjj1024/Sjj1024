@@ -1,0 +1,1 @@
+PHPSESSID=l9217ek9k2vhtspf4grpnb1eia; 227c9_ck_info=%2F%09; 227c9_winduser=VwtQXQsMMQFWVVkFUlAFAgBTB1VXVQsFAFZSVl1TAFAPVFVdVwIAbQ%3D%3D; 227c9_groupid=6; 227c9_lastvisit=0%091699246352%09%2Findex.php%3F; UserAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0; dateTimeLocal=2023/11/6 12:52:34

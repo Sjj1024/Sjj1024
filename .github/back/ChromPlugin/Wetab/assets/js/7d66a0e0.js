@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkinfinity_hitab_client=globalThis.webpackChunkinfinity_hitab_client||[]).push([[3516],{53516:(i,e,a)=>{a.r(e),a.d(e,{default:()=>b});var t=a(57268);const n={id:"feedback"},b=(0,t.aZ)({__name:"feedback",setup:i=>(i,e)=>((0,t.wg)(),(0,t.iD)("div",n,"feedback"))})}}]);

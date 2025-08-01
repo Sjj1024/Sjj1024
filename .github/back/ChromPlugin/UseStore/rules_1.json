@@ -1,0 +1,36 @@
+[
+    {
+        "id": 12,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "user-agent",
+                    "operation": "set",
+                    "value": "Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25"
+                }
+            ]
+        },
+        "condition": {
+            "urlFilter": "|https*",
+            "resourceTypes": [
+                "csp_report",
+                "font",
+                "image",
+                "main_frame",
+                "media",
+                "object",
+                "other",
+                "ping",
+                "script",
+                "stylesheet",
+                "sub_frame",
+                "webbundle",
+                "websocket",
+                "webtransport",
+                "xmlhttprequest"
+            ]
+        }
+    }
+]

@@ -1,0 +1,21 @@
+{
+  "manifest_version":3,
+  "name":"TabMan",
+  "version":"0.0.2",
+  "description":"这是一个选项卡管理器",
+  "icons": {
+    "16":"statics/imgs/icon.png",
+    "32":"statics/imgs/icon.png",
+    "48":"statics/imgs/icon.png",
+    "128":"statics/imgs/icon.png"
+  },
+  "action":{
+    "default_popup":"popup.html"
+  },
+  "host_permissions": [
+    "https://developer.chrome.com/*"
+  ],
+  "permissions": [
+    "tabGroups"
+  ]
+}

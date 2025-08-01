@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkinfinity_hitab_client=globalThis.webpackChunkinfinity_hitab_client||[]).push([[7570],{17570:(t,e,i)=>{i.r(e),i.d(e,{useCalcCounterStore:()=>s});const s=(0,i(10435).Q_)("calc-components-counter",{state:()=>({type:"base"}),getters:{},actions:{changeCalcType(){this.type="base"===this.type?"scientific":"base"}}})}}]);

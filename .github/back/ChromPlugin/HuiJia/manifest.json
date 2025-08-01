@@ -1,0 +1,35 @@
+{
+    "manifest_version": 3,
+    "name": "1024回家Chrome",
+    "version": "0.1",
+    "description": "这里总有你想看的吧",
+    "icons": {
+        "16": "static/imgs/huijia16.png",
+        "32": "static/imgs/huijia32.png",
+        "48": "static/imgs/huijia55.png",
+        "128": "static/imgs/huijia128.png"
+    },
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "storage",
+        "cookies",
+        "tabs",
+        "nativeMessaging",
+        "webRequest",
+        "declarativeNetRequest",
+        "declarativeNetRequestWithHostAccess",
+        "declarativeNetRequestFeedback"
+    ],
+    "host_permissions": ["<all_urls>"],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://*/*", "<all_urls>"],
+            "js": ["content.js"]
+        }
+    ]
+}
