@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name         1024回家
+// @name         1024小神
 // @namespace    https://twitter.com/1024huijia?s=21
 // @version      0.1
-// @description  开发一个油猴1024回家脚本，推特：1024回家
-// @author       1024回家
+// @description  开发一个油猴1024小神脚本，推特：1024小神
+// @author       1024小神
 // @match        *://*/*
 // @icon         https://1024huijia.github.io/TestSome/sources/huijia10.png
 // @connect      gitapis.com
@@ -277,15 +277,15 @@
         if (winWidth > 1200) {
           aWidth = "8%"
           // 将标签改为油猴版
-          document.querySelector("h3.tabTop").innerHTML = "1024回家油猴版"
+          document.querySelector("h3.tabTop").innerHTML = "1024小神油猴版"
         } else if (winWidth > 992) {
           aWidth = "13%"
           // 将标签改为油猴版
-          document.querySelector("h3.tabTop").innerHTML = "1024回家油猴版"
+          document.querySelector("h3.tabTop").innerHTML = "1024小神油猴版"
         } else if (winWidth > 768) {
           aWidth = "18%"
           // 将标签改为油猴版
-          document.querySelector("h3.tabTop").innerHTML = "1024回家油猴版"
+          document.querySelector("h3.tabTop").innerHTML = "1024小神油猴版"
         } else if (winWidth > 576) {
           aWidth = "23%"
         } else {
@@ -525,9 +525,9 @@
   // 立即执行函数
   // 全局变量，插件信息
   const manifest = {
-    name: "1024回家iPhone",
+    name: "1024小神iPhone",
     version: 0.1,
-    description: "1024回家iPhone手机Js插件",
+    description: "1024小神iPhone手机Js插件",
     icon: ""
   }
   // 源地址
