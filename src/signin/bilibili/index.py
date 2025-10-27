@@ -1,6 +1,6 @@
 from src.signin.bilibili.bilibili import BiliBili
 from src.signin.bilibili.config import config
-from src.utils.sendMsg.sendWx import send_weixin, send_email
+from src.utils.sendMsg.sendWx import send_email
 import src.common.index as common
 
 
@@ -25,5 +25,5 @@ def main():
 
 # main()
 # 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()
