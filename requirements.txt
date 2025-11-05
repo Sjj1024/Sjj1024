@@ -11,3 +11,5 @@ urllib3==1.26.12
 PyGithub~=1.58.1
 flask~=3.1.1
 pandas~=2.2.3
+akshare~=1.17.52
+Js2Py~=0.74
