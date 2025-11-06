@@ -1,1 +1,0 @@
-window._CCSettings={platform:"web-mobile",groupList:["pig"],collisionMatrix:[[true]],hasResourcesBundle:false,hasStartSceneBundle:false,remoteBundles:[],subpackages:[],launchScene:"db://assets/scene/game.fire",orientation:"",jsList:[],bundleVers:{internal:"51cdd",main:"89533"}};

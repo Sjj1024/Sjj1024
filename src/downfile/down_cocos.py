@@ -5,7 +5,7 @@ from urllib.parse import urlparse
 
 HAR_FILE = "cocos-games.fir.show.har"
 FILTER_DOMAIN = "cocos-games.fir.show"
-OUTPUT_DIR = "bitexiaodui_local"
+OUTPUT_DIR = "bitexiaodui"
 
 
 def load_har_file(har_path):
