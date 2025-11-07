@@ -1,0 +1,1 @@
+cc.CollisionManager.prototype._doCollide=function(o,l){let e;switch(o){case 1:e="onCollisionEnter";break;case 2:e="onCollisionStay";break;case 3:e="onCollisionExit"}let n=l.collider1,i=l.collider2,c=n.node.colliderComponent,t=i.node.colliderComponent;c&&c[e]&&c[e](i,n),t&&t[e]&&t[e](n,i)};

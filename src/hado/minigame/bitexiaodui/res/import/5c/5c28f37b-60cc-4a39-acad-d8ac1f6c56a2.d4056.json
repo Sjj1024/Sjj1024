@@ -1,0 +1,1 @@
+{"__type__":"cc.JsonAsset","_name":"EquipUnlock","json":{"1":{"id":1,"unlock":0,"unlockAward":[20001],"name":"武器"},"2":{"id":2,"unlock":2,"unlockAward":[10041],"name":"护甲"},"3":{"id":3,"unlock":3,"unlockAward":[10001],"name":"枪口"},"4":{"id":4,"unlock":5,"unlockAward":[10081],"name":"挂坠"}}}
