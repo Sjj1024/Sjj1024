@@ -183,4 +183,4 @@ def stock_zt_pool_em():
 
 
 if __name__ == '__main__':
-    stock_rank_ljqs_ths()
+    stock_individual_info_em()
