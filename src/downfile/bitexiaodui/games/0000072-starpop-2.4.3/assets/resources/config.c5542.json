@@ -1,0 +1,2606 @@
+{
+  "paths": {
+    "0": [
+      "pop_game/popgame_57",
+      3
+    ],
+    "1": [
+      "pop_game/popgame_01",
+      3
+    ],
+    "2": [
+      "pop_result/pop_result_05",
+      3
+    ],
+    "3": [
+      "pop_main/popmain_31",
+      3
+    ],
+    "4": [
+      "pop_game/popgame_50",
+      3
+    ],
+    "5": [
+      "pop_nopack/txt_cool",
+      3
+    ],
+    "6": [
+      "pop_main/popmain_47",
+      3
+    ],
+    "7": [
+      "pop_game/popgame_36",
+      3
+    ],
+    "8": [
+      "pop_main/popmain_58",
+      3
+    ],
+    "9": [
+      "pop_game/popgame_68",
+      3
+    ],
+    "10": [
+      "pop_rank/rank_title",
+      3
+    ],
+    "11": [
+      "pop_main/popmain_57",
+      3
+    ],
+    "12": [
+      "pop_game/popgame_19",
+      3
+    ],
+    "13": [
+      "pop_game/n2",
+      3
+    ],
+    "14": [
+      "pop_result/pop_result_63",
+      3
+    ],
+    "15": [
+      "particals/noe/duixing",
+      3
+    ],
+    "16": [
+      "pop_nopack/logo",
+      3
+    ],
+    "17": [
+      "pop_game/popgame_55",
+      3
+    ],
+    "18": [
+      "pop_main/popmain_68",
+      3
+    ],
+    "19": [
+      "pop_game/popgame_16",
+      2,
+      1
+    ],
+    "20": [
+      "pop_result/pop_result_60",
+      2,
+      1
+    ],
+    "21": [
+      "pop_nopack/guide",
+      2,
+      1
+    ],
+    "22": [
+      "pop_main/popmain_15",
+      2,
+      1
+    ],
+    "23": [
+      "pop_game/popgame_38",
+      2,
+      1
+    ],
+    "24": [
+      "pop_main/popmain_57",
+      2,
+      1
+    ],
+    "25": [
+      "pop_main/popmain_68",
+      2,
+      1
+    ],
+    "26": [
+      "pop_game/popgame_29",
+      2,
+      1
+    ],
+    "27": [
+      "panel/GamePass",
+      4
+    ],
+    "28": [
+      "pop_game/popgame_21",
+      2,
+      1
+    ],
+    "31": [
+      "pop_result/pop_result_6",
+      2,
+      1
+    ],
+    "32": [
+      "pop_game/popgame_19",
+      2,
+      1
+    ],
+    "34": [
+      "pop_result/pop_result_61",
+      2,
+      1
+    ],
+    "35": [
+      "anim/enemyGlitter",
+      0
+    ],
+    "37": [
+      "pop_result/pop_result_33",
+      3
+    ],
+    "38": [
+      "pop_main/popmain_27",
+      3
+    ],
+    "39": [
+      "pop_box/boom_16",
+      3
+    ],
+    "40": [
+      "pop_main/popmain_02",
+      3
+    ],
+    "41": [
+      "pop_nopack/help_txt",
+      3
+    ],
+    "42": [
+      "pop_box/boom_06",
+      3
+    ],
+    "43": [
+      "sounds/pop_star",
+      5
+    ],
+    "44": [
+      "pop_main/popmain_51",
+      3
+    ],
+    "45": [
+      "pop_game/popgame_35",
+      3
+    ],
+    "46": [
+      "pop_main/popmain_04",
+      3
+    ],
+    "47": [
+      "pop_main/popmain_71",
+      3
+    ],
+    "48": [
+      "pop_share/sharetxt",
+      3
+    ],
+    "49": [
+      "pop_game/popgame_48",
+      3
+    ],
+    "50": [
+      "pop_result/pop_result_6",
+      3
+    ],
+    "51": [
+      "pop_main/popmain_13",
+      3
+    ],
+    "52": [
+      "particals/noe/partical_tex_red",
+      3
+    ],
+    "53": [
+      "pop_rank/group_rank_title",
+      3
+    ],
+    "54": [
+      "pop_main/popmain_03",
+      3
+    ],
+    "55": [
+      "pop_main/popmain_70",
+      3
+    ],
+    "56": [
+      "pop_game/popgame_14",
+      3
+    ],
+    "57": [
+      "pop_game/popgame_58",
+      3
+    ],
+    "58": [
+      "pop_main/popmain_26",
+      3
+    ],
+    "59": [
+      "pop_game/popgame_62",
+      2,
+      1
+    ],
+    "60": [
+      "pop_main/popmain_10",
+      2,
+      1
+    ],
+    "61": [
+      "pop_box/boom_08",
+      2,
+      1
+    ],
+    "62": [
+      "pop_rank/group_rank_title",
+      2,
+      1
+    ],
+    "63": [
+      "pop_game/popgame_07",
+      2,
+      1
+    ],
+    "64": [
+      "pop_game/popgame_27",
+      2,
+      1
+    ],
+    "65": [
+      "pop_result/pop_result_03",
+      2,
+      1
+    ],
+    "66": [
+      "pop_game/popgame_55",
+      2,
+      1
+    ],
+    "67": [
+      "pop_nopack/bg",
+      2,
+      1
+    ],
+    "68": [
+      "pop_main/popmain_03",
+      2,
+      1
+    ],
+    "69": [
+      "pop_game/popgame_28",
+      2,
+      1
+    ],
+    "70": [
+      "pop_main/popmain_52",
+      2,
+      1
+    ],
+    "71": [
+      "pop_game/popgame_68",
+      2,
+      1
+    ],
+    "72": [
+      "pop_game/popgame_56",
+      2,
+      1
+    ],
+    "73": [
+      "pop_game/popgame_42",
+      2,
+      1
+    ],
+    "74": [
+      "pop_result/pop_result_05",
+      2,
+      1
+    ],
+    "75": [
+      "pop_main/popmain_21",
+      2,
+      1
+    ],
+    "76": [
+      "pop_nopack/txt_cool",
+      2,
+      1
+    ],
+    "77": [
+      "pop_game/popgame_01",
+      2,
+      1
+    ],
+    "78": [
+      "pop_box/boom_05",
+      2,
+      1
+    ],
+    "79": [
+      "pop_main/popmain_78",
+      2,
+      1
+    ],
+    "80": [
+      "pop_main/popmain_77",
+      2,
+      1
+    ],
+    "81": [
+      "anim/ghostGlitter",
+      0
+    ],
+    "82": [
+      "pop_nopack/help_txt",
+      2,
+      1
+    ],
+    "83": [
+      "pop_main/popmain_11",
+      2,
+      1
+    ],
+    "85": [
+      "pop_game/popgame_20",
+      3
+    ],
+    "86": [
+      "pop_main/popmain_10",
+      3
+    ],
+    "87": [
+      "pop_main/popmain_77",
+      3
+    ],
+    "88": [
+      "pop_result/pop_result_04",
+      3
+    ],
+    "89": [
+      "pop_game/popgame_07",
+      3
+    ],
+    "90": [
+      "pop_main/popmain_23",
+      3
+    ],
+    "91": [
+      "pop_game/popgame_27",
+      3
+    ],
+    "92": [
+      "pop_game/popgame_10",
+      3
+    ],
+    "93": [
+      "pop_game/popgame_62",
+      3
+    ],
+    "94": [
+      "pop_main/popmain_55",
+      3
+    ],
+    "95": [
+      "pop_nopack/txt_boom",
+      3
+    ],
+    "96": [
+      "pop_result/pop_result_01",
+      3
+    ],
+    "97": [
+      "pop_main/popmain_66",
+      3
+    ],
+    "98": [
+      "pop_main/popmain_52",
+      3
+    ],
+    "99": [
+      "pop_main/popmain_74",
+      3
+    ],
+    "100": [
+      "pop_box/boom_15",
+      3
+    ],
+    "101": [
+      "sounds/backMusic",
+      5
+    ],
+    "102": [
+      "sounds/landing",
+      5
+    ],
+    "103": [
+      "pop_box/boom_08",
+      3
+    ],
+    "104": [
+      "pop_game/popgame_39",
+      3
+    ],
+    "105": [
+      "pop_main/popmain_48",
+      3
+    ],
+    "106": [
+      "pop_result/pop_result_53",
+      3
+    ],
+    "107": [
+      "pop_box/boom_15",
+      2,
+      1
+    ],
+    "108": [
+      "pop_main/popmain_74",
+      2,
+      1
+    ],
+    "109": [
+      "pop_main/popmain_48",
+      2,
+      1
+    ],
+    "110": [
+      "particals/noe/partical_tex_blue",
+      2,
+      1
+    ],
+    "111": [
+      "pop_game/popgame_50",
+      2,
+      1
+    ],
+    "112": [
+      "pop_result/pop_result_33",
+      2,
+      1
+    ],
+    "113": [
+      "pop_game/n16",
+      2,
+      1
+    ],
+    "114": [
+      "particals/noe/partical_tex_yellow",
+      2,
+      1
+    ],
+    "115": [
+      "pop_box/boom_11",
+      2,
+      1
+    ],
+    "116": [
+      "panel/GameOver",
+      4
+    ],
+    "117": [
+      "pop_box/boom_14",
+      2,
+      1
+    ],
+    "118": [
+      "number",
+      1
+    ],
+    "119": [
+      "pop_box/boom_01",
+      2,
+      1
+    ],
+    "120": [
+      "pop_game/popgame_49",
+      2,
+      1
+    ],
+    "121": [
+      "pop_box/boom_16",
+      2,
+      1
+    ],
+    "122": [
+      "pop_nopack/txt_smart",
+      2,
+      1
+    ],
+    "123": [
+      "pop_main/popmain_53",
+      2,
+      1
+    ],
+    "124": [
+      "pop_main/popmain_23",
+      2,
+      1
+    ],
+    "125": [
+      "pop_game/popgame_58",
+      2,
+      1
+    ],
+    "126": [
+      "pop_game/popgame_43",
+      2,
+      1
+    ],
+    "128": [
+      "pop_game/popgame_17",
+      3
+    ],
+    "129": [
+      "pop_game/popgame_08",
+      3
+    ],
+    "130": [
+      "pop_game/popgame_41",
+      3
+    ],
+    "131": [
+      "pop_main/popmain_54",
+      3
+    ],
+    "132": [
+      "pop_game/popgame_30",
+      3
+    ],
+    "133": [
+      "particals/noe/partical_tex_blue",
+      3
+    ],
+    "134": [
+      "pop_box/boom_14",
+      3
+    ],
+    "135": [
+      "pop_game/popgame_09",
+      3
+    ],
+    "136": [
+      "pop_nopack/TOYBLAST_ANIM",
+      3
+    ],
+    "137": [
+      "pop_game/n8",
+      3
+    ],
+    "138": [
+      "pop_result/pop_result_03",
+      3
+    ],
+    "139": [
+      "pop_game/popgame_29",
+      3
+    ],
+    "140": [
+      "pop_game/popgame_15",
+      3
+    ],
+    "141": [
+      "pop_game/popgame_31",
+      3
+    ],
+    "142": [
+      "pop_box/popstar_boxInfo",
+      3
+    ],
+    "143": [
+      "pop_game/popgame_18",
+      3
+    ],
+    "144": [
+      "pop_game/popgame_38",
+      3
+    ],
+    "145": [
+      "pop_main/popmain_69",
+      3
+    ],
+    "146": [
+      "pop_main/popmain_53",
+      3
+    ],
+    "147": [
+      "pop_nopack/guide",
+      3
+    ],
+    "148": [
+      "pop_game/popgame_28",
+      3
+    ],
+    "149": [
+      "pop_game/popgame_25",
+      3
+    ],
+    "150": [
+      "pop_box/boom_05",
+      3
+    ],
+    "151": [
+      "pop_share/share_btn",
+      3
+    ],
+    "152": [
+      "pop_game/popgame_21",
+      3
+    ],
+    "153": [
+      "pop_main/popmain_09",
+      3
+    ],
+    "154": [
+      "pop_game/popgame_54",
+      3
+    ],
+    "155": [
+      "pop_game/popgame_61",
+      3
+    ],
+    "156": [
+      "pop_box/boom_13",
+      3
+    ],
+    "157": [
+      "particals/noe/wuxing",
+      3
+    ],
+    "158": [
+      "pop_game/n32",
+      3
+    ],
+    "159": [
+      "pop_game/popgame_59",
+      2,
+      1
+    ],
+    "160": [
+      "particals/noe/guangxian",
+      2,
+      1
+    ],
+    "161": [
+      "pop_nopack/txt_good",
+      2,
+      1
+    ],
+    "163": [
+      "pop_game/popgame_34",
+      3
+    ],
+    "164": [
+      "pop_game/popgame_63",
+      3
+    ],
+    "165": [
+      "pop_game/popgame_43",
+      3
+    ],
+    "166": [
+      "pop_nopack/luckystar",
+      3
+    ],
+    "167": [
+      "pop_box/boom_07",
+      3
+    ],
+    "168": [
+      "pop_game/popgame_67",
+      3
+    ],
+    "169": [
+      "pop_nopack/txt_good",
+      3
+    ],
+    "170": [
+      "pop_game/popgame_47",
+      3
+    ],
+    "171": [
+      "pop_game/popgame_45",
+      3
+    ],
+    "172": [
+      "pop_main/popmain_72",
+      3
+    ],
+    "173": [
+      "pop_main/popmain_73",
+      3
+    ],
+    "174": [
+      "pop_main/popmain_08",
+      3
+    ],
+    "175": [
+      "particals/noe/guangxian",
+      3
+    ],
+    "176": [
+      "pop_nopack/bg",
+      3
+    ],
+    "177": [
+      "pop_game/n4",
+      3
+    ],
+    "178": [
+      "pop_game/popgame_16",
+      3
+    ],
+    "179": [
+      "pop_game/popgame_53",
+      3
+    ],
+    "180": [
+      "pop_main/popmain_65",
+      3
+    ],
+    "181": [
+      "pop_main/popmain_22",
+      3
+    ],
+    "182": [
+      "particals/noe/partical_tex_yellow",
+      3
+    ],
+    "183": [
+      "pop_game/popgame_49",
+      3
+    ],
+    "184": [
+      "pop_main/popmain_11",
+      3
+    ],
+    "185": [
+      "number",
+      3
+    ],
+    "186": [
+      "pop_result/pop_result_02",
+      3
+    ],
+    "187": [
+      "sounds/cheers",
+      5
+    ],
+    "188": [
+      "pop_main/popmain_67",
+      3
+    ],
+    "189": [
+      "pop_rank/huangguan",
+      2,
+      1
+    ],
+    "190": [
+      "pop_main/popmain_65",
+      2,
+      1
+    ],
+    "191": [
+      "pop_main/popmain_31",
+      2,
+      1
+    ],
+    "192": [
+      "anim/bounceAnim",
+      0
+    ],
+    "193": [
+      "pop_box/boom_02",
+      2,
+      1
+    ],
+    "194": [
+      "pop_result/pop_result_59",
+      2,
+      1
+    ],
+    "195": [
+      "pop_main/popmain_55",
+      2,
+      1
+    ],
+    "196": [
+      "pop_game/popgame_48",
+      2,
+      1
+    ],
+    "197": [
+      "particals/noe/partical_tex_red",
+      2,
+      1
+    ],
+    "198": [
+      "pop_nopack/TOYBLAST_ANIM",
+      2,
+      1
+    ],
+    "199": [
+      "pop_game/popgame_61",
+      2,
+      1
+    ],
+    "200": [
+      "pop_game/popgame_14",
+      2,
+      1
+    ],
+    "201": [
+      "panel/GamePropHelp",
+      4
+    ],
+    "202": [
+      "pop_main/popmain_66",
+      2,
+      1
+    ],
+    "203": [
+      "pop_main/popmain_58",
+      2,
+      1
+    ],
+    "204": [
+      "pop_game/popgame_34",
+      2,
+      1
+    ],
+    "205": [
+      "pop_main/popmain_40",
+      2,
+      1
+    ],
+    "206": [
+      "pop_box/boom_06",
+      2,
+      1
+    ],
+    "208": [
+      "pop_main/popmain_07",
+      3
+    ],
+    "209": [
+      "pop_box/boom_09",
+      3
+    ],
+    "210": [
+      "pop_nopack/background",
+      3
+    ],
+    "211": [
+      "pop_share/share_content",
+      3
+    ],
+    "212": [
+      "particals/noe/partical_tex_green",
+      3
+    ],
+    "213": [
+      "pop_result/pop_result_51",
+      3
+    ],
+    "214": [
+      "pop_box/boom_12",
+      3
+    ],
+    "215": [
+      "pop_result/pop_result_61",
+      3
+    ],
+    "216": [
+      "pop_main/popmain_16",
+      3
+    ],
+    "217": [
+      "pop_game/popgame_42",
+      3
+    ],
+    "218": [
+      "pop_rank/friend_buttom",
+      3
+    ],
+    "219": [
+      "pop_box/boom_01",
+      3
+    ],
+    "220": [
+      "pop_game/popgame_56",
+      3
+    ],
+    "221": [
+      "pop_game/popgame_26",
+      3
+    ],
+    "222": [
+      "pop_box/boom_11",
+      3
+    ],
+    "223": [
+      "pop_game/n16",
+      3
+    ],
+    "224": [
+      "pop_main/popmain_15",
+      3
+    ],
+    "225": [
+      "pop_result/pop_result_60",
+      3
+    ],
+    "226": [
+      "pop_main/popmain_25",
+      3
+    ],
+    "227": [
+      "pop_main/popmain_25",
+      2,
+      1
+    ],
+    "228": [
+      "pop_box/popstar_boxInfo",
+      2,
+      1
+    ],
+    "229": [
+      "pop_game/n2",
+      2,
+      1
+    ],
+    "230": [
+      "pop_game/popgame_67",
+      2,
+      1
+    ],
+    "231": [
+      "pop_game/popgame_39",
+      2,
+      1
+    ],
+    "232": [
+      "pop_result/pop_result_53",
+      2,
+      1
+    ],
+    "233": [
+      "pop_nopack/background",
+      2,
+      1
+    ],
+    "234": [
+      "pop_box/boom_07",
+      2,
+      1
+    ],
+    "235": [
+      "pop_game/popgame_15",
+      2,
+      1
+    ],
+    "236": [
+      "pop_game/popgame_17",
+      2,
+      1
+    ],
+    "237": [
+      "panel/RankingListView",
+      4
+    ],
+    "238": [
+      "panel/GameHelp",
+      4
+    ],
+    "239": [
+      "pop_game/popgame_53",
+      2,
+      1
+    ],
+    "240": [
+      "pop_nopack/txt_verygood",
+      2,
+      1
+    ],
+    "241": [
+      "pop_main/popmain_14",
+      2,
+      1
+    ],
+    "242": [
+      "pop_result/pop_result_32",
+      2,
+      1
+    ],
+    "243": [
+      "pop_share/share_content",
+      2,
+      1
+    ],
+    "244": [
+      "pop_main/popmain_22",
+      2,
+      1
+    ],
+    "245": [
+      "pop_main/popmain_09",
+      2,
+      1
+    ],
+    "246": [
+      "pop_result/pop_result_02",
+      2,
+      1
+    ],
+    "247": [
+      "pop_result/pop_result_63",
+      2,
+      1
+    ],
+    "248": [
+      "pop_game/popgame_20",
+      2,
+      1
+    ],
+    "249": [
+      "anim/buttonScale",
+      0
+    ],
+    "250": [
+      "pop_game/popgame_26",
+      2,
+      1
+    ],
+    "251": [
+      "pop_game/popgame_36",
+      2,
+      1
+    ],
+    "252": [
+      "pop_game/popgame_57",
+      2,
+      1
+    ],
+    "253": [
+      "pop_game/popgame_09",
+      2,
+      1
+    ],
+    "254": [
+      "pop_main/popmain_13",
+      2,
+      1
+    ],
+    "255": [
+      "pop_game/n4",
+      2,
+      1
+    ],
+    "256": [
+      "pop_game/popgame_25",
+      2,
+      1
+    ],
+    "257": [
+      "pop_main/popmain_04",
+      2,
+      1
+    ],
+    "258": [
+      "pop_box/boom_10",
+      2,
+      1
+    ],
+    "259": [
+      "pop_game/popgame_35",
+      2,
+      1
+    ],
+    "260": [
+      "pop_box/boom_13",
+      2,
+      1
+    ],
+    "261": [
+      "pop_game/popgame_63",
+      2,
+      1
+    ],
+    "262": [
+      "pop_result/pop_result_01",
+      2,
+      1
+    ],
+    "263": [
+      "particals/noe/partical_tex_purple",
+      2,
+      1
+    ],
+    "264": [
+      "pop_result/pop_result_04",
+      2,
+      1
+    ],
+    "265": [
+      "pop_game/n32",
+      2,
+      1
+    ],
+    "266": [
+      "pop_main/popmain_08",
+      2,
+      1
+    ],
+    "267": [
+      "pop_main/popmain_69",
+      2,
+      1
+    ],
+    "269": [
+      "particals/noe/partical_tex_purple",
+      3
+    ],
+    "270": [
+      "pop_nopack/txt_smart",
+      3
+    ],
+    "271": [
+      "pop_box/popstar_box_title",
+      3
+    ],
+    "272": [
+      "pop_result/pop_result_59",
+      3
+    ],
+    "273": [
+      "pop_game/popgame_46",
+      3
+    ],
+    "274": [
+      "pop_box/boom_02",
+      3
+    ],
+    "275": [
+      "pop_main/popmain_78",
+      3
+    ],
+    "276": [
+      "pop_main/popmain_14",
+      3
+    ],
+    "277": [
+      "pop_main/popmain_21",
+      3
+    ],
+    "278": [
+      "pop_main/popmain_59",
+      3
+    ],
+    "279": [
+      "pop_main/popmain_40",
+      3
+    ],
+    "280": [
+      "pop_box/boom_10",
+      3
+    ],
+    "281": [
+      "pop_game/popgame_59",
+      3
+    ],
+    "282": [
+      "pop_nopack/txt_verygood",
+      3
+    ],
+    "283": [
+      "pop_rank/huangguan",
+      3
+    ],
+    "284": [
+      "sounds/select",
+      5
+    ],
+    "285": [
+      "pop_result/pop_result_32",
+      3
+    ],
+    "286": [
+      "pop_main/popmain_02",
+      2,
+      1
+    ],
+    "287": [
+      "pop_box/popstar_box_title",
+      2,
+      1
+    ],
+    "288": [
+      "pop_game/popgame_46",
+      2,
+      1
+    ],
+    "289": [
+      "panel/GamePropNode",
+      4
+    ],
+    "290": [
+      "pop_main/popmain_47",
+      2,
+      1
+    ],
+    "291": [
+      "particals/noe/partical_tex_green",
+      2,
+      1
+    ],
+    "292": [
+      "number",
+      2,
+      1
+    ],
+    "293": [
+      "anim/playerDownAnim",
+      0
+    ],
+    "294": [
+      "pop_game/n8",
+      2,
+      1
+    ],
+    "295": [
+      "pop_rank/friend_buttom",
+      2,
+      1
+    ],
+    "296": [
+      "pop_main/popmain_71",
+      2,
+      1
+    ],
+    "297": [
+      "pop_main/popmain_72",
+      2,
+      1
+    ],
+    "298": [
+      "pop_main/popmain_70",
+      2,
+      1
+    ],
+    "299": [
+      "pop_main/popmain_16",
+      2,
+      1
+    ],
+    "300": [
+      "pop_game/popgame_54",
+      2,
+      1
+    ],
+    "301": [
+      "pop_game/popgame_18",
+      2,
+      1
+    ],
+    "302": [
+      "pop_box/boom_09",
+      2,
+      1
+    ],
+    "303": [
+      "pop_share/share_btn",
+      2,
+      1
+    ],
+    "304": [
+      "pop_nopack/txt_boom",
+      2,
+      1
+    ],
+    "305": [
+      "pop_share/sharetxt",
+      2,
+      1
+    ],
+    "306": [
+      "pop_game/popgame_30",
+      2,
+      1
+    ],
+    "307": [
+      "pop_box/boom_12",
+      2,
+      1
+    ],
+    "308": [
+      "pop_main/popmain_73",
+      2,
+      1
+    ],
+    "309": [
+      "pop_game/popgame_47",
+      2,
+      1
+    ],
+    "310": [
+      "pop_main/popmain_26",
+      2,
+      1
+    ],
+    "311": [
+      "pop_rank/rank_title",
+      2,
+      1
+    ],
+    "312": [
+      "pop_game/popgame_08",
+      2,
+      1
+    ],
+    "313": [
+      "pop_main/popmain_27",
+      2,
+      1
+    ],
+    "314": [
+      "pop_main/popmain_51",
+      2,
+      1
+    ],
+    "315": [
+      "particals/noe/wuxing",
+      2,
+      1
+    ],
+    "316": [
+      "pop_game/popgame_41",
+      2,
+      1
+    ],
+    "317": [
+      "pop_nopack/logo",
+      2,
+      1
+    ],
+    "318": [
+      "pop_main/popmain_07",
+      2,
+      1
+    ],
+    "319": [
+      "pop_game/popgame_31",
+      2,
+      1
+    ],
+    "320": [
+      "anim/buttonRotation",
+      0
+    ],
+    "321": [
+      "pop_game/popgame_45",
+      2,
+      1
+    ],
+    "322": [
+      "pop_game/popgame_10",
+      2,
+      1
+    ],
+    "323": [
+      "particals/noe/duixing",
+      2,
+      1
+    ],
+    "324": [
+      "anim/shieldAnim",
+      0
+    ],
+    "325": [
+      "pop_main/popmain_67",
+      2,
+      1
+    ],
+    "326": [
+      "pop_nopack/luckystar",
+      2,
+      1
+    ],
+    "327": [
+      "pop_main/popmain_54",
+      2,
+      1
+    ],
+    "328": [
+      "pop_result/pop_result_51",
+      2,
+      1
+    ],
+    "329": [
+      "pop_main/popmain_59",
+      2,
+      1
+    ]
+  },
+  "types": [
+    "cc.AnimationClip",
+    "cc.LabelAtlas",
+    "cc.SpriteFrame",
+    "cc.Texture2D",
+    "cc.Prefab",
+    "cc.AudioClip"
+  ],
+  "uuids": [
+    "02isD637hCN6YXNEGCdGLl",
+    "057Po/Nl5BPqhLH99cHhrj",
+    "06eORW0u9HEKg5JSX5AQGv",
+    "08euXolBdBYqZZ6X/NptGH",
+    "09zSQ9eftDYp+KwWt/8Vtn",
+    "0dBv6U/7ZHBbx4FtQl0KEa",
+    "0dVLd3meZCgKK6NPl8zMJQ",
+    "0f3pyzxr9EsYM8sl3YQ4bE",
+    "11qtIiUNZHH5GQoarhSIyK",
+    "118MoBYhJGXbi3PO76BYCU",
+    "13WH5Am6ZJd5iXdDBtW1Tp",
+    "17cPxyNkVKz7UUqzn1NtbR",
+    "17wbqFE1BJK5SIUSz1/FGy",
+    "18WvVfJNZM4aJ8glWrRcIR",
+    "18hogp8NBCM5N2da1NsAQZ",
+    "19BvUx0zRL6JsNBUsDFpAt",
+    "19XLvB2yhA+6IH7gR/ncXy",
+    "1aPi1Htg9NuYJhdyd98l9f",
+    "1bL7HVbDlNorXhF58QU1Bp",
+    "007fKntkVNN57MeKMeuDnr",
+    "01rKffxjNA8rjMnFNB3o4+",
+    "02uNgs6GpOwpok2grxWQRD",
+    "04THYza4FDc4tZjQHUi6FO",
+    "05dVQ5p95HIrIFE7wnpnlW",
+    "0817U6twdLlLfGbV7UpviG",
+    "08+u1aoHdDh53kKPUnleVy",
+    "0a360RAjRHlI4k/gGWUHOn",
+    "0dwyXjAXVL9oHLlesqchDy",
+    "10NWdcSABAYrjCIb5eEQ86",
+    "02delMVqdBD70a/HSD99FK",
+    "04t+RdOt9BjoBW5I1s/WBN",
+    "08pOtZFqtEWZzJ+y7aQTxa",
+    "0acwiKom5D3LBLMkL2Ue+5",
+    "0bbVUcKvlBw5/8p95TudNO",
+    "12XIYtzYNLCrWIryh+5DJ0",
+    "14HU5uHjtCkaSgXVBwjmtr",
+    "15MR5quSZPEa86nPEMkxWy",
+    "1cP9jVOApBu4xP5aIAYQyc",
+    "1cmeX3RsdJfKLh+PmzhTE+",
+    "1elsZCNZhLe5jn7FfaUlTu",
+    "1esx6UbF9JW6C++9xV67Ud",
+    "20h467oZhGrKYVfP+7txLX",
+    "21OPy4Ob5EEqfTjCOzLj3w",
+    "21iALY1q5H2IjS9nC0v9gO",
+    "21jqyED+hPSIfiu+kTX2pH",
+    "22fO482SNE5raqGz9J4rUj",
+    "27rCBcg1NLJZ2x3nOqum2x",
+    "28V5Du1c5NW71U/RV0slSX",
+    "2cHgHXmRtIe7tr7C3npjBd",
+    "2dRq+jvL1GbonEu0ikT5ai",
+    "2eX09HxsBCxKkQ6J66rKgC",
+    "30OI7IecdEFKu0qpgY6i/A",
+    "307JDufRJB+5ufX7ZQhvcj",
+    "32D2gcvD5HpId7lddvlbep",
+    "3497YKeitOSYQS4M/YI7C/",
+    "35/qMN5OFOq4pBVYi3QN3Z",
+    "36FU8lBOBGw4h4A1xntBZM",
+    "37zGzm3upM37+yLFFT5k8A",
+    "38E1Y6QABKgJoQ12VBo6tu",
+    "17Zp6wI99N/6RPN5zO1Q6C",
+    "18A8wXXgxPuLiNxt2SYqu1",
+    "19BwM2vGhD2LIUBVHeI6ho",
+    "1aJfpZn8ZBVq0YUB8Sxm9O",
+    "1bDNeqQuJObIlLGsSZ/wLl",
+    "1b4KypdqhJw6qdQnVt8eZX",
+    "1ctuT+tmtGxZE99v07X2Jp",
+    "1ds/eo0UFBqKmW4WDB6niE",
+    "1eSCJFcIlC/75pPkOxn1kc",
+    "20JPEy7RBMpJlox0zbjMEc",
+    "22Avj6ty9Of4P/2VwGsQEo",
+    "23L+S7ejVA7b1M/g3t7v2u",
+    "25zhZc3qRBipbnxZ/O8wgo",
+    "2cZONwZSxBk4123bwVZGK7",
+    "2ci8EGEuxDzoRwqsLJdaTH",
+    "2eQxsMDl5GkrfcHEQfPDCj",
+    "2ek2zZpD5A/LwYDIUemaSv",
+    "2fYNioPXdFYJViXcy2OVdi",
+    "30HEEAcwZIlZdyfJqth5GV",
+    "3045uY2nBLaIbCLYWqBvpW",
+    "33wcCZ48pHILSP7xy+Nk9K",
+    "330qDkQwZFHrr/PYd6CqoF",
+    "34hki8xzlE6YaemAiWuNXW",
+    "36dV30xRtGR5e+p42MLwix",
+    "37cQ97Y4hCA6Ouvxd3KtAA",
+    "39HQZs/QdBbIlVhfec0UkT",
+    "39yjPONS5Kirs7mg668NiP",
+    "3awHx0bodAio5DvcZyn7i6",
+    "3b5KNACm5MoJ0LeS1SB5ST",
+    "3c3/6R2LJL1ZpYQExwXay9",
+    "3fMBqekEtMr4gwHuc/MY/Q",
+    "3fmpwfk3VKIr/1lB3j0ZK2",
+    "42u6kUvrBEoLe6Lvs4TXy7",
+    "49DTFewkxPUrodrAWlSnnK",
+    "49S7Er2AlK0K3CDYJ2S6fB",
+    "49+oohpLNKYb3hg7zzYUQQ",
+    "4eccTPClhBA48NXeLnUaxS",
+    "4fGNMeaHlNJp843HTwuxmc",
+    "50kfJX34xC45FsByiyFMFC",
+    "52ergkBspIcInpBsSBB8oz",
+    "53zDQz2KJGQ7JK5SqodLfR",
+    "535N/13chPjZwqNGWMTiWQ",
+    "58j9N3EoZAqrlV2tGa+kSv",
+    "59rX2CpGFIWZVISx4sSnFL",
+    "5ansxIJvJIZqeEncRnr62n",
+    "5eXF089rVLx4GZFhVGvU7k",
+    "5ec7ez60dKuLpAUFPRXXll",
+    "5feGSz1xZKp4eVi/9ppcJ3",
+    "39Zjd+4n5HzLyIDrg38oVO",
+    "3bi/7H1rJGQYru/uhOKh7N",
+    "3cM2TpswRCHofeRW+1xKwz",
+    "3ea5HbK7pDsJ4Dq3KctccE",
+    "3fHQFvV/ZGAJ0D1BIgWscz",
+    "3ffha1l/ZFNa0GgWinxi6u",
+    "3fzZzqb1VNQ5snYDfYNEzi",
+    "40DLBTEvJK6okaY3PK7Mtf",
+    "41bSldVZdGc4Ky+OlFedK0",
+    "41bm1Gc51OfZSBQW/7JzeA",
+    "42Y9rpMXlC9IsadsR0Eilo",
+    "43wdpEWzxKO67SEN0mfkT7",
+    "459xMEjn9OSoMTHKhnxBrk",
+    "47NHBh0dBO54RhUzwbC1Cy",
+    "49Z5QK+VZLFZUWkzZ9sy2g",
+    "4dXcR0gRFN6pjkVfF/CYEk",
+    "536S/T3kdAMbjqLbQ73O0Q",
+    "55i7FGyCVBXIQ9gLf3XWgt",
+    "5aNMbU391GxIM+GOaM7EDk",
+    "5eFT2kArJCYJXlkeRh4ILk",
+    "61REx/9NpJ4qEZvSjHE/Eg",
+    "61gsOhdLBNpZx7SyUZcZt3",
+    "61p+sBWP9EEqGyvwX8HeJ6",
+    "62uRJUwIJMkYFetj4Zycy2",
+    "635oSNuh5A64HjUa05jR8Z",
+    "6a3zek1BFLiZIh/XeiVwDr",
+    "6cmeSPh55EfbgLgNblHlA9",
+    "6e+khCGPFFGpgkomUxMi+A",
+    "71rg8c3w1NRKdQZHlItGtj",
+    "71xA1h2wNP/bkikM74eMxU",
+    "74SVYZYVtNapJXFqYdBh+x",
+    "745ThCVHZMHLEGwJMyaFwJ",
+    "7454AXRJBFl6PNz9R2z8OR",
+    "748y8EAU1CZZq2HiTCJUSN",
+    "75ai5/CItGrIOP06BUQVhD",
+    "75pBADMz9KU67e6BRfhllj",
+    "774v/I5jxH3aUC9i/ioPYl",
+    "78IVBStVlM7rM3Z57z8e7n",
+    "79eExhfPdMo751VLc6Wp3T",
+    "7aWW+3mkRLE63dA/iKIUYW",
+    "7a0NZG5ehCaI0tWjnRuI7L",
+    "7biRxtMuFLpL9EiVXvk/sn",
+    "7cUk6gmcZHa52EYNokQRqt",
+    "817cd6C6hPd57opwiz/Rpj",
+    "84hr4iHf9CtL/gnazqFT2r",
+    "8aL6gcR2tAb4q+yatRKP+y",
+    "8bhSq9TShPQYRwEuMo7sV+",
+    "8fBAiODPhA/La7JgQYT34F",
+    "91xR0NBrtKn5ciizJM9aJY",
+    "92hkL0kiVIx5mQgF6WQZhB",
+    "95qeHozIJCT4VLybLzVh1C",
+    "98RkmWvMJO24BUjt0coK98",
+    "7bbe6Cn61Ps6LgYSCvAgfw",
+    "7bxjtvSF9GRZNazzMk3OcM",
+    "7cEFgOxyFD1LXRP1xEPejQ",
+    "7dP0j62mNDIrKLRiIxYmXG",
+    "819KMRi3RMVo3FBssMYJqT",
+    "81+T5jkeFBBqIsq4G4tKQy",
+    "82r7l5Ar5KLri40C8bgsp5",
+    "87D4dMC6FBF4rzP8nr5yDX",
+    "95VSo0ptRGiKddmyh4XHx6",
+    "95q5qeSvVCcrbvYmp+NgpT",
+    "bdL/wChWNBrZwoHBbnwHWh",
+    "c3s6qj6ORJFrNihw3hb9ET",
+    "c4u6SAkedBi5y+np0NzjNH",
+    "c6kL9o3CpKgp8qgNKCDvbz",
+    "c7ufz8x8NBzouAxmg7RxKt",
+    "caIpFLcjBOHZO7lasqlQXi",
+    "cbLmEtQI1B9aCqbaHHKZhR",
+    "cc4y0Wz2NFuIuLABVrCItW",
+    "d2YFHJOJRHaoCHZYYA+btY",
+    "d2+QXCffND06G2KKUw9XCE",
+    "d3IJc/no5Jz6f+a0v1nXp+",
+    "d3PbxGw9dFkrAGHSDlboKR",
+    "d8GRuO+2VKaLkjntz7LMs1",
+    "d9L/0J4RNPA4U6Ifl/y5Zh",
+    "da2jp4SLRCzaQHxMWphqdY",
+    "dcf6Jg0fdBEb3pQAIpbZ/3",
+    "deE8FHns9K+JV151Xxec1k",
+    "detR1vw1tPD4kv4iUjBanR",
+    "df8CEEK7hMn6Q/kbfnOAzJ",
+    "e1nsGuNb9CD5jmexFZ2nyJ",
+    "7dYjb9LnBHGZVEOeOPvLGd",
+    "7eUfLzBGVFF7VPO2aE8fmM",
+    "7fLNuXQ+RJ66rJuspsxRwc",
+    "7fVdkI8stCGoK2zMjdp4ST",
+    "7ffKvx+6xDErmbHK9f/bKC",
+    "80ELlZOpdNqo2w+IM11LSB",
+    "82OmFW+CtFTYmShM1Za019",
+    "82PS08DxpPAqqZILzNB4Wz",
+    "83rDhjDeRHma1CrA0lyvvh",
+    "83z1ACeBxMZIsR2wd9IwrF",
+    "87bJ54tetJRqptJ2s5O3A5",
+    "87inG/oPhGNJjeKXseONn3",
+    "89IGaik4xOvJbx10h2G1i/",
+    "8ajpzU/WhNR6C0G9jjnqHR",
+    "90QVlV4LZBYbtJFXOTK9dX",
+    "90rCYgCqBDxIYwQjiZx1RO",
+    "93h9xAzWJGs4H/e18gIK6s",
+    "94SfmEyIVDALYI4TFPdLuw",
+    "96uslD6vRP9KGSiZAu4HlL",
+    "9dHCUrLThAyIV2bXNxgct7",
+    "9djO5jHKJPPIRQ4w3yjAGJ",
+    "9fkt96R0pAmrRGTkHcOP9i",
+    "a1UXOoMx1MS5OsRH0tQKo9",
+    "a18GB02lVKZaZ7xrf8RbLb",
+    "a2mnY2XUpJHLKVI+RLwDNs",
+    "a8frHhgCZNZb791RcC4Qra",
+    "aaFyWU7aRCpbI7qq5ZwBpT",
+    "acDavzwtNG076cYfIqlckw",
+    "adRGsuN1VA16cL09r8PkyT",
+    "afMMKdj6lHXYuITYxiRKJE",
+    "aff0Guzt5BQbmsoFDUXMBP",
+    "b0cGAoTqdJq7c3iiim2B2t",
+    "b3SEGIq1dNxZ6sojY3aB80",
+    "b3Ub6aprhFTJ4qP6VgX2nW",
+    "b5Lw7rxYFJBYrV0cypRxym",
+    "b6pcSoBmhH9qeO/oCc+1eE",
+    "b7sDyHeMpJVo0Yr/cxWSMh",
+    "baypV2Sq5AyIUP0fPeJBQ/",
+    "97ql94EopCypH+Mz4QL6zU",
+    "985hh26/BGUrkx+G8Ya7yN",
+    "99CLm4GstPppUIrZWeWa/H",
+    "99Olu6sj1GbZBYV6eVUsEo",
+    "99ryxgfDtI047BGDcW6vpc",
+    "9cRWqc1BdH/rqUJISNG9xG",
+    "9d+CsgdzpPqIi9n5+42Q3m",
+    "9fqbgmxaxKwKxiOl7UzSKf",
+    "a31my0rS1CB4Rw6nGIb0ry",
+    "a5Ite2mxhFeq31Fi2ZHk4p",
+    "a7QxeJge9ClYqRZw/HUDEo",
+    "a7mDoZZKRCkaGl3NhADg1e",
+    "aamUIofQdCHY4Vwjbk16dZ",
+    "aa0OiOphpDdZnSx4ieDRGw",
+    "adorWebVlFgKksskxxfT1e",
+    "aeCnHLI2xN2a8aDsaC/IDa",
+    "b04R+42VBFfooilII3bsJ9",
+    "b5pYiBiXdLeKAsxU3/ArHQ",
+    "b7thpBpxNCwYo1NvWDt3/P",
+    "b9MQ4aMZhEErXayPkQjHb/",
+    "baJvp1UEROxZsc7ym4VG69",
+    "bab4gllspNSJ5/GsgxlWb6",
+    "baqGhPrd1PLK5cqrjPQkAK",
+    "bbHQOuOT9KP4Znkyzkq8mF",
+    "bfkwQ0nE5NFrLzTA4iuirG",
+    "c6rohr8V9Dyp1XqfVqgOko",
+    "c79QxaletKpLuLl1miDopr",
+    "cbExml4n9BeY/YQgbDRypZ",
+    "cbxa7n1K1HQL18toVHO0qd",
+    "ccG2b+OSJIIKoUqJo4Lv+I",
+    "cdkHRPUUVOxoxFOMnOBiQp",
+    "ceDXR6D4tGz6kS2UJYdghZ",
+    "cfDlsBFo9LfoPhRt69V40E",
+    "cfKBpDaHpCHZRePhSWm1Xc",
+    "cfxACnyU1EtqOU0tW/ut6i",
+    "cfz+avVQVJYbfHg0qjsRwc",
+    "d3h5kBvsRJt5/x8+CA0LkL",
+    "d4E31czR1F5JW11eRrLltt",
+    "d4kmt25Y5OJ65MmitzlgDZ",
+    "d6ZCoNWgxCcL1p3PBT1J/u",
+    "d6yy3wpDtLjJtFxE5+ZTxE",
+    "d8giwEADJA2qmZmJKXiINi",
+    "e3vmkfKw9P3bh8DMf9QZPG",
+    "e5y7ECQJFNu7rJ+/oUf5nE",
+    "e7hi9+1zVJbqIAc1mBmKAu",
+    "ea+G5QQ+hBypn0X+cW+tEr",
+    "ebIBo5gNJPe7Zdp0ip8eXi",
+    "ebb41MFktG7IwTp4b7Koop",
+    "ecDiQHXAVBdZhxMcDQdDCP",
+    "ecKHbKfMdJx5aanXIyVhVO",
+    "ed2ukT6UZGjIc1GQmC9w+f",
+    "f2KrgilgVPPLN6QsMBTdEw",
+    "f7QfHzO31HG4txTtrwWf6s",
+    "f7U7jcSRFA84MFl8BRI6CG",
+    "f9+jI/GQVLQK4h2Oht7u4f",
+    "fawLOB9q5EbbZHi1ZFguGQ",
+    "fbxllAEB9Mh7m2Qv52hDsS",
+    "fc/GWW/DJJPaDzgAa/Cogc",
+    "fd0gk9iedJBajTTalExgJ4",
+    "61zNCTqi5MVoMlKZFMDCSQ",
+    "62HcrPohBFEKpkmO8iWcmd",
+    "689AZ2s/pC6aSjEgtu9S4J",
+    "6aykeYCgRMbYjw8urvugSl",
+    "6bS2c83UNIlIKDgSQXR2nc",
+    "6b01vsfG1O1ZvXFowMJ4CB",
+    "6d4ZKprw9J2oIgrwSJwZf+",
+    "6eFpC1wgxAI53KyWazcpWh",
+    "6enUCx0uFGAqO/cVPNF26W",
+    "71D0p1Eo5JOrAAqw3ziNHv",
+    "722KdxrR1MyLzg+bD/83tK",
+    "736psQzgJAerriZ01DHeTs",
+    "737KLx1ThM3qcNcFhj9TiU",
+    "74S2DOFTFA1owZF479tWsF",
+    "74a3g0hK1P07RxT6b17CGD",
+    "75cDOg+NtHE7bo0aI8fLoe",
+    "79ONluN/5F+qf5pxXyMy2s",
+    "79hpP4MBpBr71syZ+r7aWW",
+    "7aBfRrsHpCMIWWfSNysraZ",
+    "7anvWbk+pATLnh4QjGG1Cg",
+    "dapSZor6pAsqUaRinqegMv",
+    "dbOz4x+o1CubPLvHXtlSvK",
+    "de1yOLGbNKE6XA2/0rOzl5",
+    "e2bu/xqjJM1aTqE/z9eyz2",
+    "e53+XCCCFHYp74YesJ5Sv0",
+    "e6awhQMMhKSpfDtcNqDJKS",
+    "e8kGFiU0pNGqZOuvGMZKIr",
+    "ebYJXTp5NL37rePySB4tTJ",
+    "eb4AfoDOpA+5cy6FXku1ue",
+    "eb8nvFcptM+owtJ0u/8vGd",
+    "eb/Ov7MLNKTbzQLNnFnb7f",
+    "eePDt89rhHcK8nLRrc4JmR",
+    "eeXVI3VStLAo2DqFddLL8G",
+    "f024XHQH9CyoM9Pz7PtMOM",
+    "f1HrCy6zlFwKP6+x8RIbth",
+    "f1ZOdbqlRL66bZbnH5Iuvj",
+    "f2yCyrcENCx670wCyyvfsS",
+    "f3/ARuqmxAaZawz3l8VzTA",
+    "f9NwcgR6xAZadPBIIWiQ1C",
+    "fbETBr2iFLvoEqh3Ji0vxn",
+    "fcHgxEd9tF8KATUwfQONye",
+    "fcuFbfVedDY6GgmeQDO4rq",
+    "fewK57U0tAg5wfj97LCDZ/",
+    "ffTcoD++5M0JEXehRSgVtC",
+    "a2MjXRFdtLlYQ5ouAFv/+R",
+    "ffbO21t9lNq6Wm2uJCLcX7"
+  ],
+  "scenes": {},
+  "redirect": [
+    29,
+    0
+  ],
+  "deps": [
+    "internal"
+  ],
+  "packs": {
+    "010fe876c": [
+      27,
+      34,
+      65,
+      232,
+      247,
+      312
+    ],
+    "026aa6c8c": [
+      20,
+      31,
+      26,
+      69,
+      116,
+      204,
+      250,
+      259,
+      306,
+      309,
+      316,
+      319,
+      328
+    ],
+    "03248a5f1": [
+      125,
+      289,
+      308
+    ],
+    "083a725cf": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      103,
+      104,
+      105,
+      106,
+      128,
+      129,
+      130,
+      131,
+      132,
+      133,
+      134,
+      135,
+      136,
+      137,
+      138,
+      139,
+      140,
+      141,
+      142,
+      143,
+      144,
+      145,
+      146,
+      147,
+      148,
+      149,
+      150,
+      163,
+      164,
+      165,
+      151,
+      166,
+      152,
+      153,
+      154,
+      155,
+      156,
+      167,
+      157,
+      168,
+      158,
+      208,
+      209,
+      210,
+      211,
+      212,
+      213,
+      214,
+      215,
+      216,
+      217,
+      218,
+      219,
+      220,
+      221,
+      222,
+      223,
+      224,
+      225,
+      226,
+      169,
+      170,
+      171,
+      172,
+      173,
+      174,
+      175,
+      176,
+      177,
+      178,
+      179,
+      180,
+      181,
+      182,
+      183,
+      184,
+      185,
+      186,
+      188,
+      269,
+      270,
+      271,
+      272,
+      273,
+      274,
+      275,
+      276,
+      277,
+      278,
+      279,
+      280,
+      281,
+      282,
+      283,
+      285
+    ],
+    "0965441e9": [
+      237,
+      311
+    ],
+    "0a4e41b11": [
+      118,
+      292
+    ],
+    "0cb57dbca": [
+      288,
+      300,
+      201,
+      327
+    ],
+    "0e2567f1c": [
+      74,
+      191,
+      330,
+      262,
+      264
+    ],
+    "0f7208ccc": [
+      60,
+      82,
+      238
+    ]
+  },
+  "name": "resources",
+  "importBase": "import",
+  "nativeBase": "native",
+  "debug": false,
+  "isZip": false,
+  "encrypted": false,
+  "versions": {
+    "import": [
+      19,
+      "1c463",
+      "010fe876c",
+      "69f40",
+      "026aa6c8c",
+      "6f35b",
+      21,
+      "e29c8",
+      "03248a5f1",
+      "2d764",
+      22,
+      "6d188",
+      23,
+      "bd3f0",
+      "083a725cf",
+      "955fb",
+      24,
+      "2744e",
+      25,
+      "a0179",
+      "0965441e9",
+      "d24e6",
+      "0a4e41b11",
+      "c3468",
+      32,
+      "03268",
+      "0cb57dbca",
+      "7049c",
+      "0e2567f1c",
+      "edc0c",
+      "0f7208ccc",
+      "20fe8",
+      28,
+      "14125",
+      35,
+      "c21e7",
+      59,
+      "dde82",
+      61,
+      "f6ec5",
+      62,
+      "aab10",
+      63,
+      "81071",
+      64,
+      "90234",
+      66,
+      "6d334",
+      67,
+      "fdb19",
+      68,
+      "2e4f3",
+      43,
+      "9e4c2",
+      70,
+      "dd9e2",
+      71,
+      "7b8e6",
+      72,
+      "345a3",
+      73,
+      "b619e",
+      75,
+      "a37fe",
+      76,
+      "97a40",
+      77,
+      "8081d",
+      78,
+      "bd396",
+      79,
+      "de1b9",
+      80,
+      "585a1",
+      81,
+      "c71e1",
+      83,
+      "263e6",
+      107,
+      "e2b5f",
+      108,
+      "0c80b",
+      109,
+      "10e81",
+      110,
+      "96328",
+      111,
+      "cfd92",
+      112,
+      "28757",
+      113,
+      "89108",
+      114,
+      "09542",
+      115,
+      "ee6d4",
+      117,
+      "86bf9",
+      119,
+      "1e81f",
+      120,
+      "50a14",
+      121,
+      "5a86a",
+      122,
+      "03d05",
+      123,
+      "e01db",
+      124,
+      "015b9",
+      101,
+      "b605e",
+      102,
+      "70316",
+      126,
+      "832ad",
+      286,
+      "5d6a8",
+      287,
+      "bfc36",
+      290,
+      "dbb75",
+      291,
+      "390ba",
+      293,
+      "98f1f",
+      294,
+      "2d17d",
+      295,
+      "bd039",
+      296,
+      "5d64a",
+      297,
+      "2af42",
+      298,
+      "3bc7a",
+      299,
+      "5ce52",
+      301,
+      "b5067",
+      302,
+      "82f74",
+      303,
+      "bcaad",
+      304,
+      "e1991",
+      305,
+      "5a2e6",
+      159,
+      "7993e",
+      160,
+      "1b769",
+      161,
+      "a3958",
+      189,
+      "9aa92",
+      190,
+      "b45c0",
+      192,
+      "1b17c",
+      193,
+      "06fc3",
+      194,
+      "e1aa7",
+      195,
+      "52198",
+      196,
+      "c3f6c",
+      197,
+      "1573e",
+      198,
+      "f6cf8",
+      199,
+      "6ba14",
+      200,
+      "30359",
+      202,
+      "011cb",
+      203,
+      "49bff",
+      205,
+      "c91af",
+      206,
+      "1310f",
+      227,
+      "4932d",
+      228,
+      "9df3c",
+      229,
+      "87579",
+      230,
+      "aae6d",
+      231,
+      "a1b76",
+      233,
+      "07404",
+      234,
+      "6702b",
+      235,
+      "e62da",
+      236,
+      "8b3fb",
+      239,
+      "7dd8e",
+      240,
+      "d82d3",
+      241,
+      "31764",
+      242,
+      "045bd",
+      243,
+      "4851b",
+      244,
+      "a30a2",
+      245,
+      "2015b",
+      246,
+      "69d1e",
+      248,
+      "08f6c",
+      249,
+      "d0375",
+      251,
+      "b09fa",
+      252,
+      "23427",
+      253,
+      "bd753",
+      254,
+      "a9740",
+      255,
+      "b9312",
+      256,
+      "25398",
+      257,
+      "41112",
+      258,
+      "e8fe0",
+      260,
+      "6f3ca",
+      261,
+      "81352",
+      263,
+      "e60aa",
+      265,
+      "6dd8b",
+      266,
+      "6d30a",
+      267,
+      "8fed2",
+      307,
+      "4925c",
+      187,
+      "ffba7",
+      310,
+      "9270e",
+      313,
+      "b6c38",
+      314,
+      "dfc5e",
+      315,
+      "0d750",
+      317,
+      "cfa40",
+      318,
+      "3a56e",
+      320,
+      "8786b",
+      321,
+      "96464",
+      322,
+      "a18e9",
+      323,
+      "33eb7",
+      324,
+      "0e985",
+      325,
+      "56b39",
+      326,
+      "24002",
+      284,
+      "5c1b1",
+      329,
+      "789a6"
+    ],
+    "native": [
+      0,
+      "58b79",
+      1,
+      "32d57",
+      2,
+      "60eab",
+      3,
+      "a88a1",
+      4,
+      "f17cf",
+      5,
+      "de2ad",
+      6,
+      "ae2b2",
+      7,
+      "fec5d",
+      8,
+      "a3085",
+      9,
+      "3a73b",
+      10,
+      "d56c9",
+      11,
+      "3691b",
+      12,
+      "f6546",
+      13,
+      "e82f9",
+      14,
+      "45e57",
+      15,
+      "ee5ce",
+      16,
+      "48400",
+      17,
+      "367a0",
+      18,
+      "48f7d",
+      37,
+      "67304",
+      38,
+      "2b726",
+      39,
+      "4de24",
+      40,
+      "31298",
+      41,
+      "7825b",
+      42,
+      "84574",
+      43,
+      "7d3f8",
+      44,
+      "869c5",
+      45,
+      "c3e4f",
+      46,
+      "942f0",
+      47,
+      "1d119",
+      48,
+      "cefcf",
+      49,
+      "6b3b2",
+      50,
+      "fe26e",
+      51,
+      "bc2df",
+      52,
+      "231e5",
+      53,
+      "2ce7f",
+      54,
+      "0e4c6",
+      55,
+      "b8690",
+      56,
+      "efb41",
+      57,
+      "333a1",
+      58,
+      "e06c7",
+      85,
+      "310f7",
+      86,
+      "89a7f",
+      87,
+      "579a8",
+      88,
+      "a2de3",
+      89,
+      "fd9f6",
+      90,
+      "690f4",
+      91,
+      "4e2fb",
+      92,
+      "c4cd1",
+      93,
+      "20a7e",
+      94,
+      "53628",
+      95,
+      "4b818",
+      96,
+      "45db1",
+      97,
+      "8ee36",
+      98,
+      "449db",
+      99,
+      "6e4e1",
+      100,
+      "a1c82",
+      101,
+      "109f0",
+      102,
+      "d4a03",
+      103,
+      "f45a7",
+      104,
+      "f62a0",
+      105,
+      "d429d",
+      106,
+      "52d88",
+      128,
+      "a3c63",
+      129,
+      "89bb9",
+      130,
+      "83520",
+      131,
+      "bb5fc",
+      132,
+      "e2a64",
+      133,
+      "d7d01",
+      134,
+      "09ea7",
+      135,
+      "78812",
+      136,
+      "cecef",
+      137,
+      "92655",
+      138,
+      "7601d",
+      139,
+      "7f4a0",
+      140,
+      "c9ba2",
+      141,
+      "7f4cd",
+      142,
+      "fae1f",
+      143,
+      "fa538",
+      144,
+      "8ed08",
+      145,
+      "5c2ae",
+      146,
+      "979b9",
+      147,
+      "909eb",
+      148,
+      "9815b",
+      149,
+      "64b86",
+      150,
+      "810ae",
+      163,
+      "67310",
+      164,
+      "5af9a",
+      165,
+      "fd571",
+      151,
+      "26d16",
+      166,
+      "bbf58",
+      152,
+      "0ed34",
+      153,
+      "42424",
+      154,
+      "a2f36",
+      155,
+      "dc92a",
+      156,
+      "de4c5",
+      167,
+      "5f5f0",
+      157,
+      "e6731",
+      168,
+      "7cf32",
+      158,
+      "c55fc",
+      208,
+      "34f4d",
+      209,
+      "2c1cd",
+      210,
+      "0e47a",
+      211,
+      "9bb7d",
+      212,
+      "14399",
+      213,
+      "edd1f",
+      214,
+      "4e7bd",
+      215,
+      "a6bbe",
+      216,
+      "1d48e",
+      217,
+      "0573d",
+      218,
+      "1309d",
+      219,
+      "e1a2c",
+      220,
+      "a7a18",
+      221,
+      "1d665",
+      222,
+      "e6216",
+      223,
+      "caa27",
+      224,
+      "63da6",
+      225,
+      "30a5e",
+      226,
+      "5371f",
+      169,
+      "38e67",
+      170,
+      "8ac3d",
+      171,
+      "1e29a",
+      172,
+      "c964d",
+      173,
+      "4f5e7",
+      174,
+      "73b0e",
+      175,
+      "e006c",
+      176,
+      "274ba",
+      177,
+      "20954",
+      178,
+      "2feee",
+      179,
+      "cb5f4",
+      180,
+      "90083",
+      181,
+      "4a1dc",
+      182,
+      "c0f7f",
+      183,
+      "be215",
+      184,
+      "21726",
+      185,
+      "6b9ac",
+      186,
+      "7d8df",
+      187,
+      "f7ca8",
+      188,
+      "8a8cf",
+      269,
+      "8031b",
+      270,
+      "32055",
+      271,
+      "5d932",
+      272,
+      "a0cc3",
+      273,
+      "7719f",
+      274,
+      "9b2c7",
+      275,
+      "d70b1",
+      276,
+      "a8ab5",
+      277,
+      "6d226",
+      278,
+      "15ed0",
+      279,
+      "52178",
+      280,
+      "87b76",
+      281,
+      "4434c",
+      282,
+      "f6583",
+      283,
+      "36a6f",
+      284,
+      "05706",
+      285,
+      "32f82"
+    ]
+  }
+}
