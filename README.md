@@ -4,6 +4,7 @@
 
 🔗 **Connect through my technical blogs**:  
 - **CSDN Blog**: <https://xiaoshen.blog.csdn.net/>  
-- **掘金 Blog**: <https://juejin.cn/user/70007368988926/>  
+- **掘金 Blog**: <https://juejin.cn/user/70007368988926/>
+- Fun things to learn and play
 
 ![](./profile-3d-contrib/profile-green.svg)
