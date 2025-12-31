@@ -1,23 +1,21 @@
 import time
-from concurrent.futures import ThreadPoolExecutor
+
 from playwright.sync_api import sync_playwright
 
 
 def mock_browser(url):
-    try:
-        with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True)
-            page = browser.new_page()
-            page.goto(url, wait_until="domcontentloaded")
-            text = page.content()
-            if "awemeCount" in text:
-                print(f"抖音号作品数存在")
-            else:
-                print(f"抖音号作品数不存在")
-                print(text)
-            browser.close()
-    except Exception as e:
-        print(f"处理 {url[:30]}... 时出错: {e}")
+    # url = "https://www.douyin.com/user/MS4wLjABAAAAH_YSjSBpUOItBNIP5B3B235ER7GUYgJ1qnkpKPF2kKc?from_tab_name=main"
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=False)
+        page = browser.new_page()
+        page.goto(url, wait_until="domcontentloaded")  # 等待页面加载完成
+        text = page.content()  # 获取整个 HTML
+        print(text)
+        if "awemeCount" in text:
+            print("抖音号作品数存在")
+        else:
+            print("抖音号作品数不存在")
+        browser.close()
 
 
 def main():
@@ -72,20 +70,15 @@ def main():
         "https://www.douyin.com/user/MS4wLjABAAAAOorS-WPIa7GZnRLBiZczeHNreeGI_cGxTHuSbfzKVXM?from_tab_name=main",
         "https://www.douyin.com/user/MS4wLjABAAAAWI6yRSUNtZQkFIPdKZbeY4UV3Bhisktka1RiWf7XgJk?from_tab_name=main",
     ]
-
     print("列表长度：", len(url_list))
+    # 开始时间
     start_time = time.time()
-
-    # 使用线程池，max_workers控制并发数
-    with ThreadPoolExecutor(max_workers=5) as executor:
-        # 提交所有任务
-        futures = [executor.submit(mock_browser, url) for url in url_list]
-        # 等待所有任务完成
-        for future in futures:
-            future.result()  # 这会等待任务完成，如有异常会抛出
-
+    for url in url_list:
+        mock_browser(url)
+    # 结束时间
     end_time = time.time()
-    print("总耗时：", end_time - start_time, "秒")
+    # 计算耗时
+    print("耗时：", end_time - start_time, "秒")
 
 
 if __name__ == '__main__':
