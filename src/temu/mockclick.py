@@ -1,23 +1,49 @@
 import time
 from concurrent.futures import ThreadPoolExecutor
+from fake_useragent import UserAgent
+import requests
 from playwright.sync_api import sync_playwright
 
+ua = UserAgent()
 
-def mock_browser(url):
+
+def mock_browser(url, ip):
     try:
+        proxies = {
+            "server": ip,
+            "username": "d2998408627",
+            "password": "zwgh3kro"
+        }
         with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True)
-            page = browser.new_page()
-            page.goto(url, wait_until="domcontentloaded")
+            browser = p.chromium.launch(headless=True, proxy=proxies)
+            page = browser.new_page(user_agent=ua.random, locale="zh-CN", timezone_id="Asia/Shanghai")
+            page.goto(url, wait_until="domcontentloaded", timeout=80_000)
             text = page.content()
             if "awemeCount" in text:
                 print(f"抖音号作品数存在")
             else:
-                print(f"抖音号作品数不存在")
-                print(text)
+                print(f"抖音号作品数不存在:{ip}")
             browser.close()
     except Exception as e:
         print(f"处理 {url[:30]}... 时出错: {e}")
+
+
+def get_ips(num):
+    print("获取代理IP中...")
+    api = "https://dps.kdlapi.com/api/getdps"
+
+    params = {
+        "secret_id": "or67jn7d4eam4s7zzqnk",
+        "signature": "1111",
+        "num": num,
+    }
+
+    response = requests.get(api, params=params)
+    response.raise_for_status()
+
+    ips = response.text.strip().split("\n")
+    print("获取到IP：", ips)
+    return ips
 
 
 def main():
@@ -72,17 +98,23 @@ def main():
         "https://www.douyin.com/user/MS4wLjABAAAAOorS-WPIa7GZnRLBiZczeHNreeGI_cGxTHuSbfzKVXM?from_tab_name=main",
         "https://www.douyin.com/user/MS4wLjABAAAAWI6yRSUNtZQkFIPdKZbeY4UV3Bhisktka1RiWf7XgJk?from_tab_name=main",
     ]
-
     print("列表长度：", len(url_list))
+
+    # 1️⃣ 获取与 URL 数量一致的 IP
+    ips = get_ips(len(url_list))
+
     start_time = time.time()
 
-    # 使用线程池，max_workers控制并发数
-    with ThreadPoolExecutor(max_workers=5) as executor:
-        # 提交所有任务
-        futures = [executor.submit(mock_browser, url) for url in url_list]
-        # 等待所有任务完成
+    with ThreadPoolExecutor(max_workers=10) as executor:
+        futures = []
+
+        # 2️⃣ 一对一分配
+        for url, ip in zip(url_list, ips):
+            futures.append(executor.submit(mock_browser, url, ip))
+
+        # 3️⃣ 等待完成
         for future in futures:
-            future.result()  # 这会等待任务完成，如有异常会抛出
+            future.result()
 
     end_time = time.time()
     print("总耗时：", end_time - start_time, "秒")
