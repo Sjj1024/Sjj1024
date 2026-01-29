@@ -182,6 +182,18 @@ def stock_zt_pool_em():
     print(stock_zt_pool_em_df)
 
 
+# 获取 品种列表
+def stock_gold_sge_symbols():
+    """
+    东方财富网-数据中心-贵金属-品种列表
+    https://akshare.akfamily.xyz/data/spot/spot.html
+    :return: 品种列表
+    :rtype: pandas.DataFrame
+    """
+    symbols = ak.spot_symbol_table_sge()
+    print(symbols)
+
+
 # 获取 上海黄金交易所 实时金价
 def stock_gold_spot():
     """
@@ -206,5 +218,23 @@ def stock_gold_hist():
     print(spot_hist_sge_df)
 
 
+# 伦敦金现价
+def stock_gold_london_spot():
+    """
+    东方财富网-数据中心-贵金属-伦敦金现价
+    https://akshare.akfamily.xyz/data/spot/spot.html
+    :return: 伦敦金现价
+    :rtype: pandas.DataFrame
+    """
+    import requests
+    url = "https://hq.91pme.com/getmarketinfo/getQuotationByCode2.do?code=llg"
+    payload = {}
+    headers = {
+        'Pragma': 'no-cache'
+    }
+    response = requests.request("GET", url, headers=headers, data=payload)
+    print(response.text)
+
+
 if __name__ == '__main__':
-    stock_gold_hist()
+    stock_gold_london_spot()
