@@ -182,5 +182,29 @@ def stock_zt_pool_em():
     print(stock_zt_pool_em_df)
 
 
+# 获取 上海黄金交易所 实时金价
+def stock_gold_spot():
+    """
+    东方财富网-数据中心-贵金属-实时金价
+    https://akshare.akfamily.xyz/data/spot/spot.html
+    :return: 实时金价
+    :rtype: pandas.DataFrame
+    """
+    spot_quotations_sge_df = ak.spot_quotations_sge(symbol="Au99.99")
+    print(spot_quotations_sge_df)
+
+
+# 获取 上海黄金交易所 历史行情金价
+def stock_gold_hist():
+    """
+    东方财富网-数据中心-贵金属-历史行情金价
+    https://akshare.akfamily.xyz/data/spot/spot.html
+    :return: 历史行情金价
+    :rtype: pandas.DataFrame
+    """
+    spot_hist_sge_df = ak.spot_hist_sge(symbol='Au99.99')
+    print(spot_hist_sge_df)
+
+
 if __name__ == '__main__':
-    stock_individual_info_em()
+    stock_gold_hist()
