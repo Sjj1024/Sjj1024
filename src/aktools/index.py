@@ -1,5 +1,5 @@
 import akshare as ak
-
+import requests
 
 # 上海证券交易所
 def stock_sse_summary():
@@ -226,7 +226,6 @@ def stock_gold_london_spot():
     :return: 伦敦金现价
     :rtype: pandas.DataFrame
     """
-    import requests
     url = "https://hq.91pme.com/getmarketinfo/getQuotationByCode2.do?code=llg"
     payload = {}
     headers = {
@@ -236,5 +235,22 @@ def stock_gold_london_spot():
     print(response.text)
 
 
+# 伦敦银价
+def stock_silver_london_spot():
+    """
+    东方财富网-数据中心-贵金属-伦敦银价
+    https://akshare.akfamily.xyz/data/spot/spot.html
+    :return: 伦敦银价
+    :rtype: pandas.DataFrame
+    """
+    url = "https://hq.91pme.com/getmarketinfo/getQuotationByCode2.do?code=lls"
+    payload = {}
+    headers = {
+        'Pragma': 'no-cache'
+    }
+    response = requests.request("GET", url, headers=headers, data=payload)
+    print(response.text)
+
+
 if __name__ == '__main__':
-    stock_gold_london_spot()
+    stock_silver_london_spot()
