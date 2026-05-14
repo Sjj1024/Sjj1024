@@ -275,5 +275,6 @@ def stock_silver_london_spot():
 
 
 if __name__ == '__main__':
-    stock_gold_london_spot()
-    stock_silver_london_spot()
+    # stock_gold_london_spot()
+    # stock_silver_london_spot()
+    stock_gold_spot()
